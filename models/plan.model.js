@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 
 
-const planSchema = new Schema({
+const eventSchema = new Schema({
     name: {
         type: String,
         required: 'name is required!'
@@ -44,3 +44,7 @@ const planSchema = new Schema({
         type: Number,
     },
 })
+
+const Event = mongoose.model('Event', eventSchema)
+
+module.exports = Event
