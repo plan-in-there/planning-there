@@ -1,8 +1,10 @@
+/* require('dotenv').config()
+ */
 const express = require('express')
 const app = express()
 const logger = require('morgan')
 const path = require('path')
-
+const bodyparser = require('body-parser')
 
 require('./config/db.config.js')
 require('./config/hbs.config')
@@ -11,7 +13,7 @@ require('./config/hbs.config')
 
 
 
-
+app.use(express.urlencoded({ extended: false }));
 
 
 

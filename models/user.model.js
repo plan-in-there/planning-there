@@ -1,16 +1,16 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-
+const bcrypt = require('bcryptjs')
 
 const EMAIL_PATTERN = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const PASSWORD_PATTERN = /^.{8,}$/i;
-
+const  SALT_ROUNDS = 10
 const userSchema = new Schema({
     name: {
         type: String,
         required: 'name is required!',
-        minLenght: 3
+        minLength: [3, 'name needs at least 3 chars']
     },
     email: {
         type: String,
@@ -31,11 +31,11 @@ const userSchema = new Schema({
     },
     age: {
         type: Number,
-        required: 'age is required!',
+        //required: 'age is required!',
     },
     genre: {
         type: String,
-        required: 'select an option!',
+        //required: 'select an option!',
     },
     interests: {
         type: [String],
@@ -54,7 +54,7 @@ const userSchema = new Schema({
     },
     city: {
         type: String,
-        required: 'city is required!'
+        //required: 'city is required!'
     },
     local: {
         type: Boolean,
@@ -64,6 +64,21 @@ const userSchema = new Schema({
         type: String,
     }
 })
+
+userSchema.pre('save', function (next) {
+    const user = this
+    if (user.isModified('password')) {
+        bcrypt.hash(user.password, SALT_ROUNDS)
+            .then(hash => {
+                user.password = hash
+                next()
+            })
+            .catch(error => next (error))
+    } else {
+        next()
+    }
+})
+
 
 const User = mongoose.model('User', userSchema)
 
