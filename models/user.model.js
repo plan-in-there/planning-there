@@ -25,6 +25,9 @@ const userSchema = new Schema({
     },
     avatar: {
         type: String,
+        default: function(){
+            return 
+        }
     },
     age: {
         type: Number,
