@@ -47,7 +47,11 @@ module.exports.doLogin = (req, res, next) => {
   function renderLoginWithErrors() {
     res.render('auth/login', {
       user: req.body,
-      errors: 'Invalid password or email'
+      errors: {
+        email: 'Invalid mail or password',
+        password: 'Invalid mail or password',
+        invalidSession: 'Invalid mail or password'
+    }
     })
   }
 
@@ -69,5 +73,11 @@ module.exports.doLogin = (req, res, next) => {
           })
       }
     })
-    .catch()
+    .catch(error => next(error))
+}
+
+module.exports.logout = (req, res, next) => {
+  req.session.destroy();
+  res.redirect('/login')
+
 }
