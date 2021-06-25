@@ -11,7 +11,9 @@ require('./config/hbs.config')
 
 
 
-
+const {sessionConfig, loadUser} = require('./config/session.config')
+app.use(sessionConfig)
+app.use(loadUser)
 
 app.use(express.urlencoded({ extended: false }));
 
