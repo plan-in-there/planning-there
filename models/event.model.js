@@ -9,7 +9,7 @@ const eventSchema = new Schema({
         required: 'name is required!'
     },
     date: {
-        type: Number,
+        type: Date,
         required: 'date is required!'
     },
     description: {
@@ -18,15 +18,14 @@ const eventSchema = new Schema({
     },
     city: {
         type: String,
-        required: 'city is required!'
+        /* required: 'city is required!' */
     },
-    genderRestrictions: {
+    genreRestrictions: {
         type: String
-    }
-    ,
+    },
     category: {
         type: [String],
-        required: 'category is required!'
+        /* required: 'category is required!' */
     },
     age: {
         type: Number,
@@ -39,10 +38,10 @@ const eventSchema = new Schema({
     },
     dressCode: {
         type: String,
+        enum: ['casual', ]
     },
-    createAt: {
-        type: Number,
-    },
+}, {
+    timestamps: true
 })
 
 const Event = mongoose.model('Event', eventSchema)

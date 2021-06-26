@@ -14,9 +14,7 @@ module.exports.doRegister = (req, res, next) => {
       errors: errors
     })
   }
-  User.findOne({
-      email: req.body.email
-    })
+  User.findOne({email: req.body.email})
     .then(user => {
       if (user) {
         renderWithErrors({
