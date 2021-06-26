@@ -3,7 +3,7 @@
 
 <form action="/user-profile/{{currentUser._id}}/edit" method="POST" enctype="multipart/form-data">
 
- <img src="{{currenUser.avatar}}">
+ <img src="{{currentUser.avatar}}" alt="{{currentUser.name}}" />
  <input type="file" name="avatar" />
 
  <div class="col-md-6">
@@ -32,23 +32,12 @@
     </select>
   </div>
  
+ {{#each categories as |category|}}
   <div class="form-check form-switch">
-  <input class="form-check-input" value="music" type="checkbox" id="flexSwitchCheckDefault"/>
-  <label class="form-check-label" for="flexSwitchCheckDefault">Music</label>
-</div>
-<div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"/>
-  <label class="form-check-label" value="night life" for="flexSwitchCheckChecked">Night Life</label>
-</div>
-<div class="form-check form-switch">
-  <input class="form-check-input" value="foodie" type="checkbox" id="flexSwitchCheckDisabled"/>
-  <label class="form-check-label" for="flexSwitchCheckDisabled">Foodie</label>
-</div>
-<div class="form-check form-switch">
-  <input class="form-check-input" value="museums" type="checkbox" id="flexSwitchCheckCheckedDisabled"/>
-  <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Museums</label>
-</div>
-
+    <input class="form-check-input" value={{category}} type="checkbox" id="flexSwitchCheckDefault" name="interests"/>
+    <label class="form-check-label" for="flexSwitchCheckDefault">{{category}} </label>
+  </div>
+ {{/each}}
   <div class="col-12">
     <button type="submit" class="btn btn-primary">Send</button>
   </div>

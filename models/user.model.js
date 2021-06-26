@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const categories = require('../data/categories.json')
 
 const bcrypt = require('bcryptjs')
 
@@ -39,7 +40,10 @@ const userSchema = new Schema({
         //required: 'select an option!',
     },
     interests: {
-        type: [String],
+        type: [{
+            type: String,
+            enum: categories
+        }],
         required: 'interests are required!',
         min: 3,
         max: 5

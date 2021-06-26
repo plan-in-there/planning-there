@@ -1,18 +1,20 @@
-const User = require('../models/user.model')
-const mongoose = require('mongoose')
+const User = require('../models/user.model');
+const mongoose = require('mongoose');
+const categories = require('../data/categories.json')
 
 module.exports.userProfile = (req, res, next) => {
     res.render('user/profile')
 }
 
 module.exports.userProfileEdit = (req, res, next) => {
-    
+
 
     User
     .findOne({_id: req.params.id})
     .then(user => {
         res.render('user/edit', {
-            user
+            user,
+            categories
         })
     })
     .catch(error => {
@@ -25,14 +27,19 @@ module.exports.userProfileEdit = (req, res, next) => {
 }
 
 module.exports.userProfileDoEdit = (req, res, next) => {
-    const userUpdated = req.body
-    console.log(userUpdated)
+  
 
-    User.findByIdAndUpdate(req.params.id, userUpdated)    
-    .then(user => {
-        console.log(req.body.name)       
+    User
+    .findByIdAndUpdate(req.params.id, {
+        name: req.body.name,
+        avatar: req.file.path,
+        age: req.body.age,
+        interests: req.body.interests,
+        city: req.body.city,
+    })   
+    .then(user => {        
         res.redirect(`/user-profile/${user._id}`)
-    }) 
+    })     
     .catch(error => next(error))   
 
 }

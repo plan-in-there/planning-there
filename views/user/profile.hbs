@@ -2,4 +2,6 @@
 <img src="{{currentUser.avatar}}" alt="{{currentUser.name}}" />
 <h2>I'm {{currentUser.name}}</h2>
 <h3>Interests</h3>
-
+{{#each currentUser.interests as |interest|}}
+<h2>{{interest}}</h2>
+{{/each}}
