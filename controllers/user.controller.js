@@ -6,6 +6,8 @@ module.exports.userProfile = (req, res, next) => {
 }
 
 module.exports.userProfileEdit = (req, res, next) => {
+    
+
     User
     .findOne({_id: req.params.id})
     .then(user => {
@@ -23,11 +25,12 @@ module.exports.userProfileEdit = (req, res, next) => {
 }
 
 module.exports.userProfileDoEdit = (req, res, next) => {
-    
+    const userUpdated = req.body
+    console.log(userUpdated)
 
-    User.findByIdAndUpdate(req.params.id, req.body)    
+    User.findByIdAndUpdate(req.params.id, userUpdated)    
     .then(user => {
-        console.log(req.body)       
+        console.log(req.body.name)       
         res.redirect(`/user-profile/${user._id}`)
     }) 
     .catch(error => next(error))   
