@@ -30,11 +30,12 @@ const userSchema = new Schema({
         }
     },
     age: {
-        type: Number,
+        type: Date,
         //required: 'age is required!',
     },
     genre: {
         type: String,
+        enum: ['Male', 'Female', 'Non binary', 'Non listed']
         //required: 'select an option!',
     },
     interests: {
