@@ -16,4 +16,7 @@ router.get('/user-profile/:id/edit', user.userProfileEdit)
 router.post('/user-profile/:id/edit', upload.single('avatar'), user.userProfileDoEdit)
 router.get('/user-profile/:id', user.userProfile)
 
+
+router.get('/create-event', plans.create)
+router.post('/create-event', plans.doCreate)
 module.exports = router

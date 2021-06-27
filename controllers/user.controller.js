@@ -27,19 +27,18 @@ module.exports.userProfileEdit = (req, res, next) => {
 }
 
 module.exports.userProfileDoEdit = (req, res, next) => {
-  
-
-    User
+    
+     User
     .findByIdAndUpdate(req.params.id, {
         name: req.body.name,
         avatar: req.file.path,
         age: req.body.age,
         interests: req.body.interests,
         city: req.body.city,
-    })   
+    }, { runValidators: true, new: true })   
     .then(user => {        
         res.redirect(`/user-profile/${user._id}`)
     })     
-    .catch(error => next(error))   
+    .catch(error => next(error))
 
 }

@@ -1,0 +1,88 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #f61816; 
+    background: linear-gradient(180deg, #f61816 0%, #f50c70 100%);
+  }
+
+input {
+    border: solid thin #fff;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 3px;
+    padding: 1%;
+    width: 80%;
+}
+
+.input-group-text{
+    background-color: transparent;
+    color: #fff;
+}
+
+input::placeholder {
+    color: #fff;
+}
+
+button {
+    background-color: #f50c70 ;
+    color: #fff;
+    border: #fff thin solid;
+    border-radius: 3px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 2% 0 0 0;
+    width: 100%
+}
+
+.black {
+    background-color: black;
+}
+.blue {
+    background-color: darkslateblue;
+}
+
+input:-internal-autofill-selected {
+    background-color: transparent !important
+}
+
+h1 {
+    color:#fff;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+li::after {
+    content: '❤️';
+}
+
+h5 {
+    color: #fff;
+    margin-bottom: 5%;
+}
+
+.container {
+    width: 100%;
+    align-items: center;
+    align-content: center;
+
+}
+
+header img {
+    width:100%;
+    max-width: 100px ;
+}
+
+.bg-light {
+    background-color: transparent !important;
+ 
+}
+
+.form-control {
+    background-color: transparent !important;
+    color: #fff
+}
+
+.form-contro input::placeholder {
+    color: #fff;
+}
