@@ -1,8 +1,101 @@
+
+
+@font-face {
+    font-family: 'quicksanddash';
+    src: url('../fonts/quicksand_dash-webfont.woff2') format('woff2'),
+         url('../fonts/quicksand_dash-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'quicksandbold';
+    src: url('../fonts/quicksand-bold-webfont.woff2') format('woff2'),
+         url('../fonts/quicksand-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'quicksandbold_italic';
+    src: url('../fonts/quicksand-bolditalic-webfont.woff2') format('woff2'),
+         url('../fonts/quicksand-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'quicksanditalic';
+    src: url('../fonts/quicksand-italic-webfont.woff2') format('woff2'),
+         url('../fonts/quicksand-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'quicksandlight';
+    src: url('../fonts/quicksand-light-webfont.woff2') format('woff2'),
+         url('../fonts/quicksand-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'quicksandlight_italic';
+    src: url('../fonts/quicksand-lightitalic-webfont.woff2') format('woff2'),
+         url('../fonts/quicksand-lightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'quicksandregular';
+    src: url('../fonts/quicksand-regular-webfont.woff2') format('woff2'),
+         url('../fonts/quicksand-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'reem_kufiregular';
+    src: url('../fonts/reemkufi-regular-webfont.woff2') format('woff2'),
+         url('../fonts/reemkufi-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     background-color: #f61816; 
     background: linear-gradient(180deg, #f61816 0%, #f50c70 100%);
+    text-align: center;
   }
 
 input {
@@ -50,21 +143,30 @@ h1 {
     color:#fff;
     margin-bottom: 0;
     padding-bottom: 0;
+    text-align: center;
+    font-size: 5rem;
+    font-family: 'reem_kufiregular';
+    
 }
 
-li::after {
-    content: '❤️';
-}
-
-h5 {
+h2 {
     color: #fff;
-    margin-bottom: 5%;
+    font-size: 2rem;
+    font-family: 'reem_kufiregular';
+    
 }
+
+h3 {
+    font-family: 'quicksandlight'
+}
+
 
 .container {
     width: 100%;
     align-items: center;
     align-content: center;
+    margin: auto;
+    background-color: blue;
 
 }
 
@@ -75,6 +177,7 @@ header img {
 
 .bg-light {
     background-color: transparent !important;
+    border-bottom: thin solid #fff
  
 }
 
@@ -85,4 +188,46 @@ header img {
 
 .form-contro input::placeholder {
     color: #fff;
+}
+
+main {
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+nav {
+    font-family: 'quicksandbold'
+}
+
+.home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+
+}
+
+.home img {
+    width:100%;
+    max-width: 500px;
+}
+
+.home a {
+    background-color: #17f781;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 1.3rem;    
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(to left, #00C853, #B2FF59);
+    border-radius: 5px;
 }
