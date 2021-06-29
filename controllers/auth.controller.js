@@ -25,7 +25,7 @@ module.exports.doRegister = (req, res, next) => {
       } else {
         user = {name,email,password} = req.body
         return User.create(user)
-          .then(user => res.send('registro hecho!'))
+          .then(user => res.redirect('/user-profile/:id/edit'))
       }
     })
     .catch(error => {
@@ -68,7 +68,7 @@ module.exports.doLogin = (req, res, next) => {
               renderLoginWithErrors()
             } else {
               req.session.userId = user.id
-              res.send('/')
+              res.redirect('/user-profile/:id')
             }
           })
       }
