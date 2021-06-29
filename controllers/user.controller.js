@@ -8,7 +8,6 @@ module.exports.userProfile = (req, res, next) => {
 
 module.exports.userProfileEdit = (req, res, next) => {
 
-
     User
     .findOne({_id: req.params.id})
     .then(user => {

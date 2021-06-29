@@ -125,7 +125,8 @@ button {
     text-transform: uppercase;
     font-weight: bold;
     margin: 2% 0 0 0;
-    width: 100%
+    width: 100%;
+    transition-duration: 0.4s;
 }
 
 .black {
@@ -166,7 +167,6 @@ h3 {
     align-items: center;
     align-content: center;
     margin: auto;
-    background-color: blue;
 
 }
 
@@ -230,4 +230,85 @@ nav {
     border-width: 5px;
     border-image-source: linear-gradient(to left, #00C853, #B2FF59);
     border-radius: 5px;
+    transition: 0.4s;
+}
+
+.home a:hover {
+    background-color: #F50C70;
+    border-image-source: linear-gradient(to left, #f61686, #d38baa);
+}
+
+#avatar {
+
+    border-radius: 100px !important;
+    max-width: 20px !important
+
+}
+
+.social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.social button {
+    width: 35px;
+    border-radius: 50%;
+    margin: 1%;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: #17F781;
+    color: white;
+}
+
+.user-nav {
+    background-color: #17F781 ;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 20%;
+}
+
+.user-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.user-nav li {
+    border-bottom: #fff solid thin;
+    
+}
+
+.user-nav a {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'reem_kufiregular';
+    font-size: 1rem;
+    transition-duration: 0.4s;
+    display: block;
+    padding:10px;
+}
+
+.user-nav a:hover, #profile a:hover {
+    background-color: #F50C70;
+}
+
+#profile {
+    display: flex;
+    justify-content: space-around;
+}
+
+#profile a {
+    background-color: #17F781 ;
+    margin: 10px 0;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 3px;
+    transition-duration: 0.4s;
+    border: solid #fff thin
+
 }

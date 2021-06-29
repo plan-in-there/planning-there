@@ -2,10 +2,11 @@
 <h2>Please, edit your profile</h2>
 
 <form action="/user-profile/{{currentUser._id}}/edit" method="POST" enctype="multipart/form-data">
-
- <img src="{{currentUser.avatar}}" alt="{{currentUser.name}}" />
- <input type="file" name="avatar" />
-
+  <div>
+    <img src="{{currentUser.avatar}}" alt="{{currentUser.name}}" />
+    <input type="file" name="avatar" value="{{currentUser.avatar}}" />
+  </div>
+  <div>
  <div class="col-md-6">
     <label for="inputEmail4" class="form-label"> Name</label>
     <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Name" value="{{currentUser.name}}">
@@ -41,7 +42,7 @@
   <div class="col-12">
     <button type="submit" class="btn btn-primary">Send</button>
   </div>
-
+  </div>
 
 </form>
 
