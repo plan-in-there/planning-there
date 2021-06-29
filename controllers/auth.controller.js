@@ -23,7 +23,7 @@ module.exports.doRegister = (req, res, next) => {
       } else {
         user = {name,email,password} = req.body
         return User.create(user)
-          .then(user => res.send('registro hecho!'))
+          .then(user => res.send('registro hecho!!!!'))
       }
     })
     .catch(error => {
