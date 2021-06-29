@@ -1,20 +1,18 @@
 const User = require('../models/user.model')
 const mongoose = require('mongoose')
-
-
 module.exports.register = (req, res, next) => {
   res.render('auth/register')
 }
-
 module.exports.doRegister = (req, res, next) => {
-
   function renderWithErrors(errors) {
     res.render('auth/register', {
       user: req.body,
       errors: errors
     })
   }
-  User.findOne({email: req.body.email})
+  User.findOne({
+      email: req.body.email
+    })
     .then(user => {
       if (user) {
         renderWithErrors({
@@ -23,7 +21,7 @@ module.exports.doRegister = (req, res, next) => {
       } else {
         user = {name,email,password} = req.body
         return User.create(user)
-          .then(user => res.send('registro hecho!!!!'))
+          .then(user => res.redirect('/user-profile/:id/edit'))
       }
     })
     .catch(error => {
@@ -34,14 +32,10 @@ module.exports.doRegister = (req, res, next) => {
       }
     })
 }
-
 module.exports.login = (req, res, next) => {
   res.render('auth/login')
-
 }
-
 module.exports.doLogin = (req, res, next) => {
-
   function renderLoginWithErrors() {
     res.render('auth/login', {
       user: req.body,
@@ -52,7 +46,6 @@ module.exports.doLogin = (req, res, next) => {
     }
     })
   }
-
   User.findOne({
       email: req.body.email
     })
@@ -66,16 +59,14 @@ module.exports.doLogin = (req, res, next) => {
               renderLoginWithErrors()
             } else {
               req.session.userId = user.id
-              res.send('/')
+              res.redirect('/user-profile/:id')
             }
           })
       }
     })
     .catch(error => next(error))
 }
-
 module.exports.logout = (req, res, next) => {
   req.session.destroy();
   res.redirect('/login')
-
 }

@@ -1,28 +1,32 @@
-<div class="container">
-<div class="row justify-content-center">
-    <div class="col cl-sm-3">
+<div class="row justify-content-center text-center">
+  <div class="col col-sm-6">
+  <img src="../../img/logo-blanco.png" alt="plan-in-there. Connecting people"/>
+    <div class="col cl-sm-3 justify-content-center">
         <form action="/register" method="post">
             <div class="input-group mb-1">
-                <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
-                <input type="text" name="name" class="form-control  {{#if errors.name}} is-invalid" {{/if}}  aria-label="Username" value="{{user.name}}" placeholder="Username">
+                <span class="input-group-text"><i class="fa fa-user-circle fa-fw"></i></span>
+                <input type="text" name="name" class="{{#if errors.name}} is-invalid{{/if}}"  placeholder="Username"  value="{{user.name}}"  aria-label="Username" >
                 {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}
-
             </div>
-
             <div class="input-group mb-1">
                 <span class="input-group-text"><i class="fa fa-envelope fa-fw"></i></span>
-                <input type="email" name="email" class="form-control {{#if errors.email}} is-invalid" {{/if}}  aria-label="Email" value="{{user.email}}" placeholder="Email">
+                <input type="email" name="email" class="{{#if errors.email}} is-invalid {{/if}}" placeholder="Email" aria-label="Email" value="{{user.email}}">
                 {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
             </div>
-
             <div class="input-group mb-1">
-                <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
-                <input type="password" name="password" class="form-control {{#if errors.password}} is-invalid" {{/if}} placeholder="Password" aria-label="Username" value="{{user.password}}" placeholder="Password">
+                <span class="input-group-text"><i class="fa fa-unlock-alt fa-fw"></i></span>
+                <input type="password" name="password" class="{{#if errors.password}} is-invalid {{/if}}" placeholder="Password" aria-label="Username" value="{{user.password}}">
                 {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
             </div>
-
-            <button type="submit">Register</button>
-
+            <div>
+            </div>
+            <button type="submit" title="Register with email">Register with email <i class="far fa-envelope"></i></button>
+            <hr>
+            You can also register with
+            <div class="social">
+                <button type="submit" class="black" title="Log in with Gmail"><i class="fa fa-google"></i> </button>
+                <button type="submit" class="blue" title="Log in with Facebook"><i class="fa fa-facebook-f"></i> </button>
+            </div>
         </form>
     </div>
 </div>
