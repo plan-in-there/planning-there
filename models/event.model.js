@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-
-
+const categories = require('../data/categories.json')
+const genreList = require('../data/genreList.json')
+const dressList = require('../data/dressList.json')
 
 const eventSchema = new Schema({
     name: {
@@ -9,7 +10,7 @@ const eventSchema = new Schema({
         required: 'name is required!'
     },
     date: {
-        type: Number,
+        type: Date,
         required: 'date is required!'
     },
     description: {
@@ -18,18 +19,26 @@ const eventSchema = new Schema({
     },
     city: {
         type: String,
-        required: 'city is required!'
+        /* required: 'city is required!' */
     },
-    genderRestrictions: {
-        type: String
-    }
-    ,
+    genreRestrictions: {
+        type: [{
+            type: String,
+            enum: genreList
+        }]
+    },
     category: {
-        type: [String],
-        required: 'category is required!'
+        type: [{
+            type: String,
+            enum: categories,
+        }],
+       
+        /* required: 'category is required!' */
     },
     age: {
         type: Number,
+        min: 16,
+        max: 99
     },
     owner: {
         type: String, //ref del 
@@ -38,11 +47,14 @@ const eventSchema = new Schema({
         type: [String], // ofrecer otros planes si nadie va a su plan!
     },
     dressCode: {
-        type: String,
+        type: [{
+            type: String,
+            enum: dressList,
+
+        }]
     },
-    createAt: {
-        type: Number,
-    },
+}, {
+    timestamps: true
 })
 
 const Event = mongoose.model('Event', eventSchema)

@@ -1,13 +1,9 @@
 const User = require('../models/user.model')
 const mongoose = require('mongoose')
-
-
 module.exports.register = (req, res, next) => {
   res.render('auth/register')
 }
-
 module.exports.doRegister = (req, res, next) => {
-
   function renderWithErrors(errors) {
     res.render('auth/register', {
       user: req.body,
@@ -36,14 +32,10 @@ module.exports.doRegister = (req, res, next) => {
       }
     })
 }
-
 module.exports.login = (req, res, next) => {
   res.render('auth/login')
-
 }
-
 module.exports.doLogin = (req, res, next) => {
-
   function renderLoginWithErrors() {
     res.render('auth/login', {
       user: req.body,
@@ -54,7 +46,6 @@ module.exports.doLogin = (req, res, next) => {
     }
     })
   }
-
   User.findOne({
       email: req.body.email
     })
@@ -75,9 +66,7 @@ module.exports.doLogin = (req, res, next) => {
     })
     .catch(error => next(error))
 }
-
 module.exports.logout = (req, res, next) => {
   req.session.destroy();
   res.redirect('/login')
-
 }
