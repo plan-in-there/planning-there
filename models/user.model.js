@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const categories = require('../data/categories.json')
 
 const bcrypt = require('bcryptjs')
 
@@ -30,15 +31,19 @@ const userSchema = new Schema({
         }
     },
     age: {
-        type: Number,
+        type: Date,
         //required: 'age is required!',
     },
     genre: {
         type: String,
+        enum: ['Male', 'Female', 'Non binary', 'Non listed']
         //required: 'select an option!',
     },
     interests: {
-        type: [String],
+        type: [{
+            type: String,
+            enum: categories
+        }],
         required: 'interests are required!',
         min: 3,
         max: 5
