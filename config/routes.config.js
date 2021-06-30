@@ -6,6 +6,7 @@ const commons = require('../controllers/commons.controller')
 const plans = require('../controllers/events.controller')
 const user = require('../controllers/user.controller')
 const upload = require('../config/multer.config')
+const secure = require('../middlewares/secure.mid')
 
 router.get('/register', auth.register)
 router.post('/register', auth.doRegister)

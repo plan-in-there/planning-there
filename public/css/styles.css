@@ -312,3 +312,7 @@ button:hover {
     border: solid #fff thin
 
 }
+
+#profile input {
+    width: 100%;
+}
