@@ -1,31 +1,30 @@
 const mongoose = require('mongoose')
 const Event = require('../models/event.model')
-const categories = require('../data/categories.json')
+const categoriesList = require('../data/categoriesList.json')
 const genreList = require('../data/genreList.json')
 const dressList = require('../data/dressList.json')
 
 module.exports.create = (req, res, next) => {
     res.render('events/create', {
-        categories,
+        categoriesList,
         genreList,
         dressList
     })
 }
 
 module.exports.doCreate = (req, res, next) => {
-    myEvent = { name, date, description, city, genreRestrictions, category, age, owner, guests, dressCode, createAt } = req.body
+    req.body.image = req.file.path
+    myEvent = { name, date, description, city, genreRestrictions, category, age, dressCode, image } = req.body
 
     Event.create(myEvent)
-        .then(plan => {
-            return res.send('evento hecho!')
-        })
+        .then(plan => res.redirect('/events'))
         .catch(error => {
             console.log(error)
             if (error instanceof mongoose.Error.ValidationError) {
                 res.render('events/create', {
                     event: req.body,
                     errors: error.errors,
-                    categories,
+                    categoriesList,
                     genreList,
                     dressList
                 })
@@ -53,6 +52,11 @@ module.exports.edit = (req, res, next) => {
 }
 
 module.exports.doEdit = (req, res, next) => {
+    if (!req.file) {
+        delete req.body.image
+    } else {
+        req.body.image = req.file.path
+    }
     Event.findByIdAndUpdate(req.params.id, req.body)
         .then(() => res.redirect('/events'))
         .catch(next)
@@ -62,4 +66,10 @@ module.exports.detail = (req, res, next) => {
     Event.findById(req.params.id)
         .then((event) => res.render('events/detail', {event}))
         .catch(next)
+}
+
+module.exports.delete = (req, res, next) => {
+    Event.findByIdAndDelete(req.params.id)
+    .then(() => res.redirect('/events'))
+    .catch(next)
 }

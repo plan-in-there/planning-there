@@ -1,6 +1,6 @@
 const User = require('../models/user.model');
 const mongoose = require('mongoose');
-const categories = require('../data/categories.json')
+const categoriesList = require('../data/categoriesList.json')
 
 module.exports.userProfile = (req, res, next) => {
     res.render('user/profile')
@@ -9,10 +9,10 @@ module.exports.userProfile = (req, res, next) => {
 module.exports.userProfileEdit = (req, res, next) => {
 
     User.findOne({_id: req.params.id})
-    .then(user => {
+        .then(user => {
         res.render('user/edit', {
             user,
-            categories
+            categoriesList
         })
     })
     .catch(error => next(error))
