@@ -22,7 +22,7 @@ router.get('/events', plans.list)
 router.get('/events/create', plans.create)
 router.post('/events/create', upload.single('image'), plans.doCreate)
 router.get('/events/:id/edit', plans.edit)
-router.post('/events/:id', plans.doEdit)
+router.post('/events/:id', upload.single('image'),plans.doEdit)
 router.get('/events/:id', plans.detail)
 router.post('/events/:id/delete', plans.delete)
 

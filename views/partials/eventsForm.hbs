@@ -1,3 +1,4 @@
+
 <div class="container">
  {{#if edit}}
     <form action="/events/{{event.id}}" method="post" enctype="multipart/form-data">
@@ -8,7 +9,6 @@
 <div class="container">
 <div class="row justify-content-center">
     <div class="col cl-sm-3">
-        <form action="/events/create" method="post" enctype="multipart/form-data">
             <div class="input-group mb-1">
                 <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
                 <input type="text" name="name" class="form-control  {{#if errors.name}} is-invalid {{/if}}"   placeholder="Write your Username" aria-label="Username" value="{{event.name}}" >
@@ -26,12 +26,6 @@
                 <label for="floatingTextarea2">Type your description</label>
                 {{#if errors.description}}<div class="invalid-feedback">{{ errors.description }}</div>{{/if}}
             </div>
-
-            {{!-- <div class="input-group mb-1">
-                <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
-                <input type="text" name="description" class="form-control  {{#if errors.description}} is-invalid {{/if}}"   aria-label="Description" value="{{event.description}}" placeholder="Write the event's description">
-                {{#if errors.description}}<div class="invalid-feedback">{{ errors.description }}</div>{{/if}}
-            </div> --}}
 
              <div class="form-group mb-1 input-group-text">
                 <select name="genreRestrictions"  aria-label="Dresscode">
@@ -69,18 +63,6 @@
                 {{#if errors.age}}<div class="invalid-feedback">{{ errors.age }}</div>{{/if}}
             </div>
 
-         {{!--    <div class="input-group mb-1">
-                <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
-                <input type="text" name="owner" class="form-control  {{#if errors.owner}} is-invalid {{/if}}"   aria-label="owner" value="{{event.owner}}" placeholder="owner">{{event.name}}
-                {{#if errors.owner}}<div class="invalid-feedback">{{ errors.owner }}</div>{{/if}}
-            </div>
-
-            <div class="input-group mb-1">
-                <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
-                <input type="text" name="guests" class="form-control  {{#if errors.guests}} is-invalid {{/if}}"   aria-label="guests" value="{{event.guests}}" placeholder="Write your guests">
-                {{#if errors.guests}}<div class="invalid-feedback">{{ errors.guests }}</div>{{/if}}
-            </div> --}}
-
             <div class="form-group mb-1 input-group-text">
                 <select name="dressCode"  aria-label="Dresscode">
                     <option selected> Select the Dresscode</option>
@@ -91,11 +73,9 @@
             </div>
 
             <button type="submit">Create your event!</button>
-
-        </form>
     </div>
 </div>
 </div>
-
-
 </form>
+</div>
+    
