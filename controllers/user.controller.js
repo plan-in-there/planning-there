@@ -27,12 +27,18 @@ module.exports.userProfileDoEdit = (req, res, next) => {
         })
     }
 
-    delete req.body.password
+   
 
     if(!req.file){
         delete req.body.avatar
     } else {
         req.body.avatar = req.file.path
+    }
+
+    if(!req.body.password){
+        delete req.body.password
+    } else {
+        req.body.password = req.body.password
     }
     
      User.findByIdAndUpdate(req.params.id, 
