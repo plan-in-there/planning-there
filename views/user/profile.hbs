@@ -3,19 +3,21 @@
         <ul>
             <li><a href="#">My plans</a></li>
             <li><a href="#">Messages</a></li>
-            <li><a href="#">Add an event</a></li>
+            <li><a href="/events/create">Add an event</a></li>
         </ul>
     </nav>    
     
     <div>
         <h1>Hi there{{#if currentUser}} {{currentUser.name}}! {{else}}!</h1>       
-       
+       {{currentUser.genre}}
         <h2>I'm {{currentUser.name}}</h2>
         {{/if}}
         <h3>My interests are</h3>
         {{#each currentUser.interests as |interest|}}
         <h2>{{interest}}</h2>
         {{/each}}
+
+
 
         
     </div>
