@@ -14,23 +14,24 @@ module.exports.create = (req, res, next) => {
 
 module.exports.doCreate = (req, res, next) => {
     myEvent = { name, date, description, city, genreRestrictions, category, age, dressCode} = req.body
+    console.log(req.body)
     if (req.file == null) {
         if (req.body.category == "Museums") {
-            myEvent['image'] = "img/categoriesList/Museums.jpeg"
+            myEvent['image'] = "/img/categoriesList/Museums.jpeg"
         } else if (req.body.category == "Live-music") {
-            myEvent['image'] = "img/categoriesList/live-music.jpeg"
+            myEvent['image'] = "/img/categoriesList/live-music.jpeg"
         } else if (req.body.category == "Night-life") {
-            myEvent['image'] = "img/categoriesList/Night-life.jpeg"
+            myEvent['image'] = "/img/categoriesList/Night-life.jpeg"
         } else if (req.body.category == "Beers/drinking") {
-            myEvent['image'] = "img/categoriesList/beers.jpeg"
+            myEvent['image'] = "/img/categoriesList/beers.jpeg"
         } else if (req.body.category == "Nature") {
-            myEvent['image'] = "img/categoriesList/Nature.jpeg"
+            myEvent['image'] = "/img/categoriesList/Nature.jpeg"
         } else if (req.body.category == "Queer") {
-            myEvent['image'] = "img/categoriesList/Queer.jpeg"
+            myEvent['image'] = "/img/categoriesList/Queer.jpeg"
         } else if (req.body.category == "Foodie") {
-            myEvent['image'] = "img/categoriesList/foodie.jpeg"
+            myEvent['image'] = "/img/categoriesList/foodie.jpeg"
         } else if (req.body.category == "Dance") {
-            myEvent['image'] = "img/categoriesList/dance.jpeg"
+            myEvent['image'] = "/img/categoriesList/dance.jpeg"
         }
     } else {
         myEvent['image'] = req.file.path
@@ -77,17 +78,13 @@ module.exports.edit = (req, res, next) => {
 }
 
 module.exports.doEdit = (req, res, next) => {
-    console.log(req.body)
     if (!req.file) {
         delete req.body.image
     } else {
         req.body.image = req.file.path
     }
     Event.findByIdAndUpdate(req.params.id, req.body)
-        .then(() => {
-            console.log(req.body)
-            res.redirect('/events')
-        })
+        .then(() => { res.redirect('/events')})
         .catch(error => {
             if (error instanceof mongoose.Error.ValidationError) {
                 res.render('events/create', {
