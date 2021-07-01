@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const categoriesList = require('../data/categories.json')
+const categories = require('../data/categoriesList.json')
+
 
 const bcrypt = require('bcryptjs')
 

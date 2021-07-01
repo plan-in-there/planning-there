@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const categories = require('../data/categories.json')
+const categoriesList = require('../data/categoriesList.json')
 const genreList = require('../data/genreList.json')
 const dressList = require('../data/dressList.json')
 
@@ -19,7 +19,7 @@ const eventSchema = new Schema({
     },
     city: {
         type: String,
-        /* required: 'city is required!' */
+        required: 'city is required!'
     },
     genreRestrictions: {
         type: [{
@@ -30,10 +30,16 @@ const eventSchema = new Schema({
     category: {
         type: [{
             type: String,
-            enum: categories,
+            enum: categoriesList,
         }],
-       
+
         /* required: 'category is required!' */
+    },
+    image: {
+        type: String,
+        default: function () {
+            return //public/img/gatito.jpeg
+        }
     },
     age: {
         type: Number,

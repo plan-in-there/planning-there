@@ -1,6 +1,6 @@
 <div class="container">
     {{#each event as |event|}}
-
+    <img src="{{event.image}}" alt="">
     <p> {{event.name}} {{event.description}} {{event.date}}  </p>
     {{/each}}
     <a href="/events"> Go back!</a>
