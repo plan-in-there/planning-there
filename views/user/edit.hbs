@@ -3,11 +3,11 @@
 
 <form action="/user-profile/{{currentUser._id}}/edit" method="POST" enctype="multipart/form-data">
   <div id="profile">
-    <div>
+    <div class="col-sm-4">
       <img src="{{currentUser.avatar}}" alt="{{currentUser.name}}" />
       <input type="file" name="avatar" value="{{currentUser.avatar}}" />
     </div>
-    <div>
+    <div class="col-sm-8">
          <div>
     <div class="col-md-6">
       <label for="inputEmail4" class="form-label"> Name</label>

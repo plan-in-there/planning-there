@@ -30,8 +30,6 @@ module.exports.userProfileDoEdit = (req, res, next) => {
         })
     }
 
-   
-
     if(!req.file){
         delete req.body.avatar
     } else {
