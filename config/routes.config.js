@@ -8,15 +8,19 @@ const user = require('../controllers/user.controller')
 const upload = require('../config/multer.config')
 const secure = require('../middlewares/secure.mid')
 
+
 router.get('/register', auth.register)
 router.post('/register', auth.doRegister)
 router.get('/login', auth.login)
 router.post('/login', auth.doLogin)
 router.get('/logout', auth.logout)
+//router.get('/authenticate/google', auth.loginWithGoogle);
+//router.get('/authenticate/google/cb', auth.doLoginWithGoogle);
+
 router.get('/', commons.home)
 
-router.get('/user-profile/:id/edit', user.userProfileEdit)
-router.post('/user-profile/:id/edit', upload.single('avatar'), user.userProfileDoEdit)
+router.get('/user-profile/me/edit', user.userProfileEdit)
+router.post('/user-profile/me/edit', upload.single('avatar'), user.userProfileDoEdit)
 router.get('/user-profile/:id', user.userProfile)
 
 router.get('/events', plans.list)

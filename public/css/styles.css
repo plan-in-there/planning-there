@@ -197,7 +197,7 @@ main {
     align-content: center;
     justify-content: center;
     text-align: center;
-    background-color: #fff;
+  
 }
 
 nav {
@@ -252,14 +252,14 @@ nav {
     justify-content: center;
 }
 
-.social button {
+.social button, .social a {
     width: 35px;
     border-radius: 50%;
     margin: 1%;
     transition-duration: 0.4s;
 }
 
-button:hover {
+button:hover, .social a:hover {
     background-color: #17F781;
     color: white;
 }

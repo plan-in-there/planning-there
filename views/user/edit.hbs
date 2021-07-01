@@ -1,17 +1,19 @@
 <h1>Hi {{currentUser.name}}</h1>
 <h2>Please, edit your profile</h2>
 
-<form action="/user-profile/{{currentUser._id}}/edit" method="POST" enctype="multipart/form-data">
+<form action="/user-profile/me/edit" method="POST" enctype="multipart/form-data">
   <div id="profile">
     <div class="col-sm-4">
-      <img src="{{currentUser.avatar}}" alt="{{currentUser.name}}" />
-      <input type="file" name="avatar" value="{{currentUser.avatar}}" />
+      
+      <img src="{{currentUser.avatar}}" alt="{{user.name}}" />
+      <h5>Change your profile picture</h5>
+      <input type="file" name="avatar" value="{{user.avatar}}" />
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-8 m-5">
          <div>
     <div class="col-md-6">
       <label for="inputEmail4" class="form-label"> Name</label>
-      <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Name" value="{{currentUser.name}}">
+      <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Name" value="{{user.name}}">
     </div>
     <div class="col-md-6">
       <label for="inputPassword4" class="form-label"> Password </label>
@@ -19,19 +21,18 @@
     </div>
     <div class="col-md-6">
       <label for="inputCity" class="form-label"> City </label>
-      <input type="text" name="city" class="form-control" id="inputCity" placeholder="Your resident city" value="{{currentUser.city}}"/>
+      <input type="text" name="city" class="form-control" id="inputCity" placeholder="Your resident city" value="{{user.city}}"/>
     </div>
     <div class="col-md-6">
         <label for="inputCity" class="form-label"> Birth Date </label>
-        <input type="date" name="age" value="{{currentUser.age}}" />
+        <input type="date" name="age" value="{{user.age}}" />
     </div>
     <div class="col-md-4">
       <label for="inputState" class="form-label"> Genre </label>
       <select id="inputState" name="genre" class="form-select">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value ="Non binary">Non binary</option>
-        <option value="Non listed">Other option</option>
+        {{#each genreList as |genre|}}
+        <option value={{genre}}>{{genre}}</option>
+        {{/each}}
       </select>
     </div>
     </div>

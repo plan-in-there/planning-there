@@ -1,19 +1,21 @@
 <div id="profile">
+     {{#if currentUser}}
     <nav class="user-nav">
         <ul>
             <li><a href="#">My plans</a></li>
             <li><a href="#">Messages</a></li>
             <li><a href="/events/create">Add an event</a></li>
         </ul>
-    </nav>    
+    </nav>  
+    {{/if}}  
     
     <div>
         <h1>Hi there{{#if currentUser}} {{currentUser.name}}! {{else}}!</h1>       
-       {{currentUser.genre}}
-        <h2>I'm {{currentUser.name}}</h2>
+       {{user.genre}}
+        <h2>I'm {{user.name}}</h2>
         {{/if}}
         <h3>My interests are</h3>
-        {{#each currentUser.interests as |interest|}}
+        {{#each user.interests as |interest|}}
         <h2>{{interest}}</h2>
         {{/each}}
 
@@ -21,8 +23,11 @@
 
         
     </div>
+
     <div class="d-flex flex-column">
-        <img src="{{currentUser.avatar}}" alt="{{currentUser.name}}" />
-        <a href="/user-profile/{{currentUser._id}}/edit"><i class="far fa-edit"></i> edit profile</a>
+        <img src="{{user.avatar}}" alt="{{user.name}}" />
+    {{#if currentUser}}
+        <a href="/user-profile/me/edit"><i class="far fa-edit"></i> edit profile</a>
     </div>
+    {{/if}}
 </div>
