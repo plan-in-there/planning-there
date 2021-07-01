@@ -15,7 +15,7 @@ const {sessionConfig, loadUser} = require('./config/session.config')
 app.use(sessionConfig)
 app.use(loadUser)
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 
 

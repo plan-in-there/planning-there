@@ -13,9 +13,15 @@ module.exports.create = (req, res, next) => {
 }
 
 module.exports.doCreate = (req, res, next) => {
-    req.body.image = req.file.path
-    myEvent = { name, date, description, city, genreRestrictions, category, age, dressCode, image } = req.body
 
+    myEvent = { name, date, description, city, genre, category, age, dressCode, image } = req.body
+    console.log(req.body)
+
+    if (!req.file) {
+        delete req.body.image
+    } else {
+        req.body.image = req.file.path
+    }
     Event.create(myEvent)
         .then(plan => res.redirect('/events'))
         .catch(error => {
@@ -34,16 +40,27 @@ module.exports.doCreate = (req, res, next) => {
         })
 }
 module.exports.list = (req, res, next) => {
-   Event.find(req.query)
-    .then(events => res.render('events/list', {events}))
-    .catch(next)
+    Event.find(req.query)
+        .then(events => res.render('events/list', { events }))
+        .catch(next)
 }
 
 module.exports.edit = (req, res, next) => {
+    /* req.body.date = Number(req.body.date) */
+
     Event.findByIdAndUpdate(req.params.id)
         .then(event => {
             if (event) {
-                res.render('events/edit', {event})
+                let formatEvent = event
+                formatEvent.date = event.date
+
+                console.log(formatEvent)
+                res.render('events/edit', {
+                    event: formatEvent,
+                    categoriesList,
+                    genreList,
+                    dressList
+                })
             } else {
                 res.redirect('/events')
             }
@@ -57,19 +74,32 @@ module.exports.doEdit = (req, res, next) => {
     } else {
         req.body.image = req.file.path
     }
+    
     Event.findByIdAndUpdate(req.params.id, req.body)
-        .then(() => res.redirect('/events'))
-        .catch(next)
+        .then(() => { res.redirect('/events') })
+        .catch(error => {
+            if (error instanceof mongoose.Error.ValidationError) {
+                res.render('events/create', {
+                    event: req.body,
+                    errors: error.errors,
+                    categoriesList,
+                    genreList,
+                    dressList
+                })
+            } else {
+                next()
+            }
+        })
 }
 
 module.exports.detail = (req, res, next) => {
     Event.findById(req.params.id)
-        .then((event) => res.render('events/detail', {event}))
+        .then((event) => res.render('events/detail', { event }))
         .catch(next)
 }
 
 module.exports.delete = (req, res, next) => {
     Event.findByIdAndDelete(req.params.id)
-    .then(() => res.redirect('/events'))
-    .catch(next)
+        .then(() => res.redirect('/events'))
+        .catch(next)
 }

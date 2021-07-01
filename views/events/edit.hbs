@@ -1,11 +1,10 @@
 
 {{>eventsForm edit=true}}
-{{!-- 
-<div class="container">
+{{!-- <div class="container">
 <div class="row justify-content-center">
     <div class="col cl-sm-3">
         <form action="/events/{{event.id}}" method="post" enctype="multipart/form-data">
-             <div class="input-group mb-1">
+            <div class="input-group mb-1">
                 <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
                 <input type="text" name="name" class="form-control  {{#if errors.name}} is-invalid {{/if}}"   placeholder="Write your Username" aria-label="Username" value="{{event.name}}" >
                 {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}
@@ -17,46 +16,32 @@
                 {{#if errors.date}}<div class="invalid-feedback">{{ errors.date }}</div>{{/if}}
             </div>
 
-            <div class="form-floating">
-                <textarea name="description" class="form-control {{#if errors.password}} is-invalid {{/if}}" placeholder="Leave a comment here" value="{{event.description}}" style="height: 100px"></textarea>
-                <label for="floatingTextarea2">Type your description</label>
-                {{#if errors.description}}<div class="invalid-feedback">{{ errors.description }}</div>{{/if}}
-            </div>
-
             <div class="input-group mb-1">
                 <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
                 <input type="text" name="description" class="form-control  {{#if errors.description}} is-invalid {{/if}}"   aria-label="Description" value="{{event.description}}" placeholder="Write the event's description">
                 {{#if errors.description}}<div class="invalid-feedback">{{ errors.description }}</div>{{/if}}
             </div>
 
-             <div class="form-group mb-1 input-group-text">
-                <select name="genreRestrictions"  aria-label="Dresscode">
-                    <option selected> Select</option>
-                    {{#each genreList as |genre |}}
-                    <option value="{{genre}}">{{genre}}</option>
-                    {{/each}}
-                    
-                </select>
+            <div class="input-group mb-1">
+                <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
+                <input type="text" name="city" class="form-control  {{#if errors.city}} is-invalid {{/if}}"   aria-label="city" value="{{event.city}}" placeholder="Write the city">
+                {{#if errors.city}}<div class="invalid-feedback">{{ errors.city }}</div>{{/if}}
             </div>
 
-            <div class="form-group mb-1 input-group-text">
-                <select name="category"  aria-label="Dresscode">
-                    <option selected> Select category</option>
-                    {{#each categoriesList as |categoriesList|}}
-                    <option value="{{categoriesList}}">{{categoriesList}}</option>
-                    {{/each}}
-                </select>
-            </div>
+            <div class="input-group mb-1">
+                <label for="genre restrictions"> genre restrictions?</label>
+                <select name="genreRestrictions" id="genreRestrictions"> 
+                    <option value="{{event.genreRestrictions}}"> Female</option>
+                    <option value="{{event.genreRestrictions}}"> Male</option>
+                    <option value="{{event.genreRestrictions}}"> Everybody</option>
 
-            <div>
-              <img src="{{event.image}}" alt="{{event.image}}" />
-             <input type="file" name="image" value="{{event.image}}" />
+                    </select>
             </div>
 
             <div class="input-group mb-1">
                 <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
-                <input type="text" name="city" class="form-control  {{#if errors.city}} is-invalid {{/if}}"   aria-label="city" value="{{event.city}}" placeholder="Write your city">
-                {{#if errors.city}}<div class="invalid-feedback">{{ errors.city }}</div>{{/if}}
+                <input type="text" name="category" class="form-control  {{#if errors.category}} is-invalid {{/if}}"   aria-label="category" value="{{event.category}}" placeholder="Write the event's category">
+                {{#if errors.category}}<div class="invalid-feedback">{{ errors.category }}</div>{{/if}}
             </div>
 
             <div class="input-group mb-1">
@@ -67,7 +52,7 @@
 
             <div class="input-group mb-1">
                 <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
-                <input type="text" name="owner" class="form-control  {{#if errors.owner}} is-invalid {{/if}}"   aria-label="owner" value="{{event.owner}}" placeholder="owner">{{event.name}}
+                <input type="text" name="owner" class="form-control  {{#if errors.owner}} is-invalid {{/if}}"   aria-label="owner" value="{{event.owner}}" placeholder="*__*">
                 {{#if errors.owner}}<div class="invalid-feedback">{{ errors.owner }}</div>{{/if}}
             </div>
 
@@ -77,13 +62,10 @@
                 {{#if errors.guests}}<div class="invalid-feedback">{{ errors.guests }}</div>{{/if}}
             </div>
 
-            <div class="form-group mb-1 input-group-text">
-                <select name="dressCode"  aria-label="Dresscode">
-                    <option selected> Select the Dresscode</option>
-                    {{#each dressList as |dressList|}}
-                    <option value="{{dressList}}">{{dressList}}</option>
-                    {{/each}}
-                </select>
+            <div class="input-group mb-1">
+                <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
+                <input type="text" name="dressCode" class="form-control  {{#if errors.dressCode}} is-invalid {{/if}}"   aria-label="dressCode" value="{{event.dressCode}}" placeholder="Write your dressCode">
+                {{#if errors.dressCode}}<div class="invalid-feedback">{{ errors.dressCode }}</div>{{/if}}
             </div>
 
             <button type="submit">Edit your event!</button>

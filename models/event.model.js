@@ -32,22 +32,37 @@ const eventSchema = new Schema({
             type: String,
             enum: categoriesList,
         }],
-
-        /* required: 'category is required!' */
     },
     image: {
-        type: String,
+        type: String, 
         default: function () {
-            return //public/img/gatito.jpeg
-        }
+            if (this.category.includes("Museums")) {
+                return  "/img/categoriesList/Museums.jpeg"
+            } else if (this.category.includes("Live-music")) {
+                return  "/img/categoriesList/live-music.jpeg"
+            } else if (this.category.includes("Night-life")) {
+                return  "/img/categoriesList/Night-life.jpeg"
+            } else if (this.category.includes("Beers/drinking")) {
+                return  "/img/categoriesList/beers.jpeg"
+            } else if (this.category.includes("Nature")) {
+                return  "/img/categoriesList/Nature.jpeg"
+            } else if (this.category.includes("Queer")) {
+                return  "/img/categoriesList/Queer.jpeg"
+            } else if (this.category.includes("Foodie")) {
+                return  "/img/categoriesList/foodie.jpeg"
+            } else if (this.category.includes("Dance")) {
+                return  "/img/categoriesList/dance.jpeg"
+            }
+        } 
     },
     age: {
         type: Number,
+        required: 'age is required!',
         min: 16,
         max: 99
     },
     owner: {
-        type: String, //ref del 
+        type: String, //ref de quien crea el evento
     },
     guests: {
         type: [String], // ofrecer otros planes si nadie va a su plan!

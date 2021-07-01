@@ -41,6 +41,7 @@ module.exports.userProfileDoEdit = (req, res, next) => {
       if (error instanceof mongoose.Error.ValidationError) {
         res.render('user/edit', {
           user: req.body,
+
           errors: errors,
         });
       } else {
@@ -48,3 +49,4 @@ module.exports.userProfileDoEdit = (req, res, next) => {
       }
     });
 };
+
