@@ -34,23 +34,23 @@ const eventSchema = new Schema({
         }],
     },
     image: {
-        type: String,
+        type: String, 
         default: function () {
             if (this.category.includes("Museums")) {
                 return  "/img/categoriesList/Museums.jpeg"
-            } else if (this.category == "Live-music") {
+            } else if (this.category.includes("Live-music")) {
                 return  "/img/categoriesList/live-music.jpeg"
-            } else if (this.category == "Night-life") {
+            } else if (this.category.includes("Night-life")) {
                 return  "/img/categoriesList/Night-life.jpeg"
-            } else if (this.category == "Beers/drinking") {
+            } else if (this.category.includes("Beers/drinking")) {
                 return  "/img/categoriesList/beers.jpeg"
-            } else if (this.category == "Nature") {
+            } else if (this.category.includes("Nature")) {
                 return  "/img/categoriesList/Nature.jpeg"
-            } else if (this.category == "Queer") {
+            } else if (this.category.includes("Queer")) {
                 return  "/img/categoriesList/Queer.jpeg"
-            } else if (this.category == "Foodie") {
+            } else if (this.category.includes("Foodie")) {
                 return  "/img/categoriesList/foodie.jpeg"
-            } else if (this.category == "Dance") {
+            } else if (this.category.includes("Dance")) {
                 return  "/img/categoriesList/dance.jpeg"
             }
         } 

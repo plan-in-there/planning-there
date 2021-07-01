@@ -29,19 +29,18 @@
 
              <div class="form-group mb-1 input-group-text">
                 <select name="genreRestrictions" value="{{genre}}"   aria-label="Dresscode">
-                    <option selected> Select</option>
+
                     {{#each genreList as |genre |}}
-                    <option value="{{genre}}">{{genre}}</option>
-                    {{/each}}
-                    
+                    <option {{#eventHasCategory keyWord='genre' key=genre  event=../event}} selected {{/eventHasCategory}} value="{{genre}}">{{genre}}</option>
+                    {{/each}}                   
                 </select>
             </div>
 
             <div class="form-group mb-1 input-group-text">
-                <select  name="category"  aria-label="Dresscode">
-                    <option> Select category</option>
+                <select multiple name="category"  aria-label="Dresscode">
+
                     {{#each categoriesList as |category|}}
-                    <option {{#eventHasCategory category=category  event=../event}} selected {{/eventHasCategory}} value="{{event.category}}">{{category}}</option>
+                    <option {{#eventHasCategory keyWord='category' key=category  event=../event}} selected {{/eventHasCategory}} value="{{category}}">{{category}}</option>
                     {{/each}}
                 </select>
             </div>
@@ -65,9 +64,8 @@
 
             <div class="form-group mb-1 input-group-text">
                 <select name="dressCode"  aria-label="Dresscode">
-                    <option selected> Select the Dresscode</option>
                     {{#each dressList as |dressList|}}
-                    <option value="{{dressList}}">{{dressList}}</option>
+                    <option {{#eventHasCategory keyWord='dressList' key=dressList  event=../event}} selected {{/eventHasCategory}} value="{{dressList}}">{{dressList}}</option>
                     {{/each}}
                 </select>
             </div>
