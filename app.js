@@ -5,9 +5,11 @@ const app = express()
 const logger = require('morgan')
 const path = require('path')
 const bodyparser = require('body-parser')
+const passport = require('passport');
 
 require('./config/db.config.js')
 require('./config/hbs.config')
+require('./config/passport.config');
 
 
 
@@ -30,6 +32,9 @@ app.use((req, res, next) => {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(`${__dirname}/public`));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 const router = require('./config/routes.config')

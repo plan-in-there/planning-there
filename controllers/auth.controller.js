@@ -1,10 +1,11 @@
 const User = require('../models/user.model')
 const mongoose = require('mongoose')
-//const passport = require('passport')
+const passport = require('passport')
 
 module.exports.register = (req, res, next) => {
   res.render('auth/register')
 }
+
 module.exports.doRegister = (req, res, next) => {
   function renderWithErrors(errors) {
     res.render('auth/register', {
@@ -34,9 +35,11 @@ module.exports.doRegister = (req, res, next) => {
       }
     })
 }
+
 module.exports.login = (req, res, next) => {
   res.render('auth/login')
 }
+
 module.exports.doLogin = (req, res, next) => {
   function renderLoginWithErrors() {
     res.render('auth/login', {
@@ -48,6 +51,7 @@ module.exports.doLogin = (req, res, next) => {
     }
     })
   }
+
   User.findOne({
       email: req.body.email
     })
@@ -68,11 +72,12 @@ module.exports.doLogin = (req, res, next) => {
     })
     .catch(error => next(error))
 }
+
 module.exports.logout = (req, res, next) => {
   req.session.destroy();
   res.redirect('/login')
 }
-/* 
+
 module.exports.loginWithGoogle = (req, res, next) => {
   const passportController = passport.authenticate('google-auth', {
     scope: ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile'],
@@ -90,7 +95,7 @@ module.exports.doLoginWithGoogle = (req, res, next) => {
     } else {
       req.login(user, (error) => {
         if (error) next(error);
-        else res.redirect('/');
+        else res.redirect('/user-profile/me/edit');
       });
     }
   });
@@ -109,4 +114,4 @@ module.exports.activate = (req, res, next) => {
       res.redirect('/login');
     })
     .catch(next);
-}; */
+};

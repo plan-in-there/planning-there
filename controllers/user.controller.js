@@ -16,8 +16,8 @@ module.exports.userProfile = (req, res, next) => {
 
 module.exports.userProfileEdit = (req, res, next) => {
 
-  User.findOne( req.user )
-    .then((user) => {
+  User.find( req.user )
+      .then((user) => {      
       res.render('user/edit', {
         user,
         categoriesList,
@@ -36,7 +36,8 @@ module.exports.userProfileDoEdit = (req, res, next) => {
   Object.assign(req.user, req.body);
   req.user
     .save()
-    .then((user) => res.redirect(`/user-profile/${user.id}`))
+    .then((user) =>
+     res.redirect(`/user-profile/${user.id}`))
     .catch((error) => {
       if (error instanceof mongoose.Error.ValidationError) {
         res.render('user/edit', {
