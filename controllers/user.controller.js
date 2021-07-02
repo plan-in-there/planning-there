@@ -32,6 +32,10 @@ module.exports.userProfileDoEdit = (req, res, next) => {
     req.body.avatar = req.file.path;
   }
 
+  if (!req.body.password) {
+    delete req.body.password;
+  }
+
   delete req.body.email;
   Object.assign(req.user, req.body);
   req.user
@@ -42,8 +46,11 @@ module.exports.userProfileDoEdit = (req, res, next) => {
       if (error instanceof mongoose.Error.ValidationError) {
         res.render('user/edit', {
           user: req.body,
-
-          errors: errors,
+          error: error.errors,
+          categoriesList,
+          genreList
+         
+          
         });
       } else {
         next(error);

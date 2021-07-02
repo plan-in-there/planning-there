@@ -11,7 +11,7 @@ module.exports.sessionConfig = session({
     saveUninintialized: false,
     cookie: {
         httpOnly: true,
-        secure: process.env.SESSION_SECURE || false,
+        secure: process.env.SESSION_SECURE === 'true',
         maxAge: 24 * 3600 * 1000 * sessionMaxAge
     }, 
     store: MongoStore.create({

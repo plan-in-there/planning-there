@@ -22,16 +22,22 @@ passport.use(
       passwordField: 'password',
     },
     (email, password, next) => {
-      User.findOne({ email, active: true })
+      User.findOne({ email })
         .then((user) => {
           if (!user) {
-            next(null, null, { email: 'Invalid email or password' });
+            next(null, null, { 
+              email: 'Invalid mail or password',
+              password: 'Invalid mail or password',
+              invalidSession: 'Invalid mail or password' });
           } else {
             return user.checkPassword(password).then((match) => {
               if (match) {
                 next(null, user);
               } else {
-                next(null, null, { email: 'Invalid email or password or validation' });
+                next(null, null, { 
+                  email: 'Invalid mail or password',
+                  password: 'Invalid mail or password',
+                  invalidSession: 'Invalid mail or password'  });
               }
             });
           }
@@ -66,7 +72,7 @@ passport.use(
                 social: {
                   google: googleId,
                 },
-                active: true,
+              
               });
 
               return user.save().then((user) => next(null, user));

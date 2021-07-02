@@ -35,7 +35,7 @@ module.exports.eventOwner = (req, res, next) => {
 }
 
 module.exports.profileOwner = (req, res, next) => {
-    User.findById(req.params)
+    User.find(req.user.id)
         .then((user) => {
             if (user) {
                 if (user.id == req.user.id) {
