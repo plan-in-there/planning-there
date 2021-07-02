@@ -42,7 +42,7 @@ passport.use(
             });
           }
         })
-        .catch(next);
+        .catch(error => next(error));
     },
   ),
 );
@@ -80,7 +80,7 @@ passport.use(
               next(null, user);
             }
           })
-          .catch(next);
+          .catch(error => next(error));
       } else {
         next(null, null, { oauth: 'invalid google oauth response' });
       }
