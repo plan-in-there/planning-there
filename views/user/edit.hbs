@@ -13,7 +13,7 @@
          <div>
     <div class="col-md-6">
       <label for="inputEmail4"> Name</label>
-      <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Name" value="{{Currentuser.user.name}}">
+      <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Name" value="{{Currentuser.name}}">
     </div>
     <div class="col-md-6">
       <label for="inputPassword4" > Password </label>
@@ -30,8 +30,8 @@
     <div class="col-md-4">
       <label for="inputState" > Genre </label>
       <select id="inputState" name="genre" class="form-select">
-        {{#each genreList as |genre|}}
-        <option value={{genre}}>{{genre}}</option>
+        {{#each genre as |gender|}}
+        <option value={{gender}}>{{dataLabels id=gender selector='text' }}</option>
         {{/each}}
       </select>
     </div>

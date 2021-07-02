@@ -2,13 +2,14 @@ const User = require('../models/user.model');
 const mongoose = require('mongoose');
 
 const categoriesList = require('../data/categoriesList.json');
-const genreList = require('../data/genreList.json');
+const genre = Object.keys(require('../data/genre.json'));
 
 module.exports.userProfile = (req, res, next) => {
     User.findById(req.params.id)
     .then(user => {
         res.render('user/profile', {
             user
+      
         });
     })
  
@@ -21,7 +22,7 @@ module.exports.userProfileEdit = (req, res, next) => {
       res.render('user/edit', {
         user,
         categoriesList,
-        genreList
+        genre
       });
     })
     .catch(next);
@@ -48,7 +49,7 @@ module.exports.userProfileDoEdit = (req, res, next) => {
           user: req.body,
           error: error.errors,
           categoriesList,
-          genreList
+          genre
          
           
         });

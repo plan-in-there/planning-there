@@ -10,10 +10,11 @@
     {{/if}}  
     
     <div>
-        <h1>Hi there{{#if currentUser}} {{currentUser.name}}! {{else}}!</h1>       
-       {{user.genre}}
+        <h1>Hi there{{#if currentUser}} {{currentUser.name}}! {{else}}!</h1>
+       
         <h2>I'm {{user.name}}</h2>
         {{/if}}
+        <h2>{{currentUser.genre}}</h2>
         <h3>My interests are</h3>
         {{#each user.interests as |interest|}}
         <h2>{{interest}}</h2>

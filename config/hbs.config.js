@@ -1,4 +1,5 @@
 const hbs = require('hbs');
+const genre = require('../data/genre.json')
 
 hbs.registerPartials(__dirname + '/../views/partials')
 
@@ -46,3 +47,9 @@ hbs.registerHelper('eventUserCategories', function (options) {
 })
 
 hbs.registerHelper('date') //moment 
+
+hbs.registerHelper('dataLabels', function(options) {
+    const {id, selector} = options.hash;
+    return genre[id][selector]
+})
+
