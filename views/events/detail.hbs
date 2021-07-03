@@ -1,7 +1,12 @@
 <div class="container">
     <img src="{{event.image}}" alt="">
-    <p> {{event.name}} {{event.description}} {{event.date}}  </p>
-    <form action="POST" method="/events/{{event.id}}">
+    <p> {{event.name}} {{event.description}} {{event.date}} </p>
+    <p>
+        {{#each event.matches as | match|}}
+            {{match.userId.name}}
+        {{/each}}
+    </p>
+    <form method="POST" action="/events/match/{{event.id}}">
     <button type="submit">Like</button>
     </form>
     <a href="/events"> Go back!</a>

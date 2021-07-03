@@ -78,7 +78,12 @@ const eventSchema = new Schema({
     timestamps: true
 })
 
-
+eventSchema.virtual('matches', {
+    ref: 'Match',
+    localField: '_id',
+    foreignField: 'eventId',
+    justOne: false
+  });
 
 
 

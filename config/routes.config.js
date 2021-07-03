@@ -7,7 +7,7 @@ const plans = require('../controllers/events.controller')
 const user = require('../controllers/user.controller')
 const upload = require('../config/multer.config')
 const secure = require('../middlewares/secure.mid')
-
+const match = require('../controllers/match.controller')
 
 router.get('/register', secure.isNotAuthenticated, auth.register)
 router.post('/register', secure.isNotAuthenticated, auth.doRegister)
@@ -29,7 +29,7 @@ router.post('/events/create', upload.single('image'), plans.doCreate)
 router.get('/events/:id/edit', plans.edit)
 router.post('/events/:id/edit', upload.single('image'),plans.doEdit)
 router.get('/events/:id', plans.detail)
-//router.post('/events/:id', plans.like)
+router.post('/events/match/:id', match.like)
 router.post('/events/:id/delete', plans.delete)
 
 module.exports = router

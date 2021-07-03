@@ -16,7 +16,7 @@ module.exports.create = (req, res, next) => {
 
 module.exports.doCreate = (req, res, next) => {
     myEvent = { name, date, description, city, genre, category, age, dressCode, image } = req.body
-    
+
     console.log(req.body)
 
     if (!req.file) {
@@ -45,7 +45,7 @@ module.exports.list = (req, res, next) => {
     Event.find(req.query)
         .then(events => {
             res.render('events/list', {
-                 events 
+                events
             })
         })
         .catch(next)
@@ -74,7 +74,7 @@ module.exports.doEdit = (req, res, next) => {
     } else {
         req.body.image = req.file.path
     }
-    
+
     Event.findByIdAndUpdate(req.params.id, req.body)
         .then(() => { res.redirect('/events') })
         .catch(error => {
@@ -93,8 +93,19 @@ module.exports.doEdit = (req, res, next) => {
 }
 
 module.exports.detail = (req, res, next) => {
+
     Event.findById(req.params.id)
-        .then((event) => res.render('events/detail', { event }))
+        .populate({
+            path: 'matches',
+            populate:{
+                path: 'userId'
+            }
+        })
+        .then((event) => {
+
+            return res.render('events/detail', { event })
+
+        })
         .catch(next)
 }
 
