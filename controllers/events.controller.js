@@ -13,8 +13,8 @@ module.exports.create = (req, res, next) => {
 }
 
 module.exports.doCreate = (req, res, next) => {
-
     myEvent = { name, date, description, city, genre, category, age, dressCode, image } = req.body
+    
     console.log(req.body)
 
     if (!req.file) {
@@ -41,22 +41,20 @@ module.exports.doCreate = (req, res, next) => {
 }
 module.exports.list = (req, res, next) => {
     Event.find(req.query)
-        .then(events => res.render('events/list', { events }))
+        .then(events => {
+            res.render('events/list', {
+                 events 
+            })
+        })
         .catch(next)
 }
 
 module.exports.edit = (req, res, next) => {
-    /* req.body.date = Number(req.body.date) */
-
     Event.findByIdAndUpdate(req.params.id)
         .then(event => {
             if (event) {
-                let formatEvent = event
-                formatEvent.date = event.date
-
-                console.log(formatEvent)
                 res.render('events/edit', {
-                    event: formatEvent,
+                    event: event,
                     categoriesList,
                     genreList,
                     dressList

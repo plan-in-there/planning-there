@@ -1,5 +1,5 @@
 const hbs = require('hbs');
-
+const moment = require('moment')
 hbs.registerPartials(__dirname + '/../views/partials')
 
 hbs.registerHelper('eventHasCategory', function(options) {
@@ -45,4 +45,18 @@ hbs.registerHelper('eventUserCategories', function (options) {
     }
 })
 
-hbs.registerHelper('date') //moment 
+hbs.registerHelper('dateFormatter', function (options) {
+    const { date } = options.hash
+    return  moment(date).format('YYYY-MM-DD')
+})
+
+hbs.registerHelper("dataLabels", function (options) {
+    const { id, selector } = options.hash;
+    return genre[id][selector];
+})
+
+
+  hbs.registerHelper("pronoms", function (options) {
+    const { user } = options.hash;
+    return genre[user.genre]?.pronom;
+});
