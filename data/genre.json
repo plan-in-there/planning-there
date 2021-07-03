@@ -1,0 +1,18 @@
+{
+    "Female": {
+        "text" : "Female",
+        "pronom" : "She/Her"
+    }, 
+    "Male" : {
+        "text" : "Male",
+        "pronom" : "He/His"
+    }, 
+    "Non-binary" : {
+        "text" : "Non binary",
+        "pronom" : "They/Their"
+    }, 
+    "Non-listed" : {
+        "text" : "Non listed",
+        "pronom" : "hey"
+    }
+}

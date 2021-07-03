@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const categoriesList = require('../data/categoriesList.json')
+const genre = require('../data/genre.json')
 
 
 const bcrypt = require('bcryptjs')
@@ -28,7 +29,7 @@ const userSchema = new Schema({
     avatar: {
         type: String,
         default: function(){
-            return 
+            return '/img/profile-white.png'
         }
     },
     age: {
@@ -37,7 +38,7 @@ const userSchema = new Schema({
     },
     genre: {
         type: String,
-        enum: ['Male', 'Female', 'Non binary', 'Non listed']
+        enum: Object.keys(genre)
         //required: 'select an option!',
     },
     interests: {
@@ -68,7 +69,12 @@ const userSchema = new Schema({
     },
     valoration: {
         type: String,
-    }
+    },
+    social: {
+        google: {
+          type: String,
+        },
+      }
 })
 
 userSchema.pre('save', function (next) {

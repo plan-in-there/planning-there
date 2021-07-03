@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon -e hbs,js,css app.js"
+    "dev": "nodemon -e hbs,js,css,json app.js"
   },
   "keywords": [],
   "author": "",
@@ -21,12 +21,14 @@
     "hbs": "^4.1.2",
     "moment": "^2.29.1",
     "momentjs": "^2.0.0",
+    "local": "^0.3.3",
     "mongoose": "^5.12.14",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "multer-storage-cloudinary": "^4.0.0",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7"
   },
   "devDependencies": {

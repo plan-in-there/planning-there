@@ -5,28 +5,35 @@
         <form action="/register" method="post">
             <div class="input-group mb-1">
                 <span class="input-group-text"><i class="fa fa-user-circle fa-fw"></i></span>
-                <input type="text" name="name" class="{{#if errors.name}} is-invalid{{/if}}"  placeholder="Username"  value="{{user.name}}"  aria-label="Username" >
-                {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}
+                <input type="text" name="name" class="form-control {{#if errors.password}} is-invalid" {{/if}}  placeholder="Username"  value="{{user.name}}"  aria-label="Username" >
+               
             </div>
             <div class="input-group mb-1">
                 <span class="input-group-text"><i class="fa fa-envelope fa-fw"></i></span>
-                <input type="email" name="email" class="{{#if errors.email}} is-invalid {{/if}}" placeholder="Email" aria-label="Email" value="{{user.email}}">
-                {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
+                <input type="email" name="email" class="form-control {{#if errors.password}} is-invalid" {{/if}} placeholder="Email" aria-label="Email" value="{{user.email}}">
+                
             </div>
             <div class="input-group mb-1">
                 <span class="input-group-text"><i class="fa fa-unlock-alt fa-fw"></i></span>
-                <input type="password" name="password" class="{{#if errors.password}} is-invalid {{/if}}" placeholder="Password" aria-label="Username" value="{{user.password}}">
-                {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
-            </div>
-            <div>
+                <input type="password" name="password" class="form-control {{#if errors.password}} is-invalid" {{/if}} placeholder="Password" aria-label="Username" value="{{user.password}}">
                 
             </div>
+            <div>
+             {{#if errors}}
+            <p class="btn-danger p-3 text-center">
+            {{#if errors.name}}{{ errors.name }}{{/if}}<br>
+            {{#if errors.email}}{{ errors.email }}{{/if}}<br>
+            {{#if errors.password}}{{ errors.password }}{{/if}}
+            </p>
+            {{/if}}
+            </div>
+            
             <button type="submit" title="Register with email">Register with email <i class="far fa-envelope"></i></button>
             <hr>
             You can also register with
             <div class="social">
-                <button type="submit" class="black" title="Log in with Gmail"><i class="fa fa-google"></i> </button>
-                <button type="submit" class="blue" title="Log in with Facebook"><i class="fa fa-facebook-f"></i> </button>
+                <a href="/authenticate/google" class="black" title="Log in with Gmail"><i class="fa fa-google"></i> </a>
+                <a href="#" class="blue" title="Log in with Facebook"><i class="fa fa-facebook-f"></i> </a>
             </div>
         </form>
     </div>
