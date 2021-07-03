@@ -57,4 +57,4 @@ hbs.registerHelper("dataLabels", function (options) {
   hbs.registerHelper("pronoms", function (options) {
     const { user } = options.hash;
     return genre[user.genre]?.pronom;
-  });
+});
