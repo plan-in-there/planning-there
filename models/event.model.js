@@ -62,11 +62,11 @@ const eventSchema = new Schema({
         max: 99
     },
     owner: {
-        type: String, //ref de quien crea el evento
+         type: Schema.Types.ObjectId, 
+         ref: "Owner"
+         
     },
-    guests: {
-        type: [String], // ofrecer otros planes si nadie va a su plan!
-    },
+  
     dressCode: {
         type: [{
             type: String,
@@ -77,6 +77,10 @@ const eventSchema = new Schema({
 }, {
     timestamps: true
 })
+
+
+
+
 
 const Event = mongoose.model('Event', eventSchema)
 

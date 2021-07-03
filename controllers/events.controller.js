@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const Event = require('../models/event.model')
+const User = require('../models/user.model')
+const Match = require('../models/match.model')
 const categoriesList = require('../data/categoriesList.json')
 const genreList = require('../data/genreList.json')
 const dressList = require('../data/dressList.json')

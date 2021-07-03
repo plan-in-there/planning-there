@@ -1,7 +1,7 @@
 
 <div class="container">
  {{#if edit}}
-    <form action="/events/{{event.id}}" method="post" enctype="multipart/form-data">
+    <form action="/events/{{event.id}}/edit" method="post" enctype="multipart/form-data">
 {{else}}
     <form id="test" action="/events/create" method="post" enctype="multipart/form-data">
 {{/if}}

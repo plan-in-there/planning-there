@@ -1,5 +1,8 @@
 <div class="container">
     <img src="{{event.image}}" alt="">
     <p> {{event.name}} {{event.description}} {{event.date}}  </p>
+    <form action="POST" method="/events/{{event.id}}">
+    <button type="submit">Like</button>
+    </form>
     <a href="/events"> Go back!</a>
 </div>
