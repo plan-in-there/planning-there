@@ -14,6 +14,7 @@
        
         <h2>I'm {{user.name}}</h2>
         {{/if}}
+        {{ pronoms user=currentUser }}
         <h2>{{currentUser.genre}}</h2>
         <h3>My interests are</h3>
         {{#each user.interests as |interest|}}

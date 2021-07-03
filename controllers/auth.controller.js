@@ -24,7 +24,12 @@ module.exports.doRegister = (req, res, next) => {
       } else {
         user = {name,email,password} = req.body
         return User.create(user)
-          .then(user => res.redirect('/user-profile/me/edit'))
+          .then(user => {
+            req.login(user, (error) => {
+              if (error) next(error);
+              else res.redirect('user-profile/me/edit');
+            });
+          })
       }
     })
     .catch(error => {

@@ -5,15 +5,15 @@
   <div id="profile">
     <div class="col-sm-4">
       
-      <img src="{{Currentuser.avatar}}" alt="{{Currentuser.name}}" />
+      <img src="{{user.avatar}}" alt="{{user.name}}" />
       <h5>Change your profile picture</h5>
-      <input type="file" name="avatar" value="{{Currentuser.avatar}}" />
+      <input type="file" name="avatar" value="{{user.avatar}}" />
     </div>
     <div class="col-sm-8 m-5">
          <div>
     <div class="col-md-6">
       <label for="inputEmail4"> Name</label>
-      <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Name" value="{{Currentuser.name}}">
+      <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Name" value="{{user.name}}">
     </div>
     <div class="col-md-6">
       <label for="inputPassword4" > Password </label>
@@ -31,9 +31,20 @@
       <label for="inputState" > Genre </label>
       <select id="inputState" name="genre" class="form-select">
         {{#each genre as |gender|}}
-        <option value={{gender}}>{{dataLabels id=gender selector='text' }}</option>
+        <option value={{gender}}  data-img-src="{{dataLabels id=gender selector='text' }}" ><img src="{{dataLabels id=gender selector='text' }}" /></option>
+
+        {{!-- <option value={{gender}}>{{dataLabels id=gender selector='text' }}</option> --}}
         {{/each}}
       </select>
+
+      <select id="inputState" name="genre" class="form-select">
+       
+        <option value="museum"  data-img-src="/img/icons/museum.png"></option>
+
+    
+      </select>
+
+
     </div>
     </div>
 

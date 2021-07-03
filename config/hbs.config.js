@@ -1,8 +1,7 @@
 const hbs = require('hbs');
-const genre = require('../data/genre.json')
-
+const moment = require('moment')
 hbs.registerPartials(__dirname + '/../views/partials')
-
+​
 hbs.registerHelper('eventHasCategory', function(options) {
     const {keyWord, key, event} = options.hash
     if (keyWord === 'category') {
@@ -27,7 +26,7 @@ hbs.registerHelper('eventHasCategory', function(options) {
         }
     }      
 })
-
+​
 hbs.registerHelper('planIsOwnedBy', function (options) {
     const {user, plan} = options.hash;
     if (user && (user.id === event.owner?.id || user.id === event.owner)) {
@@ -36,7 +35,7 @@ hbs.registerHelper('planIsOwnedBy', function (options) {
         return options.inverse(this);
     }
 })
-
+​
 hbs.registerHelper('eventUserCategories', function (options) {
     const { event, user, category } = options.hash;
     if (event || user?.includes(category)) {
@@ -45,11 +44,19 @@ hbs.registerHelper('eventUserCategories', function (options) {
         return options.inverse(this)
     }
 })
-
-hbs.registerHelper('date') //moment 
-
-hbs.registerHelper('dataLabels', function(options) {
-    const {id, selector} = options.hash;
-    return genre[id][selector]
+​
+hbs.registerHelper('dateFormatter', function (options) {
+    const { date } = options.hash
+    return  moment(date).format('YYYY-MM-DD')
 })
-
+​
+hbs.registerHelper("dataLabels", function (options) {
+    const { id, selector } = options.hash;
+    return genre[id][selector];
+  })
+​
+  
+  hbs.registerHelper("pronoms", function (options) {
+    const { user } = options.hash;
+    return genre[user.genre]?.pronom;
+  });
