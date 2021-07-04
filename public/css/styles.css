@@ -348,6 +348,10 @@ button:hover, .social a:hover {
     width: 100%;
 }
 
+#profile img {
+    width: 100%;
+    max-width: 300px;
+}
 fieldset {
     display: flex;
     flex-direction: row;

@@ -7,7 +7,7 @@
   enctype="multipart/form-data"
 >
   <div id="profile">
-    <div class="col-sm-4">
+    <div class="col-sm-4 mr-5">
       <img src="{{user.avatar}}" alt="{{user.name}}" />
       <h5>Change your profile picture</h5>
       <input type="file" name="avatar" value="{{user.avatar}}" />
@@ -41,7 +41,9 @@
       </div>
       <div class="col-md-8 mb-2">
         <h3>Say something about you</h3>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="about"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="about">
+          {{user.about}}
+        </textarea>
       </div>
        <div class="col-md-8 mb-2">
       <h3>Interests</h3>
