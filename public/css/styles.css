@@ -97,21 +97,28 @@ body {
     text-align: center;
   }
 
-input {
-    border: solid thin #fff;
+.form-control, input {
     background-color: transparent;
-    color: #fff;
+    border: solid thin #a6f7cc;
     border-radius: 3px;
-    padding: 1%;
-    width: 80%;
+    padding: 10px;
+    width: 100%;
 }
 
-.input-group-text{
+.home-in input {
+    border: solid thin #fff;
+    color: #fff;
+    width: 60% !important;
+    max-width: 700px;
+    
+}
+
+.home-in .input-group-text{
     background-color: transparent;
     color: #fff;
 }
 
-input::placeholder {
+.home-in input::placeholder {
     color: #fff;
 }
 
@@ -135,25 +142,31 @@ button {
     background-color: darkslateblue;
 }
 
-input:-internal-autofill-selected {
+.home-in input:-internal-autofill-selected {
     background-color: transparent !important
 }
 
 h1 {
-    color:#fff;
     margin-bottom: 0;
     padding-bottom: 0;
     text-align: center;
     font-size: 5rem;
     font-family: 'reem_kufiregular';
-    
+    color: #f50c70
+}
+
+.home-in h1 {
+    color:#fff;  
 }
 
 h2 {
-    color: #fff;
+    color:#ccc;
     font-size: 2rem;
-    font-family: 'reem_kufiregular';
-    
+    font-family: 'reem_kufiregular';    
+}
+
+.home-in h2 {
+    color: #fff;
 }
 
 h3 {
@@ -179,12 +192,12 @@ header img {
  
 }
 
-.form-control {
+.home-in .form-control {
     background-color: transparent !important;
     color: #fff
 }
 
-.form-control input::placeholder {
+.home-in .form-control input::placeholder {
     color: #fff;
 }
 
@@ -195,6 +208,11 @@ main {
     align-content: center;
     justify-content: center;
     text-align: center;  
+    background-color: #fff;
+}
+
+.home-in  {
+    background-color: transparent !important;
 }
 
 nav {
@@ -334,6 +352,8 @@ fieldset {
     display: flex;
     flex-direction: row;
     margin: 2% 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
     
 }
 
@@ -341,17 +361,17 @@ fieldset img{
     max-width: 100px;
 }
 
-.input-category {
+/* .input-category {
     visibility: hidden;
     position: absolute;
   }
-
+ */
 fieldset i {
     background: -webkit-linear-gradient(#f61816, #f50c70);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 100px;
+    font-size: 60px;
     padding: 10px;
 }
 
@@ -359,4 +379,63 @@ fieldset label {
     min-width: 120px;
     max-width: 120px;
     background-color: #fff;
+}
+
+.form {
+    text-align: left;
+}
+
+.custom-select {
+    position: relative;
+
+}
+  
+.custom-select select {
+    display: none; 
+}
+
+.select-selected {
+    background-color: #17F781;
+}
+
+.select-selected:after {
+    position: absolute;
+    content: "ˬ";
+    color: #fff;
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+.select-items div,.select-selected {
+    color: #fff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+}
+
+.select-items {
+    position: absolute;
+    background-color: #17F781;;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgba(245, 12, 112, 1);
 }

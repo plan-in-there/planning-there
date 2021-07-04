@@ -1,4 +1,4 @@
-<h1>Hi {{user.name}}</h1>
+<div class="container"><h1>Hi {{user.name}}</h1>
 <h2>Please, edit your profile</h2>
 
 <form
@@ -8,50 +8,55 @@
 >
   <div id="profile">
     <div class="col-sm-4">
-
       <img src="{{user.avatar}}" alt="{{user.name}}" />
       <h5>Change your profile picture</h5>
       <input type="file" name="avatar" value="{{user.avatar}}" />
     </div>
-    <div class="col-sm-8 m-5">
+    <div class="col-sm-8 m-5 form">
       <div>
-        <div class="col-md-6">
-          <label for="inputEmail4"> Name</label>
-          <input type="text" name="name" class="form-control" id="inputEmail4"  placeholder="Name" value="{{user.name}}" />
+        <div class="col-md-8 mb-2">
+          <h3>Name</h3>
+          <input type="text" name="name"  id="inputEmail4"  placeholder="Name" value="{{user.name}}" />
         </div>
-        <div class="col-md-6">
-          <label for="inputPassword4"> Password </label>
-          <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Change your password" />
+        <div class="col-md-8 mb-2">
+          <h3>Password</h3>
+          <input type="password" name="password" id="inputPassword4" placeholder="Change your password" />
         </div>
-        <div class="col-md-6">
-          <label for="inputCity"> City </label>
-          <input type="text" name="city" class="form-control" id="inputCity" placeholder="Your resident city" value="{{user.city}}" />
+        <div class="col-md-8 mb-2">
+          <h3> City </h3>
+          <input type="text" name="city"  id="inputCity" placeholder="Your resident city" value="{{user.city}}" />
         </div>
-        <div class="col-md-6">
-          <label for="inputCity"> Birth Date </label>
+        <div class="col-md-8 mb-2">
+          <h3> Birth Date </h3>
           <input type="date" name="age" value="{{user.age}}" />
         </div>
-        <div class="col-md-4">
-          <label for="inputState"> Genre </label>
+        <div class="col-md-8 mb-2 custom-select">
+          <h3> Genre </h3>
           <select id="inputState" name="genre" class="form-select">
             {{#each genre as |gender|}}
-              <option value={{gender}}>{{ dataLabels id=gender selector="text" }}</option>
+              <option  value={{gender}}>{{ dataLabels id=gender selector="text" }}</option>
             {{/each}}
           </select>
         </div>
       </div>
- 
-
-      <fieldset>
+      <div class="col-md-8 mb-2">
+        <h3>Say something about you</h3>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="about"></textarea>
+      </div>
+       <div class="col-md-8 mb-2">
+      <h3>Interests</h3>
+      <fieldset class="d-flex align-content-center flex-wrap">
       {{#each categories as |category|}}
-        <input type="checkbox" name="category" class="icons-form" id="male" value="{{category}}" class="input-category sm-3">
+        <div class="sm-3 m-2">
+        <input type="checkbox" name="interests" class="icons-form" id={{category}} value="{{category}}" >
         <label for="{{category}}">
          <h2> <i class="{{ categoryLabel id=category selector='icon' }}"></i></h2>
+         <h5> {{ categoryLabel id=category selector='text' }} </h5>
         </label>
+        </div>
       {{/each}}
       </fieldset>
-
-
+      </div>
       <div class="col-12">
         <button type="submit" class="btn btn-primary">Send</button>
       </div>
@@ -59,3 +64,4 @@
 
   </div>
 </form>
+</div>

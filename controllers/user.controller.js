@@ -7,6 +7,8 @@ module.exports.userProfile = (req, res, next) => {
   User.findById(req.params.id).then((user) => {
     res.render('user/profile', {
       user,
+      title: `${user.name}'s profile`,
+      description: `This is ${user.name} personal profile in Plan-in-there.`
     });
   });
 };
@@ -15,7 +17,9 @@ module.exports.userProfileEdit = (req, res, next) => {
   res.render('user/edit', {
     user: req.user,
     categories,
-    genre
+    genre,
+    title: 'Edit your profile',
+    description: 'Edit your profile'
   });
 };
 

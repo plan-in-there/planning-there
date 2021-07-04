@@ -7,12 +7,12 @@
     },
     "Live-music" : {
         "text" : "Live-music",
-        "icon" : "fas fa-adjust"
+        "icon" : "fas fa-microphone-alt"
 
     },
     "Night-life": {
         "text" : "Night-life",
-        "icon" : "fas fa-microphone-alt"
+        "icon" : "far fa-star"
     },
     "Beers/drinking": {
         "text" : "Beers/drinking",

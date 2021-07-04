@@ -68,3 +68,8 @@ hbs.registerHelper('categoryLabel', function(options) {
     const { id, selector } = options.hash;
     return categories[id][selector];
 });
+
+hbs.registerHelper('icons', function (options) {
+    const { user } = options.hash;
+    return categories[user.categories]?.icon;
+});

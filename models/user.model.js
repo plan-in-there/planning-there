@@ -63,6 +63,9 @@ const userSchema = new Schema({
         type: String,
         //required: 'city is required!'
     },
+    about: {
+        type: String,
+    },
     local: {
         type: Boolean,
         default: false,
