@@ -1,6 +1,11 @@
 const hbs = require('hbs');
 const moment = require('moment')
+const genre = require('../data/genre.json')
+const categories = require('../data/categories.json');
+
 hbs.registerPartials(__dirname + '/../views/partials')
+
+
 hbs.registerHelper('eventHasCategory', function(options) {
     const {keyWord, key, event} = options.hash
     if (keyWord === 'category') {
@@ -49,12 +54,17 @@ hbs.registerHelper('dateFormatter', function (options) {
     return  moment(date).format('YYYY-MM-DD')
 })
 
-hbs.registerHelper("dataLabels", function (options) {
+hbs.registerHelper('dataLabels', function (options) {
     const { id, selector } = options.hash;
     return genre[id][selector];
-  })
+})
 
-  hbs.registerHelper("pronoms", function (options) {
+hbs.registerHelper('pronoms', function (options) {
     const { user } = options.hash;
     return genre[user.genre]?.pronom;
+});
+
+hbs.registerHelper('categoryLabel', function(options) {
+    const { id, selector } = options.hash;
+    return categories[id][selector];
 });

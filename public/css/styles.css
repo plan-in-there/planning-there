@@ -91,7 +91,6 @@
 }
 
 body {
-    padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     background-color: #f61816; 
     background: linear-gradient(180deg, #f61816 0%, #f50c70 100%);
@@ -161,7 +160,6 @@ h3 {
     font-family: 'quicksandlight'
 }
 
-
 .container {
     width: 100%;
     align-items: center;
@@ -183,10 +181,10 @@ header img {
 
 .form-control {
     background-color: transparent !important;
-    color: #f50c70
+    color: #fff
 }
 
-.form-contro input::placeholder {
+.form-control input::placeholder {
     color: #fff;
 }
 
@@ -196,12 +194,21 @@ main {
     align-items: center;
     align-content: center;
     justify-content: center;
-    text-align: center;
-  
+    text-align: center;  
 }
 
 nav {
-    font-family: 'quicksandbold'
+    font-family: 'quicksandbold';
+    padding: 50px 50px 0 50px;  
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #f61816; 
+    background: linear-gradient(90deg, #f61816 0%, #f50c70 100%);
+    text-align: center; 
+}
+
+.home-nav {
+    background-color: transparent !important;
+    background: none !important
 }
 
 .home {
@@ -211,8 +218,6 @@ nav {
     justify-content: center;
     align-content: center;
     align-items: center;
-
-
 }
 
 .home img {
@@ -271,11 +276,12 @@ button:hover, .social a:hover {
 }
 
 .user-nav {
-    background-color: #17F781 ;
+    background-color: #17F781 !important ;
     display: flex;
     flex-direction: column;
     text-align: left;
     width: 20%;
+    background: none;
 }
 
 .user-nav ul {
@@ -322,4 +328,35 @@ button:hover, .social a:hover {
 
 #profile input {
     width: 100%;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: row;
+    margin: 2% 0;
+    
+}
+
+fieldset img{
+    max-width: 100px;
+}
+
+.input-category {
+    visibility: hidden;
+    position: absolute;
+  }
+
+fieldset i {
+    background: -webkit-linear-gradient(#f61816, #f50c70);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 100px;
+    padding: 10px;
+}
+
+fieldset label {
+    min-width: 120px;
+    max-width: 120px;
+    background-color: #fff;
 }

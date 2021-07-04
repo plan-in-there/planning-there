@@ -3,14 +3,21 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 
 module.exports.register = (req, res, next) => {
-  res.render('auth/register')
+  res.render('auth/register', {
+    layout: 'layout-principle.hbs',
+    title: 'Register today and start connecting',
+    description: 'Register now and start meeting new friends and awesome plans',
+  })
 }
 
 module.exports.doRegister = (req, res, next) => {
   function renderWithErrors(errors) {
     res.render('auth/register', {
       user: req.body,
-      errors: errors
+      errors: errors,
+      layout: 'layout-principle.hbs',
+      title: 'Register today and start connecting',
+      description: 'Register now and start meeting new friends and awesome plans',
     })
   }
   User.findOne({
@@ -42,7 +49,11 @@ module.exports.doRegister = (req, res, next) => {
 }
 
 module.exports.login = (req, res, next) => {
-  res.render('auth/login')
+  res.render('auth/login',  {
+    layout: 'layout-principle.hbs',
+    title: 'Login in plan in there. We miss you!',
+    description: 'Login for new friends and awesome plans',
+  })
 }
 
 module.exports.doLogin = (req, res, next) => {
@@ -52,6 +63,9 @@ module.exports.doLogin = (req, res, next) => {
     } else if (!user) {
       res.status(400).render('auth/login', { 
         user: req.body,
+        layout: 'layout-principle.hbs',
+        title: 'Login in plan in there. We miss you!',
+        description: 'Login for new friends and awesome plans',
         errors: {
           email: 'Invalid mail or password',
           password: 'Invalid mail or password',

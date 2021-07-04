@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const categoriesList = require('../data/categoriesList.json')
+const categories = require('../data/categories.json')
 const genre = require('../data/genre.json')
 
 
@@ -44,7 +44,7 @@ const userSchema = new Schema({
     interests: {
         type: [{
             type: String,
-            enum: categoriesList
+            enum: Object.keys(categories)
         }],
         required: 'interests are required!',
         min: 3,
