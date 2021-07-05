@@ -1,4 +1,4 @@
-<div class="container">
+{{!-- <div class="container">
     
     <div class="card" style="width: 18rem;">
         {{#each events as | event|}}
@@ -13,4 +13,27 @@
     </div>
     {{/each}}
     </div>
+</div> --}}
+
+<div class="container">
+    <div class="card" style="width: 18rem;">
+        {{#each events as | event|}}
+        <h3>{{event.name}}</h3>
+        <img src="{{event.image}}" class="card-img-top" alt="{{event.name}}">
+        <h4><i class="fa fa-calendar-day fa-fw"></i>{{dateFormatter date=event.date}} | <i class="fas fa-map-marker-alt fa-fw"></i>{{event.city}} </h4>
+        <p>{{event.description}}</p>
+        <a href="/events/{{event.id}}" class="btn btn-primary">Detail</a>
+        <h5>Owner by {{event.name}}</h5>
+        <form method="POST" action="/events/match/{{event.id}}">
+         <button type="submit">Like</button>
+         </form>
+        {{/each}}
+    </div>
 </div>
+
+{{!-- <h3>Title</h3>
+    <div><img></img></div>
+    <h4>icono {{data}} | icono location</h4>
+    <p>lorem ipsum</p>
+    <h5>Owner by</h5>
+    <a href=""></a> --}}
