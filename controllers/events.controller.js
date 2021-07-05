@@ -43,12 +43,15 @@ module.exports.doCreate = (req, res, next) => {
 }
 
 module.exports.list = (req, res, next) => {
-    const searchValue = req.query.search_input
+    const searchValue = req.query.filterCategory
     if (searchValue == undefined) {
         Event.find()
             .then(events => {
                 res.render('events/list', {
-                    events
+                    events,
+                    categoriesList,
+                    genreList,
+                    dressList
                 })
             })
             .catch(next)
@@ -56,7 +59,10 @@ module.exports.list = (req, res, next) => {
         Event.find({category: { $in: [searchValue]}})
             .then(events => {
                 res.render('events/list', {
-                    events
+                    events,
+                    categoriesList,
+                    genreList,
+                    dressList
                 })
             })
             .catch(next)

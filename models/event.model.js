@@ -58,7 +58,7 @@ const eventSchema = new Schema({
     age: {
         type: Number,
         required: 'age is required!',
-        min: 16,
+        min: 16, //como poner desde hasta en el form para luego filtrar por edad!!
         max: 99
     },
     owner: {

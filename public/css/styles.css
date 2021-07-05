@@ -446,3 +446,8 @@ fieldset label {
 .select-items div:hover, .same-as-selected {
     background-color: rgba(245, 12, 112, 1);
 }
+
+.card h3{
+    background-color: #F50C70;
+    color: #fff;
+}

@@ -1,0 +1,8 @@
+<form  method="get">
+    <select  name="filterCategory" id="">
+          {{#each categoriesList as |category|}}
+            <option  value="{{category}}">{{category}}</option>
+            {{/each}}
+    </select>
+    <button type="submit">Filter</button>
+</form>
