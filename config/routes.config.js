@@ -18,6 +18,7 @@ router.get('/authenticate/google', secure.isNotAuthenticated,  auth.loginWithGoo
 router.get('/authenticate/google/cb', auth.doLoginWithGoogle);
 
 router.get('/', commons.home)
+router.get('/privacy-terms', commons.privacyTerms)
 
 router.get('/user-profile/me/edit', secure.isAuthenticated, user.userProfileEdit)
 router.post('/user-profile/me/edit', secure.isAuthenticated, upload.single('avatar'), user.userProfileDoEdit)

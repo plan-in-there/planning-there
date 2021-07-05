@@ -10,6 +10,13 @@ module.exports.home = (req, res, next) => {
   });
 };
 
+module.exports.privacyTerms = (req, res, next) => {
+  res.render('common/privacy-terms', {
+    title: 'Privacy terms',
+    description: 'Plan-in-there privacy terms. We secure your dates!'
+  })
+}
+
 /* module.exports.search = (req, res, next) => {
 
   Event.find({category: { $in: [Museums, Live-music, Night-life, Beers/drinking, Nature, Queer, Foodie, Dance]}})
