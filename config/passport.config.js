@@ -87,3 +87,31 @@ passport.use(
     },
   ),
 );
+
+/* passport.use(
+  'facebook-auth',
+  new FacebookStrategy(
+    {
+      clientID: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      callbackURL: process.env.FACEBOOK_CALLBACK_URL || '/authenticate/facebook/cb',
+      profileFields: ["email", "name", "avatar"]
+    },
+    function(accessToken, refreshToken, profile, done) {
+      const facebookId = profile.id
+      const { email, first_name, last_name } = profile._json;
+      const userData = {
+        email,
+        name: first_name,
+        avatar: profile.photos[0].value,
+        password: mongoose.Types.ObjectId(),
+          social: {
+            facebook: facebookId,
+          },
+
+      };
+      new User(userData).save();
+      done(null, profile);
+    }
+  )
+); */

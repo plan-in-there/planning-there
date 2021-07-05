@@ -113,6 +113,32 @@ module.exports.doLoginWithGoogle = (req, res, next) => {
   passportController(req, res, next);
 };
 
+module.exports.loginWithFacebook = (req, res, next) => {
+  const passportController = passport.authenticate('google-auth', {
+    scope: ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile'],
+  });
+
+  passportController(req, res, next);
+};
+
+module.exports.doLoginWithFacebook = (req, res, next) => {
+  const passportController = passport.authenticate('facebook-auth', (error, user, validations) => {
+    if (error) {
+      next(error);
+    } else if (!user) {
+      res.status(400).render('users/login', { user: req.body, errors: validations });
+    } else {
+      req.login(user, (error) => {
+        if (error) next(error);
+        else res.redirect('/user-profile/me/edit');
+      });
+    }
+  });
+
+  passportController(req, res, next);
+};
+
+
 module.exports.logout = (req, res, next) => {
   req.session.destroy();
   res.redirect('/login');

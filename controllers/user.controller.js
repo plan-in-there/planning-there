@@ -1,4 +1,6 @@
 const User = require('../models/user.model');
+const Match = require('../models/match.model');
+const Event = require('../models/event.model');
 const mongoose = require("mongoose");
 const categories = Object.keys(require('../data/categories.json'));
 const genre = Object.keys(require('../data/genre.json'));
@@ -50,3 +52,33 @@ module.exports.userProfileDoEdit = (req, res, next) => {
       }
     });
 };
+
+module.exports.userEvents = (req, res, next) => {
+ 
+  Event.find({owner: req.user.id})
+    .then(events => {
+      res.render('user/userevents', {
+        events,
+        title: 'This are your events'
+      })
+    })
+    .catch(next)
+
+}
+
+module.exports.matchedEvents = (req, res, next) => {
+ Match.find({userId : req.user.id})
+      .sort({date: 1})
+      .populate({
+        path: 'matchedEvents',
+        populate:{
+            path: 'eventId'
+        }
+      })  
+     .then(events => {
+      return res.render('user/userevents', {
+        events
+      })
+    })
+    .catch(next)
+}

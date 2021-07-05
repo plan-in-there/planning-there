@@ -77,6 +77,9 @@ const userSchema = new Schema({
         google: {
           type: String,
         },
+        facebook: {
+            type: String,
+          },
       }
 })
 
@@ -98,6 +101,21 @@ userSchema.methods.checkPassword = function (passwordToCheck){
 
         return bcrypt.compare(passwordToCheck, this.password)
 }
+
+userSchema.virtual('createdEvents', {
+    ref: 'Match',
+    localField: '_id',
+    foreignField: 'userId',
+    justOne: false
+  });
+
+userSchema.virtual('matchedEvents', {
+    ref: 'Match',
+    localField: '_id',
+    foreignField: 'userId',
+    justOne: false
+});
+
 
 const User = mongoose.model('User', userSchema)
 

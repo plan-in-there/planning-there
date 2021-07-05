@@ -1,0 +1,15 @@
+<h1>Welcome to your events page</h1>
+<h3>Matched evets</h3>
+<ul>
+   <li></li>
+</ul>
+<h3>Proposed events</h3>
+<ul>
+ {{#each events as |event|}}
+    <li>{{event.eventId}}</li>
+    {{/each}}
+</ul>
+
+{{#each event.matches as | match|}}
+            {{match.userId.name}}
+        {{/each}}
