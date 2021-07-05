@@ -41,15 +41,28 @@ module.exports.doCreate = (req, res, next) => {
             }
         })
 }
+
 module.exports.list = (req, res, next) => {
-    Event.find(req.query)
-        .then(events => {
-            res.render('events/list', {
-                events
+    const searchValue = req.query.search_input
+    if (searchValue == undefined) {
+        Event.find()
+            .then(events => {
+                res.render('events/list', {
+                    events
+                })
             })
-        })
-        .catch(next)
+            .catch(next)
+    } else {
+        Event.find({category: { $in: [searchValue]}})
+            .then(events => {
+                res.render('events/list', {
+                    events
+                })
+            })
+            .catch(next)
+    }
 }
+
 
 module.exports.edit = (req, res, next) => {
     Event.findByIdAndUpdate(req.params.id)
