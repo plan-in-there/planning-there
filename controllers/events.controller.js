@@ -15,7 +15,6 @@ module.exports.create = (req, res, next) => {
 }
 //owner: req.user.id
 module.exports.doCreate = (req, res, next) => {
-    
     myEvent = { name, date, description, city, genre, category, age, dressCode, image,} = req.body
     myEvent.owner = req.user.id
     if (!req.file) {
@@ -45,7 +44,10 @@ module.exports.list = (req, res, next) => {
     const searchValue = req.query.filterCategory
     if (searchValue == undefined) {
         Event.find()
+            .sort({dattimestampse: 1})
+            .populate('owner')
             .then(events => {
+          
                 res.render('events/list', {
                     events,
                     categoriesList,
@@ -56,6 +58,7 @@ module.exports.list = (req, res, next) => {
             .catch(next)
     } else {
         Event.find({category: { $in: [searchValue]}})
+            .populate('owner')
             .then(events => {
                 res.render('events/list', {
                     events,

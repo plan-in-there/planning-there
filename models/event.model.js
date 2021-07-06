@@ -75,7 +75,7 @@ const eventSchema = new Schema({
     },
     owner: {
          type: Schema.Types.ObjectId, 
-         ref: "Owner"
+         ref: "User"
          
     },
     dressCode: {
