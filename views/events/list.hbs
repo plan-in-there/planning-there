@@ -15,9 +15,9 @@
     </div>
 </div> --}}
 
-<div class="container card-list">
-    <div class="card" style="width: 18rem;">
+<div class="container" id="event-list">
         {{#each events as | event|}}
+    <div class="card">
         <h3>{{event.name}}</h3>
         <img src="{{event.image}}" class="card-img-top" alt="{{event.name}}">
         <div class="jeje">
@@ -25,11 +25,11 @@
         </div>
         <p>{{event.description}}</p>
         <a href="/events/{{event.id}}" class="btn btn-primary">DETAIL</a>
-        <h5>Owner by {{event.name}}</h5>
+        <h5>Owner by {{event.owner.name}}</h5>
         <form method="POST" action="/events/match/{{event.id}}">
          <button type="submit"><i class="far fa-heart fa-fw"></i>Like</button>
          </form>
-        {{/each}}
     </div>
+        {{/each}}
 </div>
 

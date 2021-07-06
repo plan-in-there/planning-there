@@ -479,4 +479,25 @@ fieldset h5 {
     display: block;
     width: 100%;
     text-align: center;
+
+}
+
+#event-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+#event-list img {
+    width: 100%;
+    max-width: 300px;
+    min-width: 100px;
+}
+#event-list > div {
+    width: 30%;
+    margin: 2%;
+    padding: 0%;
+    box-sizing: border-box;
 }

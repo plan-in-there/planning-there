@@ -30,8 +30,28 @@
         "text" : "Foodie",
         "icon" : "fas fa-pizza-slice"
     },
-    "Dance" : {
-        "text" : "Dance",
-        "icon" : "fas fa-music"
+    "Extreme-Sports" : {
+        "text" : "Extreme-Sports",
+        "icon" : "fas fa-hand-middle-finger"
+    },
+    "Beach" : {
+        "text" : "Beach",
+        "icon" : "fas fa-hand-middle-finger"
+    },
+    "Swimming-Pool" : {
+        "text" : "Swimming-Pool",
+        "icon" : "fas fa-hand-middle-finger"
+    },
+    "Amusement-Park" : {
+        "text" : "Amusement-Park",
+        "icon" : "fas fa-hand-middle-finger"
+    },
+    "Interrail" : {
+        "text" : "Interrail",
+        "icon" : "fas fa-hand-middle-finger"
+    },
+    "Races" : {
+        "text" : "Races",
+        "icon" : "fas fa-hand-middle-finger"
     }
 }
