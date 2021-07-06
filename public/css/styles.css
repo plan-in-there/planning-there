@@ -232,6 +232,15 @@ nav {
     background: none !important
 }
 
+.search-nav {
+    background-color: transparent !important;
+    background: none !important;
+    margin-top: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .home {
     width: 100%;
     display: flex;
@@ -477,4 +486,9 @@ fieldset label {
 
 .btn-primary {
     background-color: #F50C70;
+}
+
+.drawings img{
+    padding-right: 40px !important;
+   
 }

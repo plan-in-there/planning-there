@@ -8,79 +8,84 @@
     <form id="test" action="/events/create" method="post" enctype="multipart/form-data">
 {{/if}}
 
-<div class="container">
-<div class="row justify-content-center">
-    <div class="col cl-sm-3 form">
-            <h3>Event name</h3>
-            <div class="input-group mb-4">
-                <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
-                <input type="text" name="name" class="form-control  {{#if errors.name}} is-invalid {{/if}}"   placeholder="Write the event's name" aria-label="Username" value="{{event.name}}" >
-                {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}
-            </div>
-            <h3>Event Date</h3>
-            <div class="input-group mb-4">
-                <span class="input-group-text"><i class="fa fa-calendar-day fa-fw"></i></span>
-                <input type="date" name="date" class="form-control  {{#if errors.date}} is-invalid {{/if}}"   aria-label="Date"  placeholder="Write the event's date" value="{{dateFormatter date=event.date}}">
-                {{#if errors.date}}<div class="invalid-feedback">{{ errors.date }}</div>{{/if}}
-            </div>
-            <h3>Event description</h3>
-            <div class="form-floating">
-                <textarea name="description" class="form-control mb-2 {{#if errors.password}} is-invalid {{/if}}" placeholder="Leave a comment here" value="{{event.description}}" style="height: 100px">{{event.description}}</textarea>
-                <label for="floatingTextarea2">Type your description</label>
-                {{#if errors.description}}<div class="invalid-feedback">{{ errors.description }}</div>{{/if}}
-            </div>
-            <h3>Are there some gender restriction for your event?</h3>
-             <div class="form-group mb-4 input-group-text">
-                <select name="genreRestrictions" value="{{genre}}"   aria-label="Dresscode">
-                    {{#each genreList as |genre |}}
-                    <option {{#eventHasCategory keyWord='genre' key=genre  event=../event}} selected {{/eventHasCategory}} value="{{genre}}">{{genre}}</option>
-                    {{/each}}                   
-                </select>
-            </div>
-            <h3>Wich category suit your event?</h3>
-            <div class="form-group mb-4 input-group-text">
-                <select multiple name="category"  aria-label="Dresscode">
-
-                    {{#each categoriesList as |category|}}
-                    <option {{#eventHasCategory keyWord='category' key=category  event=../event}} selected {{/eventHasCategory}} value="{{category}}">{{category}}</option>
-                    {{/each}}
-                </select>
-            </div>
-            <h3>Upload an image for your event</h3>
-            <div class="input-group mb-4">
-              <img src="{{event.image}}" alt="{{event.image}}" />
-             <input type="file" name="image" value="{{event.image}}" />
-            </div>
-            <h3>In which city is taking place your event?</h3>
-            <div class="input-group mb-4">
-                <span class="input-group-text"><i class="fa fa-map-marker-alt fa-fw"></i></span>
-                <input type="text" name="city" class="form-control  {{#if errors.city}} is-invalid {{/if}}"   aria-label="city" value="{{event.city}}" placeholder="Write your city">
-                {{#if errors.city}}<div class="invalid-feedback">{{ errors.city }}</div>{{/if}}
-            </div>
-            <h3>There is any age restriction for your event? </h3>
-            <div class="input-group mb-4">
-                <span class="input-group-text"><i class="fas fa-fire-alt fa-fw"></i></span>
-                <input type="text" name="age" class="form-control  {{#if errors.age}} is-invalid {{/if}}"   aria-label="age" value="{{event.age}}" placeholder="Write your age">
-                {{#if errors.age}}<div class="invalid-feedback">{{ errors.age }}</div>{{/if}}
-            </div>
-            <h3>There is some dresscode for your event?</h3>
-            <div class="form-group mb-4 input-group-text">
-                <select name="dressCode"  aria-label="Dresscode">
-                    {{#each dressList as |dressList|}}
-                    <option {{#eventHasCategory keyWord='dressList' key=dressList  event=../event}} selected {{/eventHasCategory}} value="{{dressList}}">{{dressList}}</option>
-                    {{/each}}
-                </select>
-            </div>
-            <h3>Owner's Event</h3>
-           {{!--  <div class="input-group mb-4">
-                <span class="input-group-text"><i class="fas fa-hand-middle-finger fa-fw"></i></span>
-                <input type="text" name="owner" class="form-control  {{#if errors.owner}} is-invalid {{/if}}"   placeholder="Write the event's owner" aria-label="Owner" value="{{event.owner}}" >
-                {{#if errors.owner}}<div class="invalid-feedback">{{ errors.owner }}</div>{{/if}}
-            </div> --}}
-
-            <button type="submit">Create your event!</button>
+<div class="d-flex flex-row mt-5" >
+    <div class="drawings">
+        <img src="/img/events.png" alt="Create your event" />
     </div>
-</div>
+    <div class="container">
+    <div class="row justify-content-center">
+        <div class="col cl-sm-3 form">
+                <h3>Event name</h3>
+                <div class="input-group mb-4">
+                    <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
+                    <input type="text" name="name" class="form-control  {{#if errors.name}} is-invalid {{/if}}"   placeholder="Write the event's name" aria-label="Username" value="{{event.name}}" >
+                    {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}
+                </div>
+                <h3>Event Date</h3>
+                <div class="input-group mb-4">
+                    <span class="input-group-text"><i class="fa fa-calendar-day fa-fw"></i></span>
+                    <input type="date" name="date" class="form-control  {{#if errors.date}} is-invalid {{/if}}"   aria-label="Date"  placeholder="Write the event's date" value="{{dateFormatter date=event.date}}">
+                    {{#if errors.date}}<div class="invalid-feedback">{{ errors.date }}</div>{{/if}}
+                </div>
+                <h3>Event description</h3>
+                <div class="form-floating">
+                    <textarea name="description" class="form-control mb-2 {{#if errors.password}} is-invalid {{/if}}" placeholder="Leave a comment here" value="{{event.description}}" style="height: 100px">{{event.description}}</textarea>
+                    <label for="floatingTextarea2">Type your description</label>
+                    {{#if errors.description}}<div class="invalid-feedback">{{ errors.description }}</div>{{/if}}
+                </div>
+                <h3>Are there some gender restriction for your event?</h3>
+                <div class="form-group mb-4 input-group-text">
+                    <select name="genreRestrictions" value="{{genre}}"   aria-label="Dresscode">
+                        {{#each genreList as |genre |}}
+                        <option {{#eventHasCategory keyWord='genre' key=genre  event=../event}} selected {{/eventHasCategory}} value="{{genre}}">{{genre}}</option>
+                        {{/each}}                   
+                    </select>
+                </div>
+                <h3>Wich category suit your event?</h3>
+                <div class="form-group mb-4 input-group-text">
+                    <select multiple name="category"  aria-label="Dresscode">
+
+                        {{#each categoriesList as |category|}}
+                        <option {{#eventHasCategory keyWord='category' key=category  event=../event}} selected {{/eventHasCategory}} value="{{category}}">{{category}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <h3>Upload an image for your event</h3>
+                <div class="input-group mb-4">
+                <img src="{{event.image}}" alt="{{event.image}}" />
+                <input type="file" name="image" value="{{event.image}}" />
+                </div>
+                <h3>In which city is taking place your event?</h3>
+                <div class="input-group mb-4">
+                    <span class="input-group-text"><i class="fa fa-map-marker-alt fa-fw"></i></span>
+                    <input type="text" name="city" class="form-control  {{#if errors.city}} is-invalid {{/if}}"   aria-label="city" value="{{event.city}}" placeholder="Write your city">
+                    {{#if errors.city}}<div class="invalid-feedback">{{ errors.city }}</div>{{/if}}
+                </div>
+                <h3>There is any age restriction for your event? </h3>
+                <div class="input-group mb-4">
+                    <span class="input-group-text"><i class="fas fa-fire-alt fa-fw"></i></span>
+                    <input type="text" name="age" class="form-control  {{#if errors.age}} is-invalid {{/if}}"   aria-label="age" value="{{event.age}}" placeholder="Write your age">
+                    {{#if errors.age}}<div class="invalid-feedback">{{ errors.age }}</div>{{/if}}
+                </div>
+                <h3>There is some dresscode for your event?</h3>
+                <div class="form-group mb-4 input-group-text">
+                    <select name="dressCode"  aria-label="Dresscode">
+                        {{#each dressList as |dressList|}}
+                        <option {{#eventHasCategory keyWord='dressList' key=dressList  event=../event}} selected {{/eventHasCategory}} value="{{dressList}}">{{dressList}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <h3>Owner's Event</h3>
+            {{!--  <div class="input-group mb-4">
+                    <span class="input-group-text"><i class="fas fa-hand-middle-finger fa-fw"></i></span>
+                    <input type="text" name="owner" class="form-control  {{#if errors.owner}} is-invalid {{/if}}"   placeholder="Write the event's owner" aria-label="Owner" value="{{event.owner}}" >
+                    {{#if errors.owner}}<div class="invalid-feedback">{{ errors.owner }}</div>{{/if}}
+                </div> --}}
+
+                <button type="submit">Create your event!</button>
+        </div>
+    </div>
+    </div>
 </div>
 </form>
 </div>
