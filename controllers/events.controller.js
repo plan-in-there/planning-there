@@ -18,7 +18,7 @@ module.exports.doCreate = (req, res, next) => {
     owner = req.user.id
     
     myEvent = { name, date, description, city, genre, category, age, dressCode, image,} = req.body
-  
+    myEvent.owner = req.user.id
     if (!req.file) {
         delete req.body.image
     } else {

@@ -6,10 +6,10 @@
 <h3>Proposed events</h3>
 <ul>
  {{#each events as |event|}}
-    <li>{{event.eventId}}</li>
+    <li>{{event}}</li>
     {{/each}}
 </ul>
 
-{{#each event.matches as | match|}}
-            {{match.userId.name}}
+{{#each event.matchedEvents as | match|}}
+           <p> {{match.eventId.name}}</p>
         {{/each}}

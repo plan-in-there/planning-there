@@ -17,10 +17,12 @@
   <body>
     <header>
       {{>navbar home=false}} 
-       {{!-- {{>search}}
-       {{>filter}} --}}
-    </header>
+    </header>    
     <main class="p-5" >
+      <nav class="search-nav"> 
+      {{>search}}
+      {{>filter}}
+    </nav>
       <div class="container">
       {{{body}}}
       </div>

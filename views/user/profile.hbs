@@ -1,18 +1,11 @@
 
 <div id="profile">
-     {{#if currentUser}}
-    <nav class="user-nav">
-        <ul>
-            <li><a href="#">My plans</a></li>            
-            <li><a href="/events/create">Add an event</a></li>
-            <li><a href="#">Messages</a></li>
-        </ul>
-    </nav>  
+    {{#if currentUser}}
+    {{>userNav }}
     {{/if}}  
     
     <div>
-        <h1>Hi there{{#if currentUser}} {{currentUser.name}}! {{else}}, I'm {{user.name}}!</h1>{{/if}}
-        
+        <h1>Hi there{{#if currentUser}} {{currentUser.name}}! {{else}}, I'm {{user.name}}!</h1>{{/if}}        
         <h2> {{ pronoms user=user }}</h2>
         <h3>I'm from </h3>
         <p>{{user.city}}</p>
