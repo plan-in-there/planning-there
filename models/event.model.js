@@ -58,12 +58,12 @@ const eventSchema = new Schema({
                 return  "/img/categoriesList/Beach.jpeg"
             } else if (this.category.includes("Swimming-Pool")) {
                 return  "/img/categoriesList/Swimming-Pool.jpeg"
-            } else if (this.category.includes("Amusement-Park")) {
-                return  "/img/categoriesList/Amusement-Park.jpeg"
-            } else if (this.category.includes("Interrail")) {
-                return  "/img/categoriesList/Interrail.jpeg"
-            } else if (this.category.includes("Races")) {
+            }  else if (this.category.includes("Races")) {
                 return  "/img/categoriesList/Races.jpeg"
+            } else if (this.category.includes("Interrail")) {
+                return  "/img/categoriesList/interrail.png"
+            }  else if (this.category.includes("Amusement-Park")) {
+                return  "/img/categoriesList/Amusement-Park.jpeg"
             }
         } 
     },
