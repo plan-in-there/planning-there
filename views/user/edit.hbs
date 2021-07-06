@@ -49,12 +49,12 @@
       <h3>Interests</h3>
       <fieldset class="d-flex align-content-center flex-wrap">
       {{#each categories as |category|}}
-        <div class="sm-3 m-2">
-        <input type="checkbox" name="interests" class="icons-form" id={{category}} value="{{category}}" >
-        <label for="{{category}}">
-         <h2> <i class="{{ categoryLabel id=category selector='icon' }}"></i></h2>
-         <h5> {{ categoryLabel id=category selector='text' }} </h5>
-        </label>
+        <div class="sm-3 m-2 category-list">
+          <input type="checkbox" name="interests" class="icons-form checked-box" id={{category}} value="{{category}}" >
+          <label for="{{category}}" class="category-card category-icons">
+          <h2> <i class=" {{ categoryLabel id=category selector='icon' }}"></i></h2>
+          <h5> {{ categoryLabel id=category selector='text' }} </h5>
+          </label>
         </div>
       {{/each}}
       </fieldset>

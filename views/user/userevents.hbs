@@ -1,15 +1,16 @@
 <h1>Welcome to your events page</h1>
-<h3>Matched evets</h3>
-<ul>
-   <li></li>
-</ul>
-<h3>Proposed events</h3>
-<ul>
+<h3>Matched events</h3>
+<div>
  {{#each events as |event|}}
-    <li>{{event}}</li>
+ <div class="card">
+   <h3>{{event.name}}</h3>
+   <img src={{event.img}} alt={{event.name}} />
+   <p>{{event.description}}</p>
+   <a href="/events/{{event.id}}">Detail</a>
+ </div>  
     {{/each}}
-</ul>
+</div>
+<h3>Proposed events</h3>
+<div>
 
-{{#each event.matchedEvents as | match|}}
-           <p> {{match.eventId.name}}</p>
-        {{/each}}
+</div>

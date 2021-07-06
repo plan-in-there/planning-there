@@ -66,17 +66,15 @@ module.exports.userEvents = (req, res, next) => {
 
 }
 
-module.exports.matchedEvents = (req, res, next) => {
+module.exports.userEvents = (req, res, next) => {
  Match.find({userId : req.user.id})
       .sort({date: 1})
-      .populate(
-        'eventId'
-       )  
-     .then(events => {
-    
+      .populate('eventId')
+      .then(events => {    
       return res.render('user/userevents', {
-        events: events.map(x => x.eventId)
+        events: events.map(matchedEvents => matchedEvents.eventId)
       })
     })
     .catch(next)
 }
+

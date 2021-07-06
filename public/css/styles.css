@@ -353,7 +353,6 @@ button:hover, .social a:hover {
     border-radius: 3px;
     transition-duration: 0.4s;
     border: solid #fff thin
-
 }
 
 #profile input {
@@ -377,12 +376,7 @@ fieldset img{
     max-width: 100px;
 }
 
-/* .input-category {
-    visibility: hidden;
-    position: absolute;
-  }
- */
-fieldset i {
+.category-icons {
     background: -webkit-linear-gradient(#f61816, #f50c70);
     background-clip: text;
     -webkit-background-clip: text;
@@ -397,64 +391,17 @@ fieldset label {
     background-color: #fff;
 }
 
+
+fieldset h5 {
+    color: #17f781;
+    font-size: 1rem;
+    text-align: center;
+}
+
 .form {
     text-align: left;
 }
 
-.custom-select {
-    position: relative;
-
-}
-  
-.custom-select select {
-    display: none; 
-}
-
-.select-selected {
-    background-color: #17F781;
-}
-
-.select-selected:after {
-    position: absolute;
-    content: "ˬ";
-    color: #fff;
-    top: 14px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
-}
-
-.select-selected.select-arrow-active:after {
-    border-color: transparent transparent #fff transparent;
-    top: 7px;
-}
-
-.select-items div,.select-selected {
-    color: #fff;
-    padding: 8px 16px;
-    border: 1px solid transparent;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-    cursor: pointer;
-}
-
-.select-items {
-    position: absolute;
-    background-color: #17F781;;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-}
-
-.select-hide {
-    display: none;
-}
-
-.select-items div:hover, .same-as-selected {
-    background-color: rgba(245, 12, 112, 1);
-}
 
 .card {
     border-radius: 20px
@@ -491,4 +438,45 @@ fieldset label {
 .drawings img{
     padding-right: 40px !important;
    
+}
+
+.checked-box {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.card-active {
+    font-size: 60px;
+    padding: 10px;
+    background: linear-gradient(180deg, #f61816 0%, #f50c70 100%);
+    color:#fff !important;
+    width: 100%;
+    height: 100%;
+  
+}
+
+.card-active h2 { 
+    color:#fff !important;  
+    margin: 0;
+}
+
+.card-active h5 { 
+    color:#fff !important;  
+}
+
+.icons {
+    width: 200px;
+    display: block;
+}
+
+.category-list {
+    text-align: center;
+    border: #ccc solid thin;
+}
+
+.category-list h2 {
+    display: block;
+    width: 100%;
+    text-align: center;
 }
