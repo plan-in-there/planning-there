@@ -19,7 +19,7 @@
             </div>
             <h3>Event Date</h3>
             <div class="input-group mb-4">
-                <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
+                <span class="input-group-text"><i class="fa fa-calendar-day fa-fw"></i></span>
                 <input type="date" name="date" class="form-control  {{#if errors.date}} is-invalid {{/if}}"   aria-label="Date"  placeholder="Write the event's date" value="{{dateFormatter date=event.date}}">
                 {{#if errors.date}}<div class="invalid-feedback">{{ errors.date }}</div>{{/if}}
             </div>
@@ -32,7 +32,6 @@
             <h3>Are there some gender restriction for your event?</h3>
              <div class="form-group mb-4 input-group-text">
                 <select name="genreRestrictions" value="{{genre}}"   aria-label="Dresscode">
-
                     {{#each genreList as |genre |}}
                     <option {{#eventHasCategory keyWord='genre' key=genre  event=../event}} selected {{/eventHasCategory}} value="{{genre}}">{{genre}}</option>
                     {{/each}}                   
@@ -54,13 +53,13 @@
             </div>
             <h3>In which city is taking place your event?</h3>
             <div class="input-group mb-4">
-                <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
+                <span class="input-group-text"><i class="fa fa-map-marker-alt fa-fw"></i></span>
                 <input type="text" name="city" class="form-control  {{#if errors.city}} is-invalid {{/if}}"   aria-label="city" value="{{event.city}}" placeholder="Write your city">
                 {{#if errors.city}}<div class="invalid-feedback">{{ errors.city }}</div>{{/if}}
             </div>
             <h3>There is any age restriction for your event? </h3>
             <div class="input-group mb-4">
-                <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
+                <span class="input-group-text"><i class="fas fa-fire-alt fa-fw"></i></span>
                 <input type="text" name="age" class="form-control  {{#if errors.age}} is-invalid {{/if}}"   aria-label="age" value="{{event.age}}" placeholder="Write your age">
                 {{#if errors.age}}<div class="invalid-feedback">{{ errors.age }}</div>{{/if}}
             </div>
@@ -72,6 +71,12 @@
                     {{/each}}
                 </select>
             </div>
+            <h3>Owner's Event</h3>
+           {{!--  <div class="input-group mb-4">
+                <span class="input-group-text"><i class="fas fa-hand-middle-finger fa-fw"></i></span>
+                <input type="text" name="owner" class="form-control  {{#if errors.owner}} is-invalid {{/if}}"   placeholder="Write the event's owner" aria-label="Owner" value="{{event.owner}}" >
+                {{#if errors.owner}}<div class="invalid-feedback">{{ errors.owner }}</div>{{/if}}
+            </div> --}}
 
             <button type="submit">Create your event!</button>
     </div>
@@ -79,4 +84,3 @@
 </div>
 </form>
 </div>
-    

@@ -52,6 +52,18 @@ const eventSchema = new Schema({
                 return  "/img/categoriesList/foodie.jpeg"
             } else if (this.category.includes("Dance")) {
                 return  "/img/categoriesList/dance.jpeg"
+            } else if (this.category.includes("Extreme-Sports")) {
+                return  "/img/categoriesList/Extreme-Sports.jpeg"
+            } else if (this.category.includes("Beach")) {
+                return  "/img/categoriesList/Beach.jpeg"
+            } else if (this.category.includes("Swimming-Pool")) {
+                return  "/img/categoriesList/Swimming-Pool.jpeg"
+            } else if (this.category.includes("Amusement-Park")) {
+                return  "/img/categoriesList/Amusement-Park.jpeg"
+            } else if (this.category.includes("Interrail")) {
+                return  "/img/categoriesList/Interrail.jpeg"
+            } else if (this.category.includes("Races")) {
+                return  "/img/categoriesList/Races.jpeg"
             }
         } 
     },
@@ -66,7 +78,6 @@ const eventSchema = new Schema({
          ref: "Owner"
          
     },
-  
     dressCode: {
         type: [{
             type: String,
