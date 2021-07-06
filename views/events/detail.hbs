@@ -7,8 +7,10 @@
             {{match.userId.name}}
         {{/each}}
     </p>
+    <a href="/events/{{event.id}}/edit" class="btn btn-primary">Edit</a>
     <form method="POST" action="/events/match/{{event.id}}">
     <button type="submit">Like</button>
     </form>
+    <form action="/events/{{event.id}}/delete" method="post"><button type="submit">Delete</button></form>
     <a href="/events"> Go back!</a>
 </div>

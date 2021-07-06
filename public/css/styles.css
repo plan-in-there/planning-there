@@ -447,7 +447,34 @@ fieldset label {
     background-color: rgba(245, 12, 112, 1);
 }
 
-.card h3{
+.card {
+    border-radius: 20px
+}
+
+.card h3 {
+ background-color: #F50C70;
+ color: #fff;
+}
+
+.card h4{
+    background-color: #fff;
+    color: #F50C70;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+.card p {
+    margin: 10px;
+}
+.fa-calendar-day:before {
+    content: "\f783";
+    color: black;
+}
+
+.fa-map-marker-alt:before {
+    content: "\f3c5";
+    color: black;
+}
+
+.btn-primary {
     background-color: #F50C70;
-    color: #fff;
 }

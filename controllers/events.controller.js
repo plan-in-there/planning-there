@@ -15,16 +15,16 @@ module.exports.create = (req, res, next) => {
 }
 
 module.exports.doCreate = (req, res, next) => {
-    myEvent = { name, date, description, city, genre, category, age, dressCode, image } = req.body
+    owner = req.user.id
+    
+    myEvent = { name, date, description, city, genre, category, age, dressCode, image,} = req.body
   
     if (!req.file) {
         delete req.body.image
     } else {
         req.body.image = req.file.path
     }
-    Event.create({
-        myEvent
-    })
+    Event.create(myEvent)
         .then(plan => res.redirect('/events'))
         .catch(error => {
             console.log(error)
@@ -38,7 +38,7 @@ module.exports.doCreate = (req, res, next) => {
                 })
             } else {
                 next()
-            }
+            }d
         })
 }
 

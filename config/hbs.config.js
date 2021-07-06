@@ -73,3 +73,18 @@ hbs.registerHelper('icons', function (options) {
     const { user } = options.hash;
     return categories[user.categories]?.icon;
 });
+
+hbs.registerHelper('dateFormatterList', function (options) {
+    const { date } = options.hash
+    return  moment(date).format('DD-MM-YYYY')
+})
+
+/* hbs.registerHelper('active', function (options) {
+    const { path, match} = options.hash
+    return path === match ? 'active' : ''
+}) */
+
+hbs.registerHelper('active', (options) => {
+    const { path, match } = options.hash;
+    return path === match ? 'active' : '';
+  })
