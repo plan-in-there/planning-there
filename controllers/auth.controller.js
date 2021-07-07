@@ -113,10 +113,8 @@ module.exports.doLoginWithGoogle = (req, res, next) => {
   passportController(req, res, next);
 };
 
-module.exports.loginWithFacebook = (req, res, next) => {
-  const passportController = passport.authenticate('google-auth', {
-    scope: ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile'],
-  });
+module.exports.loginWithFacebook = (req, res, next) =>  {
+  const passportController = passport.authenticate('facebook-auth');
 
   passportController(req, res, next);
 };

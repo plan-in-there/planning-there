@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const User = require('../models/user.model');
 const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 
 passport.serializeUser((user, next) => {
   next(null, user.id);
@@ -88,30 +89,42 @@ passport.use(
   ),
 );
 
-/* passport.use(
-  'facebook-auth',
-  new FacebookStrategy(
-    {
-      clientID: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-      callbackURL: process.env.FACEBOOK_CALLBACK_URL || '/authenticate/facebook/cb',
-      profileFields: ["email", "name", "avatar"]
-    },
-    function(accessToken, refreshToken, profile, done) {
-      const facebookId = profile.id
-      const { email, first_name, last_name } = profile._json;
-      const userData = {
-        email,
-        name: first_name,
-        avatar: profile.photos[0].value,
-        password: mongoose.Types.ObjectId(),
-          social: {
-            facebook: facebookId,
-          },
+passport.use('facebook-auth',
+new FacebookStrategy(
+  {
+    clientID: process.env.FACEBOOK_CLIENT_ID,
+    clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL: process.env.FACEBOOK_CALLBACK_URL || '/authenticate/facebook/cb',
+  },
+  (accessToken, refreshToken, profile, next) => {
+    const facebookId = profile.id;
+    const name = profile.first_name;
+    const email = profile.emails[0] ? profile.emails[0].value : undefined;
 
-      };
-      new User(userData).save();
-      done(null, profile);
+    if (facebookId && name && email) {
+      User.findOne({ $or: [{ email }, { 'social.facebook': googleId }] })
+        .then((user) => {
+          if (!user) {
+            user = new User({
+              name,
+              email,
+              avatar: profile.photos[0].value,
+              password: mongoose.Types.ObjectId(),
+              social: {
+               facebook: facebookId,
+              },
+            
+            });
+
+            return user.save().then((user) => next(null, user));
+          } else {
+            next(null, user);
+          }
+        })
+        .catch(error => next(error));
+    } else {
+      next(null, null, { oauth: 'invalid facebook oauth response' });
     }
-  )
-); */
+  },
+),
+); 

@@ -70,10 +70,23 @@ module.exports.userEvents = (req, res, next) => {
  Match.find({userId : req.user.id})
       .sort({date: 1})
       .populate('eventId')
-      .then(events => {    
-      return res.render('user/userevents', {
-        events: events.map(matchedEvents => matchedEvents.eventId)
-      })
+      .populate('userId')
+      .then(events => {  
+        if(!events) {
+          res.render('user/userevents', {
+            title: 'Your plans in Plan-in-there',
+            description: 'This is the plans that you have enroled or created',
+            eventlist: `You haven't matched any plans yet`,
+            categories,
+          })
+        }  
+        else {
+        return res.render('user/userevents', {
+        events: events.map(matchedEvents => matchedEvents.eventId),
+        title: 'Your plans in Plan-in-there',
+        description: 'This is the plans that you have enroled or created',
+        categories,
+      })}
     })
     .catch(next)
 }

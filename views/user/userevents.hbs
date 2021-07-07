@@ -1,16 +1,25 @@
 <h1>Welcome to your events page</h1>
-<h3>Matched events</h3>
-<div>
+<h3>This are your matched plans</h3>
+<hr>
+
+<div class="card-deck"> 
  {{#each events as |event|}}
- <div class="card">
+ <div class="card event-card">
    <h3>{{event.name}}</h3>
-   <img src={{event.img}} alt={{event.name}} />
-   <p>{{event.description}}</p>
+   <img src="{{event.image}}" alt="{{event.name}}" />
+    <div class="card-body">
+   <h4><i class="fa fa-calendar-day fa-fw"></i>{{dateFormatterList date=event.date}} | <i class="fas fa-map-marker-alt fa-fw"></i>{{event.city}}</h4>
+   <p>{{dotted event.description 100}}</p>
    <a href="/events/{{event.id}}">Detail</a>
+   <h4>Proposed by <a href="/user-profile/{{event.owner}}" class="bt-green" > {{event.owner._id}} </a></h4>
+   </div>
  </div>  
     {{/each}}
+    
 </div>
 <h3>Proposed events</h3>
 <div>
+
+  
 
 </div>
