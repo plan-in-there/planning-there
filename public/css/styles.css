@@ -194,6 +194,19 @@ header img {
  
 }
 
+.input-group-text i {
+    background: -webkit-linear-gradient(#f61816, #f50c70);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.home-in .input-group-text i {
+    background: none !important;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff;
+}
+
 .home-in .form-control {
     background-color: transparent !important;
     color: #fff
@@ -202,6 +215,7 @@ header img {
 .home-in .form-control input::placeholder {
     color: #fff;
 }
+
 
 main {
     width: 100%;
@@ -558,4 +572,12 @@ fieldset h5 {
     color: #17f781 !important;
     background-color: transparent !important;
     width: 100%;
+}
+
+.join {
+    visibility: visible;
+}
+
+.delete {
+    visibility: hidden;
 }

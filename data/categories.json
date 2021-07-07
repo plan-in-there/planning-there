@@ -32,26 +32,30 @@
     },
     "Extreme-Sports" : {
         "text" : "Extreme-Sports",
-        "icon" : "fas fa-hand-middle-finger"
+        "icon" : "fas fa-snowboarding"
     },
     "Beach" : {
         "text" : "Beach",
-        "icon" : "fas fa-hand-middle-finger"
+        "icon" : "fas fa-umbrella-beach"
     },
     "Swimming-Pool" : {
         "text" : "Swimming-Pool",
-        "icon" : "fas fa-hand-middle-finger"
+        "icon" : "fas fa-water"
     },
     "Amusement-Park" : {
         "text" : "Amusement-Park",
-        "icon" : "fas fa-hand-middle-finger"
+        "icon" : "fas fa-dungeon"
     },
     "Interrail" : {
         "text" : "Interrail",
-        "icon" : "fas fa-hand-middle-finger"
+        "icon" : "fas fa-suitcase"
     },
     "Races" : {
         "text" : "Races",
-        "icon" : "fas fa-hand-middle-finger"
+        "icon" : "fas fa-horse"
+    },
+    "Sports-games" : {
+        "text" : "Sports",
+        "icon" : "far fa-futbol"
     }
 }

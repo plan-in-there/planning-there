@@ -10,7 +10,7 @@
         <h3>I'm from </h3>
         <p>{{user.city}}</p>
         <h3>My interests are</h3>
-        {{#each interests as |interest|}}
+        {{#each user.interests as |interest|}}
         <h4>{{ interest }}</h4>
         {{/each}}
         <h3>About me</h3>

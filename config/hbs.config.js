@@ -71,7 +71,7 @@ hbs.registerHelper('categoryLabel', function(options) {
 
 hbs.registerHelper('icons', function (options) {
     const { user } = options.hash;
-    return categories[user.categories]?.icon;
+    return categories[user.interest]?.icon;
 });
 
 hbs.registerHelper('dateFormatterList', function (options) {

@@ -14,7 +14,7 @@ module.exports.like = (req, res, next) => {
 
             } else {
               return  Match.findByIdAndDelete(match.id)
-                .then(() => res.redirect('/'))
+                .then(() => res.redirect('/events'))
             }
         })
         .catch(next)
