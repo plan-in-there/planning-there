@@ -4,7 +4,7 @@
     <p> {{event.name}} {{event.description}} {{event.date}} </p>
     <p>
         {{#each event.matches as | match|}}
-            {{match.userId.name}}
+        <a href="/user-profile/{{match.userId._id}}"> {{match.userId.name}}</a>  
         {{/each}}
     </p>
     <a href="/events/{{event.id}}/edit" class="btn btn-primary">Edit</a>
