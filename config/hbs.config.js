@@ -60,7 +60,7 @@ hbs.registerHelper('dataLabels', function (options) {
 })
 
 hbs.registerHelper('pronoms', function (options) {
-    const { user } = options.hash;
+    const { user } = options.hash
     return genre[user.genre]?.pronom;
 });
 
@@ -78,11 +78,6 @@ hbs.registerHelper('dateFormatterList', function (options) {
     const { date } = options.hash
     return  moment(date).format('DD-MM-YYYY')
 })
-
-/* hbs.registerHelper('active', function (options) {
-    const { path, match} = options.hash
-    return path === match ? 'active' : ''
-}) */
 
 hbs.registerHelper('active', (options) => {
     const { path, match } = options.hash;

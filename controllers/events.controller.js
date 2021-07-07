@@ -124,7 +124,7 @@ module.exports.detail = (req, res, next) => {
         })
         .then((event) => {
 
-            return res.render('events/detail', { event })
+            return res.render('events/detail', { event})
 
         })
         .catch(next)
