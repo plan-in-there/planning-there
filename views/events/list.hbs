@@ -31,7 +31,12 @@
         <a href="/events/{{event.id}}" class="btn btn-primary">DETAIL</a>
         <h5>Owner by {{event.owner.name}}</h5>
         <form method="POST" action="/events/match/{{event.id}}">
-         <button type="submit"><div class="join-event"><div class="join"><i class="far fa-heart fa-fw"></i>JOIN PLAN</div><div class="delete"><i class="fas fa-times"></i>EXIT PLAN</div></div></button>
+         <button type="submit">
+            {{#like matches=event.matches  user=../currentUser}}
+            <i class="far fa-heart fa-fw"></i>JOIN PLAN
+            {{else}}<i class="fas fa-times"></i>EXIT PLAN
+            {{/like}}
+             </button>
          </form>
     </div>
         {{/each}}

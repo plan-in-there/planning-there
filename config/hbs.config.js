@@ -96,3 +96,13 @@ hbs.registerHelper('active', (options) => {
   hbs.registerHelper('dotted', (content, length) => {
     return content.length > length ? `${content.substring(0, length)}...` : content;
   })
+
+  hbs.registerHelper('like', function (options) {
+      const {matches, user} = options.hash
+
+      if(matches.some(x => x.userId == user?.id)) {
+        return options.fn(this)
+      } else {
+        return options.inverse(this)
+      }
+  })

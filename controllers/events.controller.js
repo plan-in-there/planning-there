@@ -68,6 +68,7 @@ module.exports.list = (req, res, next) => {
        return Event.find()
                 .sort({dattimestampse: 1})
                 .populate('owner')
+                .populate('matches')
                 .then(events => {
                     res.render('events/list', {
                         events,
