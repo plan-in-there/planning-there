@@ -11,18 +11,20 @@
         <p>{{user.city}}</p>
         <h3>My interests are</h3>
         {{#each user.interests as |interest|}}
-        <h4>{{ interest }}</h4>
-        {{/each}}
+        <h4><i class={{ icons user=../user }}></i></h4>
+       {{/each}}
         <h3>About me</h3>
         <p>{{user.about}}</p>
 
     </div>
 
     <div class="d-flex flex-column">
-        <img src="{{user.avatar}}" alt="{{user.name}}" />
-    {{#if currentUser}}
-        <a href="/user-profile/me/edit"><i class="far fa-edit"></i> edit profile</a>
+        <img src="{{user.avatar}}" alt="{{user.name}}" /> 
+       <p> {{user._id}}</p>
+       <p> {{currentUser._id}}</p>
+   {{#profileIsOwnedBy user=currentUser profile=user }}
+        <a href="/user-profile/me/edit"><i class="far fa-edit"></i> edit profile</a>    
+    {{/profileIsOwnedBy}}
+
     </div>
-    {{/if}}
-    
 </div>
