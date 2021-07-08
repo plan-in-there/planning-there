@@ -140,6 +140,12 @@ module.exports.detail = (req, res, next) => {
 
 module.exports.delete = (req, res, next) => {
     Event.findByIdAndDelete(req.params.id)
-        .then(() => res.redirect('/events'))
+        .then(() => {
+            Match.find({eventId: req.params.id})
+                .then(match => {
+                    Match.findByIdAndDelete(match)
+                        .then(() => res.redirect('/events'))
+                })
+        })
         .catch(next)
 }

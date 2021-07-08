@@ -30,7 +30,7 @@ router.get('/user-profile/chat/:id', chat.getChat)
 router.post('/user-profile/chat/:id', chat.doCreate)
 router.get('/user-profile/me/edit', secure.isAuthenticated, user.userProfileEdit)
 router.post('/user-profile/me/edit', secure.isAuthenticated, upload.single('avatar'), user.userProfileDoEdit)
-router.get('/user-profile/my-events', user.createdEvents)
+router.get('/user-profile/my-events', user.userEvents)
 
 router.get('/user-profile/:id', user.userProfile)
 
