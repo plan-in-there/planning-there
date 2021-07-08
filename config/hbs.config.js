@@ -69,9 +69,9 @@ hbs.registerHelper('categoryLabel', function(options) {
     return categories[id][selector];
 });
 
-hbs.registerHelper('icons', function (options) {
-    const { user, interests } = options.hash;
-    return categories[user.interests]?.icon;
+hbs.registerHelper('interestIcon', function (options) {
+    const { interest } = options.hash;
+    return categories[interest]?.icon;
 });
 
 hbs.registerHelper('profileIsOwnedBy', function (options) {

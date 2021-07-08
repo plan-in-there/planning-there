@@ -45,6 +45,7 @@ module.exports.list = (req, res, next) => {
     if (searchDate != undefined) {
         Event.find({date: { $in: [searchDate]}})
             .populate('owner')
+            .populate('matches')
             .then(events => {
                 res.render('events/list', {
                     events,
@@ -56,6 +57,7 @@ module.exports.list = (req, res, next) => {
     } else if (searchCategory != undefined) {
         return Event.find({category: { $in: [searchCategory]}})
                 .populate('owner')
+                .populate('matches')
                 .then(events => {
                     res.render('events/list', {
                         events,

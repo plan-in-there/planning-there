@@ -31,6 +31,7 @@ router.post('/user-profile/chat/:id', chat.doCreate)
 router.get('/user-profile/me/edit', secure.isAuthenticated, user.userProfileEdit)
 router.post('/user-profile/me/edit', secure.isAuthenticated, upload.single('avatar'), user.userProfileDoEdit)
 router.get('/user-profile/my-events', user.userEvents)
+router.get('/user/homepage', user.userHomePage)
 
 router.get('/user-profile/:id', user.userProfile)
 
