@@ -91,3 +91,24 @@ module.exports.userEvents = (req, res, next) => {
     .catch(next)
 }
 
+module.exports.createdEvents = (req, res, next) => {
+  Event.find({owner: req.user.id})
+      .then(events => {
+        if(!events) {
+          res.render('user/userevents', {
+            title: 'Your plans in Plan-in-there',
+            description: 'This is the plans that you have enroled or created',
+            eventlist: `You haven't matched any plans yet`,
+            categories,
+          })
+        } else {
+          return res.render('user/userevents', {
+            events: events.map(matchedEvents => matchedEvents.eventId),
+            title: 'Your plans in Plan-in-there',
+            description: 'This is the plans that you have enroled or created',
+            categories,
+          })}
+      })
+      .catch(next)
+}
+

@@ -9,7 +9,7 @@
    <img src="{{event.image}}" alt="{{event.name}}" />
     <div class="card-body">
    <h4><i class="fa fa-calendar-day fa-fw"></i>{{dateFormatterList date=event.date}} | <i class="fas fa-map-marker-alt fa-fw"></i>{{event.city}}</h4>
-   <p>{{dotted event.description 100}}</p>
+ 
    <a href="/events/{{event.id}}">Detail</a>
    <h4>Proposed by <a href="/user-profile/{{event.owner}}" class="bt-green" > {{event.owner._id}} </a></h4>
    </div>

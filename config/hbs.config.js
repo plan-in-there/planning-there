@@ -32,7 +32,7 @@ hbs.registerHelper('eventHasCategory', function(options) {
 })
 
 hbs.registerHelper('planIsOwnedBy', function (options) {
-    const {user, plan} = options.hash;
+    const {user, event} = options.hash;
     if (user && (user.id === event.owner?.id || user.id === event.owner)) {
         return options.fn(this);
     } else {
@@ -70,9 +70,18 @@ hbs.registerHelper('categoryLabel', function(options) {
 });
 
 hbs.registerHelper('icons', function (options) {
-    const { user } = options.hash;
-    return categories[user.interest]?.icon;
+    const { user, interests } = options.hash;
+    return categories[user.interests]?.icon;
 });
+
+hbs.registerHelper('profileIsOwnedBy', function (options) {
+    const {user, profile} = options.hash;
+    if(user && profile && (user._id.toString() == profile._id.toString())) {
+        return options.fn(this)
+    } else {
+        return options.inverse(this)
+    }
+})
 
 hbs.registerHelper('dateFormatterList', function (options) {
     const { date } = options.hash
