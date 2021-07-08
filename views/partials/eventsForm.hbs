@@ -27,6 +27,14 @@
                     <input type="date" name="date" class="form-control  {{#if errors.date}} is-invalid {{/if}}"   aria-label="Date"  placeholder="Write the event's date" value="{{dateFormatter date=event.date}}">
                     {{#if errors.date}}<div class="invalid-feedback">{{ errors.date }}</div>{{/if}}
                 </div>
+                <h3>Event Time</h3>
+                <div class="input-group mb-4">
+                    <span class="input-group-text"><i class="fa fa-calendar-day fa-fw"></i></span>
+                    <input type="time" name="time" class="form-control  {{#if errors.time}} is-invalid {{/if}}"   aria-label="time"  placeholder="Write the event's time" value="{{event.time}}">
+                    {{#if errors.time}}<div class="invalid-feedback">{{ errors.time }}</div>{{/if}}
+                </div>
+
+
                 <h3>Event description</h3>
                 <div class="form-floating">
                     <textarea name="description" class="form-control mb-2 {{#if errors.password}} is-invalid {{/if}}" placeholder="Leave a comment here" value="{{event.description}}" style="height: 100px">{{event.description}}</textarea>
@@ -76,11 +84,11 @@
                     </select>
                 </div>
             
-            {{!--  <div class="input-group mb-4">
+             <div class="input-group mb-4">
                     <span class="input-group-text"><i class="fas fa-hand-middle-finger fa-fw"></i></span>
                     <input type="text" name="owner" class="form-control  {{#if errors.owner}} is-invalid {{/if}}"   placeholder="Write the event's owner" aria-label="Owner" value="{{event.owner}}" >
                     {{#if errors.owner}}<div class="invalid-feedback">{{ errors.owner }}</div>{{/if}}
-                </div> --}}
+                </div>
 
                 <button type="submit">Create your event!</button>
         </div>

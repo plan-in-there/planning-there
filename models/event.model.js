@@ -73,6 +73,10 @@ const eventSchema = new Schema({
         min: 16, //como poner desde hasta en el form para luego filtrar por edad!!
         max: 99
     },
+    time: {
+        type: String,
+        required: 'time is required!'
+    },
     owner: {
          type: Schema.Types.ObjectId, 
          ref: "User"

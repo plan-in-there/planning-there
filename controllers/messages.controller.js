@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+/* const mongoose = require('mongoose')
 const Message = require('../models/message.model')
 
 
@@ -13,4 +13,4 @@ module.exports.doCreate = (req, res, next) => {
     Message.create(myMessage)
         .then(message => res.redirect('/user-profile/messages/req.params.idCHat'))
         .catch(next)
-}
+} */

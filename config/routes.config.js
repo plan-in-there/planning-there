@@ -8,7 +8,8 @@ const user = require('../controllers/user.controller')
 const upload = require('../config/multer.config')
 const secure = require('../middlewares/secure.mid')
 const match = require('../controllers/match.controller')
-const message = require('../controllers/messages.controller')
+const chat = require("../controllers/chat.controller")
+//const message = require('../controllers/messages.controller')
 
 router.get('/register', secure.isNotAuthenticated, auth.register)
 router.post('/register', secure.isNotAuthenticated, auth.doRegister)
@@ -23,8 +24,9 @@ router.get('/authenticate/facebook/cb', auth.doLoginWithFacebook);
 router.get('/', commons.home)
 router.get('/privacy-terms', commons.privacyTerms)
 
-router.get('/user-profile/messages', message.create)
-router.post('/user-profile/messages', message.doCreate)
+/* router.get('/user-profile/messages', message.create)
+router.post('/user-profile/messages', message.doCreate) */
+router.get('/user-profile/chat/:id', chat.getChat)
 router.get('/user-profile/me/edit', secure.isAuthenticated, user.userProfileEdit)
 router.post('/user-profile/me/edit', secure.isAuthenticated, upload.single('avatar'), user.userProfileDoEdit)
 router.get('/user-profile/my-events', user.userEvents)

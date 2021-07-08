@@ -15,7 +15,7 @@ module.exports.create = (req, res, next) => {
 }
 //owner: req.user.id
 module.exports.doCreate = (req, res, next) => {
-    myEvent = { name, date, description, city, genre, category, age, dressCode, image,} = req.body
+    myEvent = { name, date, description, city, genre, category, age, dressCode, image, time} = req.body
     myEvent.owner = req.user.id
     if (!req.file) {
         delete req.body.image
@@ -39,15 +39,13 @@ module.exports.doCreate = (req, res, next) => {
             }
         })
 }
-
 module.exports.list = (req, res, next) => {
-    const searchValue = req.query.filterCategory
-    if (searchValue == undefined) {
-        Event.find()
-            .sort({dattimestampse: 1})
+    const searchDate= req.query.filterDate
+    const searchCategory = req.query.filterCategory
+    if (searchDate != undefined) {
+        Event.find({date: { $in: [searchDate]}})
             .populate('owner')
             .then(events => {
-          
                 res.render('events/list', {
                     events,
                     categoriesList,
@@ -55,22 +53,32 @@ module.exports.list = (req, res, next) => {
                     dressList
                 })
             })
-            .catch(next)
+    } else if (searchCategory != undefined) {
+        return Event.find({category: { $in: [searchCategory]}})
+                .populate('owner')
+                .then(events => {
+                    res.render('events/list', {
+                        events,
+                        categoriesList,
+                        genreList,
+                        dressList
+                    })
+                })
     } else {
-        Event.find({category: { $in: [searchValue]}})
-            .populate('owner')
-            .then(events => {
-                res.render('events/list', {
-                    events,
-                    categoriesList,
-                    genreList,
-                    dressList
+       return Event.find()
+                .sort({dattimestampse: 1})
+                .populate('owner')
+                .then(events => {
+                    res.render('events/list', {
+                        events,
+                        categoriesList,
+                        genreList,
+                        dressList
+                    })
                 })
-            })
             .catch(next)
     }
 }
-
 
 module.exports.edit = (req, res, next) => {
     Event.findByIdAndUpdate(req.params.id)
