@@ -24,15 +24,37 @@ const User = require('../models/user.model')
 const Match = require('../models/match.model')
 
 module.exports.getChat = (req, res, next) => {
-    // Tengo el user id y el que esta logged in.
-    // Busco si hay un chat que tenga a esos dos,
-    // si no, crea uno. Cuando lo creo,
-    // lo redirig a showChat y le paso el objeto chat que he creado.
+    Chat.findById(req.params.id)
+        .populate('users')
+        .populate('messages')
+        .then(chat => {
+            res.render('chat/form', { chat })
+        })
+        .catch(next)
 }
 
 module.exports.showChat = (req, res, next) => {
   const chat = req.chat 
     render("/html", {chat})
+}
+
+module.exports.doCreate = (req, res, next) => {
+    const chat = {
+        users: [req.params.id, req.user._id],
+        messages: []
+    }
+    //Chat.find({ users.includes(req.param.id) &&  req.user._id})
+    // .then(chat => {
+    //     if (!chat) {
+    //         chat = req.body
+    //         Chat.create(chat)
+    //             .then(res.render('chat/form'))
+    //     } else {
+    Chat.create(chat)
+    .then(chat => {
+        res.redirect(`user-profile/chat/${chat._id}`)
+    })
+    .catch(next)
 }
 
 module.exports.newMessage = (req, res, next) => {
