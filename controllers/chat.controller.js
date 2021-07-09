@@ -26,7 +26,7 @@ const Match = require('../models/match.model')
 module.exports.getChat = (req, res, next) => {
     Chat.findById(req.params.id)
         .populate('users')
-       
+        .populate('messages')
         .then(chat => {
             res.render('chat/form', { chat })
         })
@@ -51,10 +51,10 @@ module.exports.doCreate = (req, res, next) => {
         messages: []
     }
     Chat.create(chat)
-    .then(chat => {
-        res.redirect(`user-profile/chat/${chat._id}`)
-    })
-    .catch(next)
+        .then(chat => {
+            res.redirect(`/user-profile/chat/${chat._id}`)
+        })
+        .catch(next)
 }
 
 

@@ -26,7 +26,7 @@ router.get('/privacy-terms', commons.privacyTerms)
 
 /* router.get('/user-profile/messages', message.create)
 router.post('/user-profile/messages', message.doCreate) */
-router.get('/user-profile/chat/user-profile/chat/:id', chat.getChat)
+router.get('/user-profile/chat/:id', chat.getChat)
 router.post('/user-profile/chat/:id', chat.doCreate)
 router.get('/user-profile/me/edit', secure.isAuthenticated, user.userProfileEdit)
 router.post('/user-profile/me/edit', secure.isAuthenticated, upload.single('avatar'), user.userProfileDoEdit)
