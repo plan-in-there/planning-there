@@ -1,16 +1,51 @@
-<div class="container">
-    <h1>Here you</h1>
-    <img src="{{event.image}}" alt="">
-    <p> {{event.name}} {{event.description}} {{event.date}} </p>
-    <p>
-        {{#each event.matches as | match|}}
-        <a href="/user-profile/{{match.userId._id}}"> {{match.userId.name}}</a>  
-        {{/each}}
-    </p>
-    <a href="/events/{{event.id}}/edit" class="btn btn-primary">Edit</a>
-    <form method="POST" action="/events/match/{{event.id}}">
-    <button type="submit">Like</button>
-    </form>
-    <form action="/events/{{event.id}}/delete" method="post"><button type="submit">Delete</button></form>
-    <a href="/events"> Go back!</a>
-</div> 
+
+<div id="event-detail">
+   
+    
+
+    <div> 
+        <h1>{{event.name}}</h1>
+        <small>
+            {{#each event.category as |category|}}
+            <h6>#{{category}}</h6>
+            {{/each}}
+        </small>
+        <p>{{event.description}}</p>
+        {{#planIsOwnedBy user=currentUser event=event}}
+            <a href="/events/{{event.id}}/edit" class="btn btn-primary">Edit</a>
+            <form action="/events/{{event.id}}/delete" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        {{/planIsOwnedBy}}
+        <a href="/events"> Back to plans</a>
+    </div> 
+    
+    <div> 
+        <img src="{{event.image}}" alt="{{event.name}}">
+    <div class="info">
+          
+        
+    
+        <h3>{{dateFormatterList date=event.date}} | starts at {{event.time}}</h3>
+        <h4>Dresscode:</h4>
+        <p> {{event.dressCode}}</p>
+        <h4>Are there any gender restrictions?</h4>
+        <p>{{event.gender}}</p>
+        <h4>Who is joining?</h4>
+        <p>
+            {{#each event.matches as | match|}}
+            #<a href="/user-profile/{{match.userId._id}}">{{match.userId.name}}</a>  
+            {{/each}}       
+        </p>
+        <form method="POST" action="/events/match/{{event.id}}">
+            <button type="submit" style="text-center">
+                {{#like matches=event.matches  user=currentUser}}
+                <div class="like info-like"><i class="far fa-heart fa-fw"></i>JOIN PLAN</div>
+                {{else}}<div class="dislike info-like" title="Exit this plan"><i class="fas fa-times"></i>EXIT PLAN</div>
+                {{/like}}
+            </button>
+        </form>
+         <h5 class="text-center">Plan proposed by <a href="/user-profile/{{event.owner.id}}">{{event.owner.name}}</a></h5>
+    </div>
+    </div>
+</div>

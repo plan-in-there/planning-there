@@ -10,10 +10,12 @@ module.exports.create = (req, res, next) => {
     res.render('events/create', {
         categoriesList,
         genreList,
-        dressList
+        dressList,
+        title: 'Create your own plan',
+        description: 'Fill the for, create your plan and star connecting with people with your interests'
     })
 }
-//owner: req.user.id
+
 module.exports.doCreate = (req, res, next) => {
     myEvent = { name, date, description, city, genre, category, age, dressCode, image, time} = req.body
     myEvent.owner = req.user.id
@@ -32,7 +34,9 @@ module.exports.doCreate = (req, res, next) => {
                     errors: error.errors,
                     categoriesList,
                     genreList,
-                    dressList
+                    dressList,
+                    title: 'Create your own plan',
+                    description: 'Fill the for, create your plan and star connecting with people with your interests'
                 })
             } else {
                 next()
@@ -51,7 +55,9 @@ module.exports.list = (req, res, next) => {
                     events,
                     categoriesList,
                     genreList,
-                    dressList
+                    dressList,
+                    title: 'Plans for everyone',
+                    description: 'Enrole in some of our plans and start connecting with people around the globe'
                 })
             })
     } else if (searchCategory != undefined) {
@@ -63,7 +69,9 @@ module.exports.list = (req, res, next) => {
                         events,
                         categoriesList,
                         genreList,
-                        dressList
+                        dressList,
+                        title: 'Plans for everyone',
+                        description: 'Enrole in some of our plans and start connecting with people around the globe'
                     })
                 })
     } else {
@@ -76,7 +84,9 @@ module.exports.list = (req, res, next) => {
                         events,
                         categoriesList,
                         genreList,
-                        dressList
+                        dressList,
+                        title: 'Plans for everyone',
+                        description: 'Enrole in some of our plans and start connecting with people around the globe'
                     })
                 })
             .catch(next)
@@ -91,10 +101,12 @@ module.exports.edit = (req, res, next) => {
                     event: event,
                     categoriesList,
                     genreList,
-                    dressList
+                    dressList,
+                    title: 'Edit your plan',
+                    description: 'Change your events detail'
                 })
             } else {
-                res.redirect('/events')
+                res.redirect(`/events/${event._id}`)
             }
         })
         .catch(next)
@@ -116,7 +128,9 @@ module.exports.doEdit = (req, res, next) => {
                     errors: error.errors,
                     categoriesList,
                     genreList,
-                    dressList
+                    dressList,
+                    title: 'Edit your plan',
+                    description: 'Change your events detail'
                 })
             } else {
                 next()
@@ -133,9 +147,13 @@ module.exports.detail = (req, res, next) => {
                 path: 'userId'
             }
         })
+        .populate('owner')
         .then((event) => {
-
-            return res.render('events/detail', { event})
+            return res.render('events/detail', { 
+                event,
+                title: `${event.name}`,
+                description: `${event.description}`
+            })
 
         })
         .catch(next)

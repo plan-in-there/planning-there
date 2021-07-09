@@ -34,7 +34,7 @@ module.exports.doRegister = (req, res, next) => {
           .then(user => {
             req.login(user, (error) => {
               if (error) next(error);
-              else res.redirect('user-profile/me/edit');
+              else res.redirect('/user/homepage');
             });
           })
       }
@@ -74,7 +74,7 @@ module.exports.doLogin = (req, res, next) => {
     } else {
       req.login(user, (error) => {
         if (error) next(error);
-        else res.redirect(`user-profile/${user.id}`);
+        else res.redirect('/user/homepage');
       });
     }
   });

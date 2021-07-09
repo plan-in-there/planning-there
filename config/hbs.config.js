@@ -101,8 +101,10 @@ hbs.registerHelper('active', (options) => {
       const {matches, user} = options.hash
 
       if(matches.some(x => x.userId == user?.id)) {
-        return options.fn(this)
-      } else {
         return options.inverse(this)
+      } else {
+        return options.fn(this)
       }
   })
+
+  
