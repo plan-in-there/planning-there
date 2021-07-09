@@ -14,7 +14,7 @@ const chat = require("../controllers/chat.controller")
 router.get('/register', secure.isNotAuthenticated, auth.register)
 router.post('/register', secure.isNotAuthenticated, auth.doRegister)
 router.get('/login', secure.isNotAuthenticated, auth.login)
-router.post('/login', secure.isNotAuthenticated, auth.doLogin)
+router.post('/login', secure.isNotAuthenticated, auth.doLogin)                                          
 router.get('/logout', secure.isAuthenticated, auth.logout)
 router.get('/authenticate/google', secure.isNotAuthenticated,  auth.loginWithGoogle);
 router.get('/authenticate/google/cb', auth.doLoginWithGoogle);
@@ -26,7 +26,7 @@ router.get('/privacy-terms', commons.privacyTerms)
 
 /* router.get('/user-profile/messages', message.create)
 router.post('/user-profile/messages', message.doCreate) */
-router.get('/user-profile/chat/:id', chat.getChat)
+router.get('/user-profile/chat/user-profile/chat/:id', chat.getChat)
 router.post('/user-profile/chat/:id', chat.doCreate)
 router.get('/user-profile/me/edit', secure.isAuthenticated, user.userProfileEdit)
 router.post('/user-profile/me/edit', secure.isAuthenticated, upload.single('avatar'), user.userProfileDoEdit)

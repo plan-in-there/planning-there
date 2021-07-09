@@ -26,7 +26,7 @@ const Match = require('../models/match.model')
 module.exports.getChat = (req, res, next) => {
     Chat.findById(req.params.id)
         .populate('users')
-        .populate('messages')
+       
         .then(chat => {
             res.render('chat/form', { chat })
         })
@@ -38,24 +38,25 @@ module.exports.showChat = (req, res, next) => {
     render("/html", {chat})
 }
 
+//Chat.find({ users.includes(req.param.id) &&  req.user._id})
+// .then(chat => {
+//     if (!chat) {
+//         chat = req.body
+//         Chat.create(chat)
+//             .then(res.render('chat/form'))
+//     } else {
 module.exports.doCreate = (req, res, next) => {
     const chat = {
         users: [req.params.id, req.user._id],
         messages: []
     }
-    //Chat.find({ users.includes(req.param.id) &&  req.user._id})
-    // .then(chat => {
-    //     if (!chat) {
-    //         chat = req.body
-    //         Chat.create(chat)
-    //             .then(res.render('chat/form'))
-    //     } else {
     Chat.create(chat)
     .then(chat => {
         res.redirect(`user-profile/chat/${chat._id}`)
     })
     .catch(next)
 }
+
 
 module.exports.newMessage = (req, res, next) => {
     // Un form en el front end que al submit guarda
