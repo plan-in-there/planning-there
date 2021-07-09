@@ -1,19 +1,4 @@
-{{!-- <div class="container">
-    
-    <div class="card" style="width: 18rem;">
-        {{#each events as | event|}}
-        <h5 class="card-title">{{event.name}}</h5>
-    <img src="{{event.image}}" class="card-img-top" alt="{{event.name}}">
-    <div class="card-body">
-        <p class="card-text">{{event.description}}</p>
-        <p class="card-text">{{dateFormatter date=event.date}}</p>
-        <a href="/events/{{event.id}}" class="btn btn-primary">Detail</a>
-        <a href="/events/{{event.id}}/edit" class="btn btn-primary">Edit</a>
-        <form action="/events/{{event.id}}/delete" method="post"><button type="submit">Delete</button></form>
-    </div>
-    {{/each}}
-    </div>
-</div> --}}
+
 <hr>
 <div class="d-flex align-items-center align-self-center align-self-stretch">
     <h5>Filter events by    </h5>  {{>filter}}

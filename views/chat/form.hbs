@@ -3,9 +3,15 @@
     <div class="jumbotron">
         <h1 class="display-4"> Send Message</h1>
         <br>
-        <input type="text" class="form-control" placeholder="Name">
-        <textarea class="form-control" placeholder="Your Message Here"></textarea>
+        {{!-- <input type="text" class="form-control" placeholder="Name"> --}}
+        
+        {{#each chat.messages as | message |}}
+            <p>{{message.message}}</p>
+        {{/each}}        
         <br>
-        <button class="form-control">Send</button>
+        <form action="/user-profile/chat/{{chat._id}}/message" method="post">
+        <textarea name="message" class="form-control" placeholder="Your Message Here"></textarea>
+        <button class="form-control" type="submit">Send</button>
+        </form>
     </div>
 </div>
