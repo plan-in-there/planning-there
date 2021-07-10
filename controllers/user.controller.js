@@ -15,6 +15,12 @@ module.exports.userProfile = (req, res, next) => {
   });
 };
 
+module.exports.getUsers = (req, res, next) => {
+  User.find({})
+    .then(users => res.json(users))
+    .catch(next)
+}
+
 module.exports.userProfileEdit = (req, res, next) => {
   res.render('user/edit', {
     user: req.user,
