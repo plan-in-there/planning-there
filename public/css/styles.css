@@ -90,11 +90,17 @@
 
 }
 
-body {
+body, footer {
     background-color: #f61816; 
     background: linear-gradient(180deg, #f61816 0%, #f50c70 100%);
     text-align: center;
   }
+
+footer a {
+    text-decoration: none;
+    
+}
+
 
 .form-control, input {
     background-color: transparent;
@@ -413,6 +419,12 @@ button:hover, .social a:hover {
     background-color: #17f781 !important;
     color: #fff !important;
     padding: 25px
+}
+
+.info a {
+    color: #f50c70;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .info h3 {
