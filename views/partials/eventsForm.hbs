@@ -41,14 +41,6 @@
                     <label for="floatingTextarea2">Type your description</label>
                     {{#if errors.description}}<div class="invalid-feedback">{{ errors.description }}</div>{{/if}}
                 </div>
-                <h3>Are there some gender restriction for your event?</h3>
-                <div class="form-group mb-4 input-group-text">
-                    <select name="genreRestrictions" value="{{genre}}"   aria-label="Dresscode">
-                        {{#each genreList as |genre |}}
-                        <option {{#eventHasCategory keyWord='genre' key=genre  event=../event}} selected {{/eventHasCategory}} value="{{genre}}">{{genre}}</option>
-                        {{/each}}                   
-                    </select>
-                </div>
                 <h3>Which categories suit your event?</h3>
                 <div class="form-group mb-4 input-group-text">
                     <select multiple name="category"  aria-label="Dresscode">
@@ -81,6 +73,15 @@
                         {{#each dressList as |dressList|}}
                         <option {{#eventHasCategory keyWord='dressList' key=dressList  event=../event}} selected {{/eventHasCategory}} value="{{dressList}}">{{dressList}}</option>
                         {{/each}}
+                    </select>
+                </div>
+                 <h3>Are there some gender restriction for your event?</h3>
+                <div class="form-group mb-4 input-group-text">
+                    <select name="genreRestrictions" value="{{genre}}"   aria-label="Dresscode">
+                        <option value="none">None</option>
+                        {{#each genreList as |genre |}}
+                        <option {{#eventHasCategory keyWord='genre' key=genre  event=../event}} selected {{/eventHasCategory}} value="{{genre}}">{{genre}}</option>
+                        {{/each}}                   
                     </select>
                 </div>
             
