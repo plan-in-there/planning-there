@@ -37,6 +37,7 @@ router.get('/user/homepage', user.userHomePage)
 router.get('/user-profile/:id', user.userProfile)
 
 router.get('/events', plans.list)
+router.get('/users/list', user.getUsers)
 router.get('/events/create', plans.create)
 router.post('/events/create', upload.single('image'), plans.doCreate)
 router.get('/events/:id/edit', plans.edit)

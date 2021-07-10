@@ -6,7 +6,8 @@ const Match = require('../models/match.model')
 const Message = require('../models/message.model')
 
 module.exports.getChat = (req, res, next) => {
-    Chat.findById(req.params.id)
+    const chatId = req.params.id
+    Chat.findById(chatId)
         .populate('users')
         .populate('messages')
         .then(chat => {
@@ -59,3 +60,6 @@ module.exports.newMessage = (req, res, next) => {
         })
         .catch(next)
 }
+
+
+
