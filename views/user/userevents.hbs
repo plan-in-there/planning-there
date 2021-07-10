@@ -10,8 +10,7 @@
         <h4><i class="fa fa-calendar-day fa-fw"></i> {{dateFormatterList date=event.date}} | <i class="fas fa-map-marker-alt fa-fw"></i> {{event.city}}</h4>
         {{!-- {{dotted event.description 100 }} --}}
         <p>{{ event.description }}</p>
-        <a href="/events/{{event.id}}">Detail</a>
-       
+        <a href="/events/{{event.id}}">Detail</a>       
       </div>
     </div>
   {{/each}} 
@@ -27,8 +26,7 @@
       <img src="{{myevent.image}}" alt="{{myevent.name}}" />
       <div class="card-body">
         <h4><i class="fa fa-calendar-day fa-fw"></i> {{dateFormatterList date=myevent.date}} | <i class="fas fa-map-marker-alt fa-fw"></i> {{myevent.city}}</h4>
-        {{!-- {{dotted myevent.description 100 }} --}}
-        <p>{{ myevent.description }}</p>
+        <p>{{dotted myevent.description 100 }}</p>
         <a href="/events/{{myevent.id}}">Detail</a>
        
       </div>

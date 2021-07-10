@@ -10,9 +10,8 @@
             <h3>{{event.name}}</h3>
             <img src="{{event.image}}" alt="{{event.name}}" />
             <div class="card-body">
-                <h4><i class="fa fa-calendar-day fa-fw"></i> {{dateFormatterList date=event.date}} | <i class="fas fa-map-marker-alt fa-fw"></i> {{event.city}}</h4>
-                {{!-- {{dotted event.description 100 }} --}}
-                <p>{{ event.description }}</p>
+                <h4><i class="fa fa-calendar-day fa-fw"></i> {{dateFormatterList date=event.date}} | <i class="fas fa-map-marker-alt fa-fw"></i> {{event.city}}</h4>  
+                <p>{{dotted event.description 100 }}</p>
                 <a href="/events/{{event.id}}">Detail</a>
                     <form method="POST" action="/events/match/{{event.id}}">
                         <button type="submit" style="text-center">
