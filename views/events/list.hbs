@@ -1,21 +1,21 @@
 <h1>Join our plans</h1>
 <h2>We have plans for everytaste, if not, create your own!</h2>
 <hr>
-<div class="d-flex align-items-center align-self-center align-self-stretch">
+<div class="d-flex align-items-center align-self-center align-self-stretch justify-content-around">
     <h5>Filter events by</h5>{{>filter}}
 </div>
 <hr>
-<div class="card-deck" id="event-list">
-    {{#each events as | event|}}
-        <div class="card event-card">
-            <h3>{{event.name}}</h3>
-            <img src="{{event.image}}" class="card-img-top" alt="{{event.name}}">
-            <div class="jeje">
-                <h4><i class="fa fa-calendar-day fa-fw"></i>{{dateFormatterList date=event.date}} | <i class="fas fa-map-marker-alt fa-fw"></i>{{event.city}} </h4>
-            </div>
-            <p>{{event.description}}</p>
-            <a href="/events/{{event.id}}" class="btn btn-primary">DETAIL</a>
-            <h5>Owner by {{event.owner.name}}</h5>
+
+<section class="card-deck">
+  {{#each events as |event|}}
+    <div class="card event-card">
+      <h3>{{event.name}}</h3>
+      <img src="{{event.image}}" alt="{{event.name}}" />
+      <div class="card-body">
+        <h4><i class="fa fa-calendar-day fa-fw"></i> {{dateFormatterList date=event.date}} | <i class="fas fa-map-marker-alt fa-fw"></i> {{event.city}}</h4>
+        {{!-- {{dotted event.description 100 }} --}}
+        <p>{{ event.description }}</p>
+        <a href="/events/{{event.id}}">Detail</a>
             <form method="POST" action="/events/match/{{event.id}}">
                 <button type="submit" style="text-center">
                     {{#like matches=event.matches  user=../currentUser}}
@@ -24,7 +24,12 @@
                     {{/like}}
                 </button>
             </form>
-        </div>
-    {{/each}}
-</div>
+            <h5>Owned by {{event.owner.name}}</h5>
+      </div>
+    </div>
+  {{/each}} 
+</section>
+
+
+
 

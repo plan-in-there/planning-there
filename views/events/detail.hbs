@@ -1,27 +1,13 @@
-
-<div id="event-detail">     
-
-    <div> 
-        <h1>{{event.name}}</h1>
-        <small>
-            {{#each event.category as |category|}}
-            <h6>#{{category}}</h6>
-            {{/each}}
-        </small>
-        <p>{{event.description}}</p>
-        {{#planIsOwnedBy user=currentUser event=event}}
-            <a href="/events/{{event.id}}/edit" class="btn btn-primary">Edit</a>
-            <form action="/events/{{event.id}}/delete" method="post">
-                <button type="submit">Delete</button>
-            </form>
-        {{/planIsOwnedBy}}
-        <a href="/events"> Back to plans</a>
-    </div> 
-    
-    <div> 
-        <img src="{{event.image}}" alt="{{event.name}}">
+<h1 class="text-start">{{event.name}}</h1>
+<small class="text-start mb-5">
+    {{#each event.category as |category|}}
+        <h6>#{{category}}</h6>
+    {{/each}}
+</small>
+<div id="event-detail">    
+    <div>         
         <div class="info">
-            <h3>{{dateFormatterList date=event.date}} | starts at {{event.time}}</h3>
+            <h3><i class="fa fa-calendar-day fa-fw"></i> {{dateFormatterList date=event.date}} | <i class="far fa-clock"></i> starts at {{event.time}}</h3>
             <h4>Dresscode:</h4>
             <p> {{event.dressCode}}</p>
             <h4>Are there any gender restrictions?</h4>
@@ -43,4 +29,16 @@
             <h5 class="text-center">Plan proposed by <a href="/user-profile/{{event.owner.id}}">{{event.owner.name}}</a></h5>
         </div>
     </div>
+    <div>
+        <p>{{event.description}}</p>
+        {{#planIsOwnedBy user=currentUser event=event}}
+            <a href="/events/{{event.id}}/edit" class="btn btn-primary">Edit</a>
+            <form action="/events/{{event.id}}/delete" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        {{/planIsOwnedBy}}
+        <a href="/events"> Back to plans</a>
+    </div> 
+     <img src="{{event.image}}" alt="{{event.name}}">
+    
 </div>

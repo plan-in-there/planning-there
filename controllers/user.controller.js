@@ -131,9 +131,12 @@ module.exports.userHomePage = (req, res, next) => {
     .then(user => {
       if(user){    
       return Event.find({category: {$in:user.interests}})
+               .populate('matches')
+               .populate('owner')
                .then(events => {              
                  res.render('user/home', {
-                   events
+                   events,
+                   categories,
                  })
                })
      } else {
