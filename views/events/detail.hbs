@@ -34,10 +34,10 @@
             </p>
             <form method="POST" action="/events/match/{{event.id}}">
                 <button type="submit" style="text-center">
-                    {{#like matches=event.matches  user=currentUser}}
+                    {{#like-detail matches=event.matches  user=currentUser}}
                     <div class="like info-like"><i class="far fa-heart fa-fw"></i>JOIN PLAN</div>
                     {{else}}<div class="dislike info-like" title="Exit this plan"><i class="fas fa-times"></i>EXIT PLAN</div>
-                    {{/like}}
+                    {{/like-detail}}
                 </button>
             </form>
             <h5 class="text-center">Plan proposed by <a href="/user-profile/{{event.owner.id}}">{{event.owner.name}}</a></h5>

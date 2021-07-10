@@ -107,4 +107,14 @@ hbs.registerHelper('active', (options) => {
       }
   })
 
+  hbs.registerHelper('like-detail', function (options) {
+    const {matches, user} = options.hash
+
+    if(matches.some(x => x.userId._id == user?.id)) {
+      return options.inverse(this)
+    } else {
+      return options.fn(this)
+    }
+})
+
   

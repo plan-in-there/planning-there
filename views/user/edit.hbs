@@ -51,7 +51,7 @@
       {{#each categories as |category|}}
         <div class="sm-3 m-2 category-list">
           <input type="checkbox" name="interests" class="icons-form checked-box" id={{category}} value="{{category}}" >
-          <label for="{{category}}" class="category-card category-icons">
+          <label for="{{category}}" class="category-card {{#eventHasCategory keyWord='category' key=category  user=../user}} category-selected {{else}} category-icons {{/eventHasCategory}} ">
           <h2> <i class=" {{ categoryLabel id=category selector='icon' }}"></i></h2>
           <h5> {{ categoryLabel id=category selector='text' }} </h5>
           </label>

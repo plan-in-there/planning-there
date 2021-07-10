@@ -124,9 +124,8 @@ module.exports.userHomePage = (req, res, next) => {
   User.findById(req.user.id)
     .then(user => {
       if(user){    
-      return Event.find({category: {$in:[user.interests]}})
-               .then(events => {   
-                 return res.json(events)              
+      return Event.find({category: {$in:user.interests}})
+               .then(events => {              
                  res.render('user/home', {
                    events
                  })
