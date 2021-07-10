@@ -1,5 +1,15 @@
-{{#each events as |event|}}
 
-<h1>{{event.name}}</h1>
+<div id="welcome">
+    <h1>Welcome {{currentUser.name}}!</h1>
+    <h2>Start looking for awesomes plans, or create your own</h2>
+    <h3>What´s new?</h3>
+    <h4>New plans filtered by your interests</h4>
+    <hr>
+    {{#each events as |event|}}
+    <h1>{{event.name}}</h1>
+    {{/each}}
+    <hr>
+    <a href="/events">View all plans</a> <a href="/events/create">Create a plan</a>
+</div>
+    
 
-{{/each}}

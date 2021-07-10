@@ -146,8 +146,6 @@ button {
 }
 
 h1 {
-    margin-bottom: 2%;
-    padding-bottom: 2%;
     text-align: center;
     font-size: 4rem;
     font-family: 'reem_kufiregular';
@@ -348,16 +346,16 @@ button:hover, .social a:hover {
     padding:10px;
 }
 
-.user-nav a:hover, #profile a:hover {
+.user-nav a:hover, #profile a:hover, #welcome a:hover {
     background-color: #F50C70;
 }
 
-#profile {
+#profile, #event-detail {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
-#profile a {
+#profile a, #welcome a {
     background-color: #17F781 ;
     margin: 10px 0;
     padding: 10px;
@@ -376,6 +374,51 @@ button:hover, .social a:hover {
     width: 100%;
     max-width: 300px;
 }
+
+
+#event-detail p a:hover{
+    color: #f50c70
+}
+
+#profile p {
+    margin: 0 50px;
+    color: #ccc;
+}
+
+#profile p i {
+    font-size: 25px;
+}
+
+#event-detail img {
+    width: 100%;
+    max-width: 500px;
+}
+
+#event-detail p a{
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition-duration: 0.4s;
+}
+
+#event-detail {
+    text-align: left;
+}
+
+#event-detail > div {
+    margin: 15px;
+}
+
+.info {
+    background-color: #17f781 !important;
+    color: #fff !important;
+    padding: 25px
+}
+
+.info h3 {
+    font-size: 1.5rem;
+}
+
 fieldset {
     display: flex;
     flex-direction: row;
@@ -396,6 +439,13 @@ fieldset img{
     -webkit-text-fill-color: transparent;
     font-size: 60px;
     padding: 10px;
+    width: 100%;
+    height: 100%;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
 
 fieldset label {
@@ -466,7 +516,12 @@ fieldset h5 {
     color:#fff !important;
     width: 100%;
     height: 100%;
-  
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;   
+    background-clip: none;
 }
 
 .card-active h2 { 
@@ -562,6 +617,15 @@ fieldset h5 {
     background-color: #f50c70;
 }
 
+.event-card button, #event-detail button {
+    text-align: center;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+}
+
 .card-deck {
     display: flex;
     justify-content: space-between;
@@ -581,3 +645,63 @@ fieldset h5 {
 .delete {
     visibility: hidden;
 }
+
+.login {
+width: 100%;
+max-width: 700px;
+text-align: center;
+margin: auto
+}
+
+.profile-interests {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+ 
+}
+
+.profile-interests i {
+  
+    color: #ccc;
+    padding: 5px;
+    margin: 10px;
+}
+
+.like, .dislike {
+    text-align: center !important;
+    color: #17f781;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.like i{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: #f50c70;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.dislike i{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+}
+
+.info-like {
+    color: #fff !important;
+}
+
+

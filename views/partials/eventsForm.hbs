@@ -84,12 +84,6 @@
                     </select>
                 </div>
             
-             <div class="input-group mb-4">
-                    <span class="input-group-text"><i class="fas fa-hand-middle-finger fa-fw"></i></span>
-                    <input type="text" name="owner" class="form-control  {{#if errors.owner}} is-invalid {{/if}}"   placeholder="Write the event's owner" aria-label="Owner" value="{{event.owner}}" >
-                    {{#if errors.owner}}<div class="invalid-feedback">{{ errors.owner }}</div>{{/if}}
-                </div>
-
                 <button type="submit">Create your event!</button>
         </div>
     </div>

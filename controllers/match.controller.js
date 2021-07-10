@@ -10,11 +10,11 @@ module.exports.like = (req, res, next) => {
                     eventId : req.params.id
                 })
                 match.save()
-                    .then(matches => res.redirect('/events'))
+                    .then(matches => res.redirect('back'))
 
             } else {
               return  Match.findByIdAndDelete(match.id)
-                .then(() => res.redirect('/events'))
+                .then(() => res.redirect('back'))
             }
         })
         .catch(next)
