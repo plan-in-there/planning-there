@@ -11,6 +11,7 @@
         {{#each chat.messages as | message |}}
           
             <p  class="{{#color user=../currentUser messageUser=message.user}} message-current {{else}}message-user {{/color}}">{{message.message}}</p>
+            <small>{{chathour time=message.createdAt}}</small>
         {{/each}}        
         <br>
         <form action="/user-profile/chat/{{chat._id}}/message" method="post">
@@ -19,4 +20,3 @@
         </form>
     </div>
 </div>
-{{!-- class="{{message user=currentUser}} message-current {{else}}message-user " --}}

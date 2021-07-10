@@ -2,9 +2,9 @@
 <h3>This are your matched plans</h3>
 <hr>
 
-<div class="card-deck" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'> 
+<div class="slider"  data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'> 
  {{#each events as |event|}}
- <div class="card event-card">
+ <div class="card event-card slick-track">
    <h3>{{event.name}}</h3>
    <img src="{{event.image}}" alt="{{event.name}}" />
     <div class="card-body">
@@ -29,3 +29,7 @@
   
 
 </div>
+
+<h2>Esto es carrusel</h2>
+
+

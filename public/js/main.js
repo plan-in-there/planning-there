@@ -17,17 +17,69 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 })
 
-$('.card-deck').on('swipe', function(event, slick, direction){
+window.onload = () => {
+
+$('.slider').on('swipe', function(event, slick, direction){
   console.log(direction);
   // left
 });
  
 // On edge hit
-$('.card-deck').on('edge', function(event, slick, direction){
+$('.slider').on('edge', function(event, slick, direction){
   console.log('edge was hit')
 });
  
 // On before slide change
-$('.card-deck').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+$('.slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
   console.log(nextSlide);
 });
+
+(function($) {
+  $(document).ready(function() {
+      $('.slider-hero').slick({
+          dots: true,
+          infinite: true,
+          cssEase: 'linear',
+          swipe: false,
+      });
+  });
+
+})( jQuery );
+
+$('.responsive').slick({
+  dots: true,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+
+}

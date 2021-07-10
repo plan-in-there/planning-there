@@ -125,13 +125,8 @@ hbs.registerHelper('active', (options) => {
           return options.inverse(this)
       }
   })
-/* 
-  hbs.registerHelper('planIsOwnedBy', function (options) {
-    const {user, event} = options.hash;
-    if (user && (user.id === event.owner?.id || user.id === event.owner)) {
-        return options.fn(this);
-    } else {
-        return options.inverse(this);
-    }
-})
- */
+
+  hbs.registerHelper('chathour', (options) => {
+      const {time} = options.hash
+      return moment(time).fromNow(); 
+  })
