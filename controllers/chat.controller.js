@@ -17,22 +17,23 @@ module.exports.getChat = (req, res, next) => {
 
 
 module.exports.doCreate = (req, res, next) => {
-    const chat = {
-        users: [req.params.id, req.user._id],
-        messages: []
-    }
-    Chat.findById(req.params.id)
+    console.log([req.params.id, req.user.id])
+    const newChat = new Chat({ users: [req.params.id, req.user._id] })
+
+     Chat.find({ users: { $in: [req.params.id, req.user._id] }})
         .then(chat => {
             if (chat) {
-                res.redirect(`/user-profile/chat/${chat._id}`)
+                res.redirect(`/user-profile/chat/${chat[0]._id}`)
             } else {
-               return Chat.create(chat)
-                    .then(chat => {
-                        res.redirect(`/user-profile/chat/${chat._id}`)
-                    })
+                return newChat.save()
+                .then(chat => {
+                    console.log(chat)
+                    res.redirect(`/user-profile/chat/${chat._id}`)
+                })
             }
         })
         .catch(next)
+
 }
 
 
@@ -40,12 +41,11 @@ module.exports.doCreate = (req, res, next) => {
 module.exports.newMessage = (req, res, next) => {
     Chat.findById(req.params.id)
         .then(chat => {
-            const message = req.body.message
-           return  Message.create({message})
+            return Message.create({ message: req.body.message })
             .then(message => {
              return Chat.updateOne(
                     { _id: chat._id},
-                    { $push: { messages: message}} 
+                    { $push: { messages: message._id}} 
                     )
                     .then(() => {
                         res.redirect(`/user-profile/chat/${chat._id}`)
