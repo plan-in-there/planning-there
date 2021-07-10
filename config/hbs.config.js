@@ -117,4 +117,21 @@ hbs.registerHelper('active', (options) => {
     }
 })
 
-  
+  hbs.registerHelper('color', function (options) {
+      const {user, messageUser} = options.hash
+      if (user && messageUser == user.id) {
+          return options.fn(this)
+      } else {
+          return options.inverse(this)
+      }
+  })
+/* 
+  hbs.registerHelper('planIsOwnedBy', function (options) {
+    const {user, event} = options.hash;
+    if (user && (user.id === event.owner?.id || user.id === event.owner)) {
+        return options.fn(this);
+    } else {
+        return options.inverse(this);
+    }
+})
+ */

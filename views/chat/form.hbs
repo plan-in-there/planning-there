@@ -4,9 +4,13 @@
         <h1 class="display-4"> Send Message</h1>
         <br>
         {{!-- <input type="text" class="form-control" placeholder="Name"> --}}
-        
+        <div class="d-flex justify-content-between">
+            <h3 class="text-start"><i class="far fa-comment-alt"></i> {{chat.users.[0].name}}</h3>
+            <h3 class="text-end"><i class="fas fa-comment-alt"></i> {{chat.users.[1].name}}</h3>
+        </div>
         {{#each chat.messages as | message |}}
-            <p>{{message.message}}</p>
+          
+            <p  class="{{#color user=../currentUser messageUser=message.user}} message-current {{else}}message-user {{/color}}">{{message.message}}</p>
         {{/each}}        
         <br>
         <form action="/user-profile/chat/{{chat._id}}/message" method="post">
@@ -15,3 +19,4 @@
         </form>
     </div>
 </div>
+{{!-- class="{{message user=currentUser}} message-current {{else}}message-user " --}}

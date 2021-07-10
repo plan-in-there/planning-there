@@ -716,4 +716,11 @@ margin: auto
     color: #fff !important;
 }
 
+.message-user {
+    text-align: left;
+    background-color: #ccc
+}
 
+.message-current {
+    text-align: right;
+}
