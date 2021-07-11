@@ -1,35 +1,43 @@
 <h1>Welcome to your events page</h1>
 <h3>This are your matched plans</h3>
 <hr>
+<section class="card-deck">
+  {{#each events as |event|}}
+    <div class="card event-card">
+      <h3>{{event.name}}</h3>
+      <img src="{{event.image}}" alt="{{event.name}}" />
+      <div class="card-body">
+        <h4><i class="fa fa-calendar-day fa-fw"></i> {{dateFormatterList date=event.date}} | <i class="fas fa-map-marker-alt fa-fw"></i> {{event.city}}</h4>
+        {{!-- {{dotted event.description 100 }} --}}
+        <p>{{ event.description }}</p>
+        <a href="/events/{{event.id}}">Detail</a>       
+      </div>
+    </div>
+  {{/each}} 
+</section>
 
-<div class="slider"  data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'> 
- {{#each events as |event|}}
- <div class="card event-card slick-track">
-   <h3>{{event.name}}</h3>
-   <img src="{{event.image}}" alt="{{event.name}}" />
-    <div class="card-body">
-   <h4><i class="fa fa-calendar-day fa-fw"></i>{{dateFormatterList date=event.date}} | <i class="fas fa-map-marker-alt fa-fw"></i>{{event.city}}</h4>
- 
-   <a href="/events/{{event.id}}">Detail</a>
-   <h4>Proposed by <a href="/user-profile/{{event.owner}}" class="bt-green" > {{event.owner._id}} </a></h4>
-   </div>
- </div>  
-    {{/each}}
-    
-</div>
+<hr>
 <h3>Proposed events</h3>
-
-{{#each createEvents as |myevent|}}
-
-<h3>{{myevent.name}}</h3>
-
-{{/each}}
+<hr>
+<section class="card-deck">
+  {{#each createEvents as |myevent|}}
+    <div class="card event-card">
+      <h3>{{myevent.name}}</h3>
+      <img src="{{myevent.image}}" alt="{{myevent.name}}" />
+      <div class="card-body">
+        <h4><i class="fa fa-calendar-day fa-fw"></i> {{dateFormatterList date=myevent.date}} | <i class="fas fa-map-marker-alt fa-fw"></i> {{myevent.city}}</h4>
+        <p>{{dotted myevent.description 100 }}</p>
+        <a href="/events/{{myevent.id}}">Detail</a>
+       
+      </div>
+    </div>
+  {{/each}} 
+</section>
 <div>
 
   
 
 </div>
 
-<h2>Esto es carrusel</h2>
 
 

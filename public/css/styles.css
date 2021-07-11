@@ -91,6 +91,7 @@
 }
 
 body, footer {
+    font-family: 'quicksandregular';
     background-color: #f61816; 
     background: linear-gradient(180deg, #f61816 0%, #f50c70 100%);
     text-align: center;
@@ -298,6 +299,10 @@ nav {
 
 }
 
+.input-group-text {
+    background-color: transparent !important;
+}
+
 .social {
     display: flex;
     flex-direction: row;
@@ -361,7 +366,7 @@ button:hover, .social a:hover {
     justify-content: space-between;
 }
 
-#profile a, #welcome a {
+#profile a, #welcome a, #event-detail a {
     background-color: #17F781 ;
     margin: 10px 0;
     padding: 10px;
@@ -381,8 +386,7 @@ button:hover, .social a:hover {
     max-width: 300px;
 }
 
-
-#event-detail p a:hover{
+#event-detail p a:hover, #event-detail a:hover {
     color: #f50c70
 }
 
@@ -409,16 +413,25 @@ button:hover, .social a:hover {
 
 #event-detail {
     text-align: left;
+    border: #17f781 thin solid;
+    padding: 0;
+    margin: 0
 }
 
 #event-detail > div {
-    margin: 15px;
+    margin: 0 25px 0 0;
 }
 
 .info {
     background-color: #17f781 !important;
     color: #fff !important;
-    padding: 25px
+    padding: 25px;
+    width: 100%
+}
+
+.info img {
+    width: 600px !important;
+    padding-bottom: 20px;
 }
 
 .info a {
@@ -487,23 +500,8 @@ fieldset h5 {
  color: #fff;
 }
 
-.card h4{
-    background-color: #fff;
-    color: #F50C70;
-    font-size: 1rem;
-    margin-top: 10px;
-}
 .card p {
     margin: 10px;
-}
-.fa-calendar-day:before {
-    content: "\f783";
-    color: black;
-}
-
-.fa-map-marker-alt:before {
-    content: "\f3c5";
-    color: black;
 }
 
 .btn-primary {
@@ -562,30 +560,12 @@ fieldset h5 {
 
 }
 
-#event-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-}
-
-#event-list img {
-    width: 100%;
-    max-width: 300px;
-    min-width: 100px;
-}
-
-#event-list > div {
-    width: 30%;
-    margin: 2%;
-    padding: 0%;
-    box-sizing: border-box;
-}
 
 .event-card {
+    background-color: #17F781; 
+    background: linear-gradient(180deg, #17F781 30%, #a6f7cc 100%);
     border: none;
-    width: 30%;
+    width: 22%;
     max-width: 400px;
     margin: 1%;
     display: flex;
@@ -595,52 +575,64 @@ fieldset h5 {
     box-sizing: border-box;
 }
 
-.event-card h3 {
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+.event-card h3 {  
     padding: 3%;
     margin-bottom: 0;
     width: 100%;
     box-sizing: border-box;
+    margin: 0;
+    display: block;
+  
 }
 
 .event-card h4 {
     font-size: 1rem;
+    color: #fff;
+    font-family: 'quicksandbold';
+    padding-bottom: 15px;
+    border-bottom: #f50c70 solid thin;
+   
 }
 
-.event-card img {  
+.event-card img {
+    opacity: 0.3;  
     max-height: 300px;
     width: 100%;
-    max-width: 365px;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    
 }
 
 .event-card a {
-    background-color: #17f781;
+    background-color: #f50c70;
     color: #fff;
     font-weight: bold;
     width: 50%;
     text-decoration: none;
+    margin-bottom: 15px;
     padding: 10px;
     text-align: center;
     transition-duration: 0.4s;
 }
 
 .event-card a:hover {
-    background-color: #f50c70;
+    background-color: #17F781;
+}
+
+.event-card p {
+    padding-bottom: 15px;
 }
 
 .event-card button, #event-detail button {
     text-align: center;
     background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     border: none;
 }
 
 .card-deck {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 
 }
 
@@ -682,11 +674,12 @@ margin: auto
 
 .like, .dislike {
     text-align: center !important;
-    color: #17f781;
+    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 
@@ -699,6 +692,7 @@ margin: auto
     justify-content: center;
     align-items: center;
     font-size: 40px;
+    margin: 15px 0;
 }
 
 .dislike i{
@@ -710,6 +704,7 @@ margin: auto
     justify-content: center;
     align-items: center;
     font-size: 45px;
+    margin: 15px 0;
 }
 
 .info-like {
@@ -718,33 +713,59 @@ margin: auto
 
 .message-user {
     text-align: left;
-    background-color: #ccc
+    background-color: #ccc;
+    border-radius: 20px;
+    border: #999 solid thin;
+    padding: 20px;
+
 }
 
 .message-current {
     text-align: right;
+    background-color: #a6f7cc;
+    border-radius: 20px;
+    border: #17F781 solid thin;
+    padding: 20px;
+
 }
 
-@media (max-width: 768px) {
-    .carousel-inner .carousel-item > div {
-        display: none;
-    }
-    .carousel-inner .carousel-item > div:first-child {
-        display: block;
-    }
-}
-
-.carousel-inner .carousel-item.active,
-.carousel-inner .carousel-item-next,
-.carousel-inner .carousel-item-prev {
+.chat {
+    margin: auto;
+    text-align: center;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* display 3 */
-@media (min-width: 768px) {
-    
-    .carousel-inner .carousel-item-right.active,
-    .carousel-inner .carousel-item-next {
-      transform: translateX(33.333%);
-    }
+.chats-list ul {
+    padding: 20px;
+    margin: 20px;
+    width: 100%;
+    max-width: 700px;    
+    text-align: left;
 }
+
+.chats-list li {
+    border: #ccc solid thin;
+    padding: 20px;
+    list-style: none;
+}
+
+.chats-list a {
+    color: #17F781;
+    text-decoration: none;
+    font-weight: bold;
+    transition-duration: 0.4s;
+    font-size: 1.2rem;
+}
+
+.chats-list a:hover {
+    color: #f50c70;
+}
+
+.chats-list i {
+    color: #f50c70;
+    font-size: 1rem ;
+}
+

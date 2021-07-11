@@ -1,0 +1,7 @@
+<h1>This are your messages</h1>
+<h2>This is your private message area</h2>
+<ul class="chats-list mt-5">
+{{#each chats as |chat|}}
+<li><i class="far fa-comment-alt"></i> <a href="/user-profile/chat/{{chat.id}}">Messages between {{chat.users.[0].name}} & {{chat.users.[1].name}}</a></li>
+{{/each}}
+</ul>

@@ -1,22 +1,17 @@
-<div class="container">
-    <br>
-    <div class="jumbotron">
-        <h1 class="display-4"> Send Message</h1>
-        <br>
-        {{!-- <input type="text" class="form-control" placeholder="Name"> --}}
-        <div class="d-flex justify-content-between">
-            <h3 class="text-start"><i class="far fa-comment-alt"></i> {{chat.users.[0].name}}</h3>
-            <h3 class="text-end"><i class="fas fa-comment-alt"></i> {{chat.users.[1].name}}</h3>
+
+ 
+    <div class="chat">
+        <h1> <i class="far fa-comment-alt"></i> {{chat.users.[0].name}} & {{chat.users.[1].name}}</i></h1>
+        <div class="col-sm-6 mt-4">
+            {{#each chat.messages as | message |}}          
+                <p  class="{{#color user=../currentUser messageUser=message.user}} message-current {{else}}message-user {{/color}}">{{message.message}}</p>
+                <small>{{chathour time=message.createdAt}}</small>
+            {{/each}}        
+
+            <form action="/user-profile/chat/{{chat._id}}/message" method="post">
+            <textarea name="message" class="form-control" placeholder="Your Message Here"></textarea>
+            <button type="submit">Send</button>
+            </form>
         </div>
-        {{#each chat.messages as | message |}}
-          
-            <p  class="{{#color user=../currentUser messageUser=message.user}} message-current {{else}}message-user {{/color}}">{{message.message}}</p>
-            <small>{{chathour time=message.createdAt}}</small>
-        {{/each}}        
-        <br>
-        <form action="/user-profile/chat/{{chat._id}}/message" method="post">
-        <textarea name="message" class="form-control" placeholder="Your Message Here"></textarea>
-        <button class="form-control" type="submit">Send</button>
-        </form>
     </div>
-</div>
+

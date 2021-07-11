@@ -70,12 +70,12 @@
                  <h3>Are there some gender restriction for your event?</h3>
                 <div class="form-group mb-4 input-group-text">
                     <select name="genreRestrictions" value="{{genre}}"   aria-label="Dresscode">
-                        <option value="none">None</option>
                         {{#each genreList as |genre |}}
                         <option {{#eventHasCategory keyWord='genre' key=genre  event=../event}} selected {{/eventHasCategory}} value="{{genre}}">{{genre}}</option>
                         {{/each}}                   
                     </select>
                 </div>
+
             
                 <button type="submit">Create your event!</button>
         </div>

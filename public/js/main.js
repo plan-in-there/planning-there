@@ -15,3 +15,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
   })
 })
+
+
+window.onload = () => {
+ 
+}

@@ -5,6 +5,18 @@ const User = require('../models/user.model')
 const Match = require('../models/match.model')
 const Message = require('../models/message.model')
 
+module.exports.allUserChats = (req, res, next) => {
+    Chat.find({users: req.user.id})
+        .populate('users')
+        .then(chats => {
+            res.render('chat/chats', {
+                chats,
+                title: 'This are your messages'
+            })
+        })
+        .catch(next)
+}
+
 module.exports.getChat = (req, res, next) => {
     Chat.findById(req.params.id)
         .populate('users')
