@@ -8,7 +8,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })
   })
 
+  document.querySelectorAll('.join-event').forEach(like => {
+    like.addEventListener('click',() => {
+      like.classList.toggle('join');
+      like.classList.toggle('delete')
+    })
+  })
 })
+
 
 window.onload = () => {
  

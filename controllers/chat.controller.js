@@ -18,8 +18,7 @@ module.exports.allUserChats = (req, res, next) => {
 }
 
 module.exports.getChat = (req, res, next) => {
-    const chatId = req.params.id
-    Chat.findById(chatId)
+    Chat.findById(req.params.id)
         .populate('users')
         .populate('messages')
         .then(chat => {
