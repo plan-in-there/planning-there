@@ -1,23 +1,7 @@
-<h1 class="text-start">{{event.name}}</h1>
-<small class="text-start mb-5">
-    {{#each event.category as |category|}}
-        <h6>#{{category}}</h6>
-    {{/each}}
-</small>
 <div id="event-detail">    
     <div>         
         <div class="info">
-            <h3><i class="fa fa-calendar-day fa-fw"></i> {{dateFormatterList date=event.date}} | <i class="far fa-clock"></i> starts at {{event.time}}</h3>
-            <h4>Dresscode:</h4>
-            <p> {{event.dressCode}}</p>
-            <h4>Are there any gender restrictions?</h4>
-            <p>{{event.gender}}</p>
-            <h4>Who is joining?</h4>
-            <p>
-                {{#each event.matches as | match|}}
-                #<a href="/user-profile/{{match.userId._id}}">{{match.userId.name}}</a>  
-                {{/each}}       
-            </p>
+            <img src="{{event.image}}" alt="{{event.name}}">
             <form method="POST" action="/events/match/{{event.id}}">
                 <button type="submit" style="text-center">
                     {{#like-detail matches=event.matches  user=currentUser}}
@@ -30,15 +14,39 @@
         </div>
     </div>
     <div>
-        <p>{{event.description}}</p>
         {{#planIsOwnedBy user=currentUser event=event}}
-            <a href="/events/{{event.id}}/edit" class="btn btn-primary">Edit</a>
+            <div class="event-controller">
+            <a href="/events/{{event.id}}/edit" class="btn btn-primary"><i class="far fa-edit"></i> Edit</a>
             <form action="/events/{{event.id}}/delete" method="post">
-                <button type="submit">Delete</button>
+                <button type="submit"><i class="fas fa-eraser"></i> Delete</button>
             </form>
+            </div>
         {{/planIsOwnedBy}}
-        <a href="/events"> Back to plans</a>
-    </div> 
-     <img src="{{event.image}}" alt="{{event.name}}">
-    
+        <h1 class="text-start">{{event.name}}</h1>
+        <small class="text-start mb-5">
+            {{#each event.category as |category|}}
+                <h6>#{{category}}</h6>
+            {{/each}}
+        </small>
+         <h3><i class="fa fa-calendar-day fa-fw"></i> {{dateFormatterList date=event.date}} | <i class="far fa-clock"></i> starts at {{event.time}}</h3>
+        <h4>Dresscode:</h4>
+        <p> {{event.dressCode}}</p>
+        <h4>Are there any gender restrictions?</h4>
+        <p>{{event.gender}}</p>
+        <h4>Plan description</h4>
+        <p>{{event.description}}</p>
+        <h4 class="mb-4">Who is joining?</h4>
+        <p>
+            {{#each event.matches as | match|}}
+            #<a href="/user-profile/{{match.userId._id}}">{{match.userId.name}}</a>  
+            {{/each}}       
+        </p>          
+    </div>  
 </div>
+<hr>
+<p><a href="/events" style="background-color: #17F781 ;
+    margin: 10px 0;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff">Back</a></p>
+

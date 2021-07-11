@@ -366,7 +366,7 @@ button:hover, .social a:hover {
     justify-content: space-between;
 }
 
-#profile a, #welcome a {
+#profile a, #welcome a, #event-detail a {
     background-color: #17F781 ;
     margin: 10px 0;
     padding: 10px;
@@ -386,8 +386,7 @@ button:hover, .social a:hover {
     max-width: 300px;
 }
 
-
-#event-detail p a:hover{
+#event-detail p a:hover, #event-detail a:hover {
     color: #f50c70
 }
 
@@ -414,16 +413,25 @@ button:hover, .social a:hover {
 
 #event-detail {
     text-align: left;
+    border: #17f781 thin solid;
+    padding: 0;
+    margin: 0
 }
 
 #event-detail > div {
-    margin: 15px;
+    margin: 0 25px 0 0;
 }
 
 .info {
     background-color: #17f781 !important;
     color: #fff !important;
-    padding: 25px
+    padding: 25px;
+    width: 100%
+}
+
+.info img {
+    width: 600px !important;
+    padding-bottom: 20px;
 }
 
 .info a {
