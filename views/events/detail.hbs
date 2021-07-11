@@ -2,6 +2,14 @@
     <div>         
         <div class="info">
             <img src="{{event.image}}" alt="{{event.name}}">
+             {{#planIsOwnedBy user=currentUser event=event}}
+            <div class="event-controller"  id="edit">
+            <a href="/events/{{event.id}}/edit"><i class="far fa-edit"></i> Edit</a>
+            <form action="/events/{{event.id}}/delete" method="post">
+                <button type="submit"><i class="fas fa-eraser"></i> Delete</button>
+            </form>
+            </div>
+        {{/planIsOwnedBy}}
             <form method="POST" action="/events/match/{{event.id}}">
                 <button type="submit" style="text-center">
                     {{#like-detail matches=event.matches  user=currentUser}}
@@ -14,14 +22,6 @@
         </div>
     </div>
     <div>
-        {{#planIsOwnedBy user=currentUser event=event}}
-            <div class="event-controller">
-            <a href="/events/{{event.id}}/edit" class="btn btn-primary"><i class="far fa-edit"></i> Edit</a>
-            <form action="/events/{{event.id}}/delete" method="post">
-                <button type="submit"><i class="fas fa-eraser"></i> Delete</button>
-            </form>
-            </div>
-        {{/planIsOwnedBy}}
         <h1 class="text-start">{{event.name}}</h1>
         <small class="text-start mb-5">
             {{#each event.category as |category|}}

@@ -234,6 +234,7 @@ main {
 
 .home-in  {
     background-color: transparent !important;
+    margin-top: 5%;
 }
 
 nav {
@@ -364,9 +365,35 @@ button:hover, .social a:hover {
 #profile, #event-detail {
     display: flex;
     justify-content: space-between;
+  
 }
 
-#profile a, #welcome a, #event-detail a {
+#whoweare {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    align-items: center;
+    align-content: center;
+}
+
+#whoweare img {
+    width:100%;
+    max-width:700px;
+    margin-right: 30px;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    font-size: 1.5rem;
+}
+
+#profile a, #welcome a, #event-detail a, #whoweare a, #login a {
     background-color: #17F781 ;
     margin: 10px 0;
     padding: 10px;
@@ -386,7 +413,7 @@ button:hover, .social a:hover {
     max-width: 300px;
 }
 
-#event-detail p a:hover, #event-detail a:hover {
+#event-detail p a:hover, #event-detail a:hover, #whoweare a:hover {
     color: #f50c70
 }
 
@@ -426,7 +453,8 @@ button:hover, .social a:hover {
     background-color: #17f781 !important;
     color: #fff !important;
     padding: 25px;
-    width: 100%
+    width: 100%;
+    height: 100%;
 }
 
 .info img {
@@ -504,7 +532,7 @@ fieldset h5 {
     margin: 10px;
 }
 
-.btn-primary {
+.btn-primary, #login a:hover {
     background-color: #F50C70;
 }
 
@@ -769,3 +797,47 @@ margin: auto
     font-size: 1rem ;
 }
 
+.footer-green {
+    background-color: #17f781;
+    color: #fff;
+    font-weight: bold;
+}
+
+.footer-green a {
+    color: #f50c70;
+    text-decoration: none;
+    transition-duration: 0.4s;   
+}
+
+.footer-green a:hover {
+    color: #333;
+}
+
+#edit {
+    display: flex;
+    justify-content: center;
+}
+
+#edit button, #edit a  {
+    background-color: #f50c70 !important;
+    margin: 10px 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 0;
+    border: none;
+    transition-duration: 0.4s;
+    border: solid #fff thin;
+}
+
+#edit button:hover, #edit a:hover{
+    color: #17F781;
+}
+
+@media (max-width: 768px) {
+
+.home-in h1, h1 {
+    font-size: 2.5rem;
+}
+
+}

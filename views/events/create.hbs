@@ -1,2 +1,10 @@
-
+{{#if currentUser}}
 {{>eventsForm edit=false }}
+{{else}}
+<div id="login">
+<h1>Create your plan</h1>
+<h3>You have to be logged to acces to this section</h3>
+<img src="/img/login.png" alt="login" />
+<a href="/login">Login</a>
+</div>
+{{/if}}

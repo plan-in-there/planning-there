@@ -7,13 +7,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link {{active name=path match='/user/homepage'}}"  href="/user/homepage">Home</a>
+          <a class="nav-link {{active path=path match='/'}}"  href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{active path=path match='/events/create'}}"  href="/events/create">CreateEvent</a>
+          <a class="nav-link {{active path=path match='/plan-in-there'}}"  href="/plan-in-there">What is plan in there?</a>
+        </li>
+         <li class="nav-item">
+            <a class="nav-link {{active path=path match='/events'}}"  href="/events" >plans</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{active path=path match='/events'}}"  href="/events" >Events</a>
+            <a class="nav-link {{active path=path match='/events/create'}}"  href="/events/create" >add your plan</a>
         </li>
       </ul>      
       <ul class="navbar-nav ">

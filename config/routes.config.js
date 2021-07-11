@@ -22,6 +22,7 @@ router.get('/authenticate/facebook', secure.isNotAuthenticated,  auth.loginWithF
 router.get('/authenticate/facebook/cb', auth.doLoginWithFacebook);
 
 router.get('/', commons.home)
+router.get('/plan-in-there', commons.planInThere)
 router.get('/privacy-terms', commons.privacyTerms)
 
 /* router.get('/user-profile/messages', message.create)

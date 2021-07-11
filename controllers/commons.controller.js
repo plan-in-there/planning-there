@@ -17,29 +17,9 @@ module.exports.privacyTerms = (req, res, next) => {
   })
 }
 
-/* module.exports.search = (req, res, next) => {
-
-  Event.find({category: { $in: [Museums, Live-music, Night-life, Beers/drinking, Nature, Queer, Foodie, Dance]}})
-    .then(event => {
-      if (!events) {
-        res.redirec('/')
-      } else {
-        res.render('/events', {events})
-      }
-    })
-    .catch(error => {
-      if (error instanceof mongoose.Error.ValidationError) {
-
-      }
-    })  
-}
- */
-
-
-/* app.get('/season:seasonId', (request, response) => {
-  const episodes = dataEpisodes.filter((e) => e.season === Number(request.params.seasonId))
-  response.render('season', {
-      data: episodes
+module.exports.planInThere = (req, res, next) => {
+  res.render('common/plan-in-there', {
+    title: 'What it is Plan-in-there?',
+    description: 'The new social app that connects people'
   })
-  { field: { $in: [<value1>, <value2>, ... <valueN> ] } }
-}) */
+}

@@ -1,6 +1,7 @@
 <h1>Join our plans</h1>
 <h2>We have plans for everytaste, if not, create your own!</h2>
 <hr>
+{{#if currentUser}}
 <div class="d-flex align-items-center align-self-center align-self-stretch justify-content-around">
     <h5>Filter events by</h5>{{>filter}}
 </div>
@@ -28,6 +29,13 @@
     </div>
   {{/each}} 
 </section>
+{{else}}
+<div id="login">
+<h3>You have to be logged to acces to this section</h3>
+<img src="/img/login.png" alt="login" />
+<a href="/login">Login</a>
+</div>
+{{/if}}
 
 
 
