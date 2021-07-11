@@ -8,7 +8,7 @@
       <img src="{{event.image}}" alt="{{event.name}}" />
       <div class="card-body">
         <h4><i class="fa fa-calendar-day fa-fw"></i> {{dateFormatterList date=event.date}} | <i class="fas fa-map-marker-alt fa-fw"></i> {{event.city}}</h4>
-        {{!-- {{dotted event.description 100 }} --}}
+        {{!-- <p>{{dotted event.description 100 }}</p> --}}
         <p>{{ event.description }}</p>
         <a href="/events/{{event.id}}">Detail</a>       
       </div>

@@ -230,6 +230,7 @@ main {
     justify-content: center;
     text-align: center;  
     background-color: #fff;
+    padding: 4% 5%;
 }
 
 .home-in  {
@@ -623,11 +624,10 @@ fieldset h5 {
 }
 
 .event-card img {
-    opacity: 0.3;  
+    opacity: 1;  
     max-height: 300px;
     width: 100%;
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
+ 
     
 }
 
@@ -834,10 +834,91 @@ margin: auto
     color: #17F781;
 }
 
+.filter-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    align-self: center;    
+}
+
 @media (max-width: 768px) {
+
+.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg {
+    flex-direction: column;
+}
 
 .home-in h1, h1 {
     font-size: 2.5rem;
+}
+
+.home-in img {
+    width: 100%;
+}
+
+main {
+    padding: 5px;
+}
+
+#whoweare {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}
+
+#whoweare img {
+    width:100%;
+    max-width:700px;
+    margin-right:0;
+}
+
+#login img {
+  width: 100%;
+}
+
+#profile, #event-detail {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#event-detail {
+    border: none;
+}
+
+#profile {
+    flex-direction: column-reverse;
+}
+
+.user-nav, .user-nav ul{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0;
+}
+
+.drawings img {
+    width: 100%;
+}
+
+.card-deck {
+    flex-direction: column;
+}
+
+.event-card {
+    width: 100%;
+}
+
+.info {
+    padding-top: 0;
+}
+
+.filter-nav {
+    flex-direction: column;
 }
 
 }

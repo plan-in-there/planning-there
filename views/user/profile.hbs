@@ -4,7 +4,7 @@
     {{>userNav }}
     {{/if}}  
     
-    <div class="ml-5 mr-5 px-2">
+    <div class="sm-ml-5 sm-mr-5 px-2">
         <h1>Hi there{{#profileIsOwnedBy user=currentUser profile=user }} {{currentUser.name}}! {{else}}, I'm {{user.name}}!</h1>{{/profileIsOwnedBy}}        
         <h2> {{ pronoms user=user }}</h2>
         <h3>I'm from </h3>
