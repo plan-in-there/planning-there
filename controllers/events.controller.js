@@ -27,7 +27,7 @@ module.exports.doCreate = (req, res, next) => {
     Event.create( myEvent )
         .then(plan => res.redirect('/events'))
         .catch(error => {
-            console.log(error)
+            console.log(myEvent)
             if (error instanceof mongoose.Error.ValidationError) {
                 res.render('events/create', {
                     event: req.body,
