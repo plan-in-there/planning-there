@@ -18,20 +18,20 @@ module.exports.isNotAuthenticated = (req, res, next) => {
 }
 
 module.exports.eventOwner = (req, res, next) => {
-    Event.findById(req.params)
-        .then((event) => {
-            if (event) {
-                if (event.owner == req.user.id) {
-                    req.event = event;
-                    next()
-                } else {
-                    next(createError(403))
-                }
-            } else {
-                next(error => next(error))
-            }
-        })
-        .catch(error => next(error))
+    Event.findById(req.params.id)
+    .then((event) => {
+      if (event) {
+        if (event.owner == req.user.id) {
+          req.event = event;
+          next();
+        } else {
+          next(createError(403));
+        }
+      } else {
+        next(createError(404));
+      }
+    })
+    .catch(next);
 }
 
 module.exports.profileOwner = (req, res, next) => {

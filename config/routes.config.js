@@ -27,27 +27,27 @@ router.get('/privacy-terms', commons.privacyTerms)
 
 /* router.get('/user-profile/messages', message.create)
 router.post('/user-profile/messages', message.doCreate) */
-router.get('/user-profile/my-messages/:id', chat.allUserChats)
-router.get('/user-profile/chat/:id', chat.getChat)
-router.post('/user-profile/chat/:id/message', chat.newMessage)
-router.post('/user-profile/chat/:id', chat.doCreate)
+router.get('/user-profile/my-messages/:id',secure.isAuthenticated, chat.allUserChats)
+router.get('/user-profile/chat/:id',secure.isAuthenticated, chat.getChat)
+router.post('/user-profile/chat/:id/message',secure.isAuthenticated, chat.newMessage)
+router.post('/user-profile/chat/:id',secure.isAuthenticated, chat.doCreate)
 
 
 router.get('/user-profile/me/edit', secure.isAuthenticated, user.userProfileEdit)
 router.post('/user-profile/me/edit', secure.isAuthenticated, upload.single('avatar'), user.userProfileDoEdit)
-router.get('/user-profile/my-events', user.userEvents)
-router.get('/user/homepage', user.userHomePage)
+router.get('/user-profile/my-events',secure.isAuthenticated, user.userEvents)
+router.get('/user/homepage',secure.isAuthenticated, user.userHomePage)
 
 router.get('/user-profile/:id', user.userProfile)
 
-router.get('/events', plans.list)
-router.get('/users/list', user.getUsers)
-router.get('/events/create', plans.create)
-router.post('/events/create', upload.single('image'), plans.doCreate)
-router.get('/events/:id/edit', plans.edit)
-router.post('/events/:id/edit', upload.single('image'),plans.doEdit)
-router.get('/events/:id', plans.detail)
-router.post('/events/match/:id', match.like)
-router.post('/events/:id/delete', plans.delete)
+router.get('/events',secure.isAuthenticated, plans.list)
+router.get('/users/list',secure.isAuthenticated, user.getUsers)
+router.get('/events/create',secure.isAuthenticated, plans.create)
+router.post('/events/create',secure.isAuthenticated, upload.single('image'), plans.doCreate)
+router.get('/events/:id/edit',secure.isAuthenticated, secure.eventOwner, plans.edit)
+router.post('/events/:id/edit',secure.isAuthenticated, secure.eventOwner, upload.single('image'),plans.doEdit)
+router.get('/events/:id',secure.isAuthenticated, plans.detail)
+router.post('/events/match/:id',secure.isAuthenticated, match.like)
+router.post('/events/:id/delete',secure.isAuthenticated, secure.eventOwner, plans.delete)
 
 module.exports = router
