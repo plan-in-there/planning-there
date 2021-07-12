@@ -17,22 +17,26 @@
                     {{else}}<div class="dislike info-like" title="Exit this plan"><i class="fas fa-times"></i>EXIT PLAN</div>
                     {{/like-detail}}
                 </button>
-            </form>
+            </form>           
             <h5 class="text-center">Plan proposed by <a href="/user-profile/{{event.owner.id}}">{{event.owner.name}}</a></h5>
+            {{#local eventcity=event.city usercity=event.owner.city}}
+            <div class="local"><i class="fas fa-map-marker-alt"></i> Local Guide</div> 
+            {{/local}}
         </div>
     </div>
     <div>
         <h1 class="text-start">{{event.name}}</h1>
         <small class="text-start mb-5">
+            <h6>
             {{#each event.category as |category|}}
-                <h6>#{{category}}</h6>
+                #{{category}}
             {{/each}}
+            </h6>
         </small>
+        <h2 class="mb-3">{{event.city}}</h2>
          <h3><i class="fa fa-calendar-day fa-fw"></i> {{dateFormatterList date=event.date}} | <i class="far fa-clock"></i> starts at {{event.time}}</h3>
         <h4>Dresscode:</h4>
         <p> {{event.dressCode}}</p>
-        <h4>Are there any gender restrictions?</h4>
-        <p>{{event.gender}}</p>
         <h4>Plan description</h4>
         <p>{{event.description}}</p>
         <h4 class="mb-4">Who is joining?</h4>

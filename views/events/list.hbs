@@ -25,6 +25,9 @@
                 </button>
             </form>
             <h5>Owned by {{event.owner.name}}</h5>
+            {{#local eventcity=event.city usercity=event.owner.city}}
+            <div class="local"><i class="fas fa-map-marker-alt"></i> Local Guide</div> 
+            {{/local}}
       </div>
     </div>
   {{/each}} 

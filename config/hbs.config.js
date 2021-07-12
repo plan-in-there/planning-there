@@ -130,3 +130,12 @@ hbs.registerHelper('active', (options) => {
       const {time} = options.hash
       return moment(time).fromNow(); 
   })
+
+  hbs.registerHelper('local', function (options) {
+      const {eventcity, usercity} = options.hash
+      if(eventcity === usercity) {
+          return options.fn(this)
+      } else {
+        return options.inverse(this)
+      }
+  })

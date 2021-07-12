@@ -844,6 +844,17 @@ margin: auto
     align-self: center;    
 }
 
+.local {
+    background-color: #f50c70;
+    color: #fff;
+    border-radius: 15px;
+    width: 60%;
+    padding: 15px ;
+    font-size: 1rem;
+    text-align: center;
+    margin: 15px auto;
+}
+
 @media (max-width: 768px) {
 
 .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg {
