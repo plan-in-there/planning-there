@@ -844,6 +844,10 @@ margin: auto
     align-self: center;    
 }
 
+.filter-nav input, .filter-nav select {
+    border: solid thin #17F781; min-width: 180px;
+}
+
 .local {
     background-color: #f50c70;
     color: #fff;
