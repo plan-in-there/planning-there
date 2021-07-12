@@ -25,6 +25,7 @@ router.get('/', commons.home)
 router.get('/plan-in-there', commons.planInThere)
 router.get('/privacy-terms', commons.privacyTerms)
 
+
 /* router.get('/user-profile/messages', message.create)
 router.post('/user-profile/messages', message.doCreate) */
 router.get('/user-profile/my-messages/:id',secure.isAuthenticated, chat.allUserChats)
@@ -40,9 +41,9 @@ router.get('/user/homepage',secure.isAuthenticated, user.userHomePage)
 
 router.get('/user-profile/:id', user.userProfile)
 
-router.get('/events',secure.isAuthenticated, plans.list)
+router.get('/events', plans.list)
 router.get('/users/list',secure.isAuthenticated, user.getUsers)
-router.get('/events/create',secure.isAuthenticated, plans.create)
+router.get('/events/create', plans.create)
 router.post('/events/create',secure.isAuthenticated, upload.single('image'), plans.doCreate)
 router.get('/events/:id/edit',secure.isAuthenticated, secure.eventOwner, plans.edit)
 router.post('/events/:id/edit',secure.isAuthenticated, secure.eventOwner, upload.single('image'),plans.doEdit)
