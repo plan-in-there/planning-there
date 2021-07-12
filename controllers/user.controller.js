@@ -44,7 +44,7 @@ module.exports.userProfileDoEdit = (req, res, next) => {
   Object.assign(req.user, req.body);
   req.user
     .save()
-    .then((user) => res.redirect(`/user-profile/${user.id}`))
+    .then((user) => res.redirect('/user/homepage'))
     .catch((error) => {
       if (error instanceof mongoose.Error.ValidationError) {
         res.render('user/edit', {
