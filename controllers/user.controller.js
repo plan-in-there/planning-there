@@ -74,11 +74,11 @@ module.exports.userEvents = (req, res, next) => {
 
 module.exports.userEvents = (req, res, next) => {
   const matchPromise = Match.find({userId : req.user.id})
-      .sort({dattimestampse: 1})
+      .sort({createdAt: -1})
       .populate('eventId')
       .populate('userId')
   const eventsPromise = Event.find({owner: req.user.id})
-      .sort({dattimestampse: 1})
+      .sort({createdAt: -1})
       .populate('owner')
 
   Promise.all([matchPromise, eventsPromise])

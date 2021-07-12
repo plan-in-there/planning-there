@@ -16,14 +16,12 @@ hbs.registerHelper('eventHasCategory', function(options) {
         }
     } else if ( keyWord === 'genre') {
         if (event?.genreRestrictions.includes(key)) {
-            console.log(key)
             return options.fn(this)
         } else {
             return options.inverse(this)
         }
     }  else if ( keyWord === 'dressList') {
         if (event?.dressCode.includes(key)) {
-            console.log(key)
             return options.fn(this)
         } else {
             return options.inverse(this)
