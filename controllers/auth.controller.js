@@ -105,7 +105,7 @@ module.exports.doLoginWithGoogle = (req, res, next) => {
     } else {
       req.login(user, (error) => {
         if (error) next(error);
-        else res.redirect('/user-profile/me/edit');
+        else res.redirect('/user/homepage');
       });
     }
   });
